@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Improvisation Online Course — SEAMLESS Education</title>
   <meta name="description" content="Learn Contact Improvisation online. Full video course + Telegram community with regular new materials. For beginners and beyond.">
+  <meta http-equiv="cache-control" content="no-cache, must-revalidate">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,16 +44,17 @@
       max-width: 500px; margin: 0 auto;
     }
 
-    /* Video placeholder */
-    .video-placeholder {
-      width: 100%; aspect-ratio: 9/16; max-height: 500px;
-      background: #ddd5c0; border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 32px; overflow: hidden;
-      font-family: 'Space Mono', monospace; font-size: 12px;
-      color: var(--text-muted); text-align: center; padding: 20px;
+    /* Video */
+    .video-wrap {
+      position: relative;
+      width: 100%; max-width: 400px; margin: 0 auto 32px;
+      aspect-ratio: 9/16; border-radius: 16px; overflow: hidden;
+      background: #ddd5c0;
     }
-    .video-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+    .video-wrap iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: 0;
+    }
 
     /* Section */
     .section-title {
@@ -216,9 +218,10 @@
     <p>Practice CI anywhere. 10 video lessons, detailed breakdowns, and a supportive Telegram community — from Bali to your living room.</p>
   </div>
 
-  <!-- Video placeholder (will be replaced with real video later) -->
-  <div class="video-placeholder">
-    <span>🎥 Video trailer — 30 sec<br>(we'll add this once ready)</span>
+  <!-- Video -->
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/Av61eyd4OR4?autoplay=1&mute=1&loop=1&playlist=Av61eyd4OR4&v=2"
+      allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
   </div>
 
   <!-- Who we are -->
