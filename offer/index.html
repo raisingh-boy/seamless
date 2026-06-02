@@ -15,6 +15,25 @@
     gtag("config", "AW-17948032858");
   </script>
 
+  <!-- Conversion tracking -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != "undefined") {
+        window.location = url;
+      }
+    };
+    gtag("event", "conversion", {
+      "send_to": "AW-17948032858/u95HCKCL2bYcENr-pO5C",
+      "value": 1.0,
+      "currency": "TRY",
+      "transaction_id": "",
+      "event_callback": callback
+    });
+    return false;
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -274,7 +293,7 @@
         <li>Spherokinesis · Release — flow & presence</li>
         <li>Translations: English (AI + reviewed)</li>
       </ul>
-      <a class="btn" href="https://t.me/tribute/app?startapp=sRKl_pc_DS673C0" target="_blank" rel="noopener">Get the Course — $39</a>
+      <a class="btn" href="https://t.me/tribute/app?startapp=sRKl_pc_DS673C0" onclick="return gtag_report_conversion(this.href)" target="_blank" rel="noopener">Get the Course — $39</a>
     </div>
 
     <!-- Subscription -->
@@ -291,7 +310,7 @@
         <li>Community chat with participants in Telegram</li>
         <li>Q&A channel with instructors</li>
       </ul>
-      <a class="btn" href="https://tribute.tg/s/ywf" target="_blank" rel="noopener">Subscribe — €15/mo</a>
+      <a class="btn" href="https://tribute.tg/s/ywf" onclick="return gtag_report_conversion(this.href)" target="_blank" rel="noopener">Subscribe — €15/mo</a>
     </div>
 
     <!-- Instagram -->
