@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamless Movement - Research Project 2026</title>
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- React и ReactDOM UMD -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- Babel для компиляции JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            background-color: #070707;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        const TOTAL_ERAS = 9;
+
+        // ДВУЯЗЫЧНЫЙ СЛОВАРЬ (РУССКИЙ И АНГЛИЙСКИЙ)
+        const TRANSLATIONS = {
+          ru: {
+            appTitle: "Seamless Movement",
+            appSubtitle: "Research Project 2026",
+            timeLabel: "Эпоха",
+            conceptLabel: "Концепт",
+            exerciseLabel: "Физическое упражнение",
+            autoFlow: "Автопоток времени",
+            autoFlowDesc: "Автоматическое перелистывание эпох",
+            synthLabel: "Звуковой синтезатор",
+            synthActive: "Звук активен",
+            synthInactive: "Звук выключен",
+            helperText: "Водите или задерживайте курсор/палец на холсте для импровизации",
+            settingsTitle: "Параметры кинетической симуляции",
+            resetPreset: "Сбросить пресет",
+            paramGravity: "Сила гравитации (притяжение вниз)",
+            paramFriction: "Сила трения среды (вязкость)",
+            paramParticles: "Число кинетических точек",
+            paramTrail: "Инерция следа (шлейф движения)",
+            footerTitle: "Seamless Movement Research Project 2026",
+            footerSubtitle: "Интерактивная среда симуляции движения",
+            eras: [
+              {
+                title: "Введение",
+                subtitle: "Энергия чистой формы",
+                time: "Начало пути",
+                description: "Движение — первая сигнальная система человечества. Здесь тело освобождается от бытового контекста и становится чистым вектором в пространстве. Взаимодействуйте с интерактивным холстом справа, чтобы почувствовать зарождение импульса.",
+                quote: "Пространство — это холст, body — кисть, а движение — краска.",
+                author: "Лаборатория движения",
+                concept: "Кинетическая энергия",
+                exercise: "Закройте глаза и почувствуйте точку баланса прямо за вашим пупком. Позвольте ей вести ваше тело."
+              },
+              {
+                title: "Айседора Дункан",
+                subtitle: "Свободный танец • Греческая пластика",
+                time: "1910-е годы",
+                description: "Бунт против корсетов и строгих балетных канонов. Дункан вернула танец к его природным истокам, вдохновляясь дыханием, морскими волнами, ветром и античной простотой. Танец исполнялся босиком и в свободных туниках.",
+                quote: "Вы рождены, чтобы двигаться свободно, как ветер или океанская волна.",
+                author: "Айседора Дункан",
+                concept: "Органическая текучесть",
+                exercise: "Сделайте глубокий вдох, поднимая руки вверх, словно ловите теплый ветер. Позвольте движению плавно перетечь в кончики пальцев."
+              },
+              {
+                title: "Оскар Шлеммер",
+                subtitle: "Триадический балет Баухауса",
+                time: "1920-е годы",
+                description: "Исследование человека как геометрической фигуры в пространстве. Танцоры облачались в массивные металлические и картонные костюмы-скульптуры, превращающие их движения в строгие механические траектории кубов, сфер и цилиндров.",
+                quote: "Танец — это математическое измерение пространства человеческим телом.",
+                author: "Оскар Шлеммер",
+                concept: "Геометрический конструктивизм",
+                exercise: "Двигайтесь по комнате исключительно по прямым линиям и углам в 90 градусов. Почувствуйте архитектуру своего тела."
+              },
+              {
+                title: "Марта Грэм",
+                subtitle: "Сжатие и релиз (Contraction & Release)",
+                time: "1930-е годы",
+                description: "Создание фундаментальной техники американского модерна. Вся пластика строится на физиологическом акте дыхания: резкое сокращение мышц живота на выдохе (сжатие) и мгновенный импульс энергии на вдохе (освобождение).",
+                quote: "Танец никогда не лжет. Тело говорит то, для чего еще не придумали слов.",
+                author: "Марта Грэм",
+                concept: "Гравитационное усилие",
+                exercise: "Резко выдохните, скруглив спину и втянув живот. На вдохе резко раскройте грудную клетку вверх, устремляясь к небу."
+              },
+              {
+                title: "Мерс Каннингем",
+                subtitle: "Метод случайности (Chance Operations)",
+                time: "1960-е годы",
+                description: "Великий деконструктор хореографии. Каннингем отделил танец от музыки и сюжета. Он определял последовательность движений с помощью бросания монеты (по Ицзин), создавая непредсказуемый, хаотичный, но абсолютно живой поток.",
+                quote: "Каждое движение самодостаточно. Ему не нужна музыка, чтобы быть искусством.",
+                author: "Мерс Каннингем",
+                concept: "Случайный процесс",
+                exercise: "Напишите на 5 бумажках разные действия (прыжок, шаг, поворот, присед, замирание). Перемешайте и выполните их в выпавшем порядке."
+              },
+              {
+                title: "Тацуми Хидзиката",
+                subtitle: "Буто • Танец абсолютной тьмы",
+                time: "Япония, 1960-е",
+                description: "Экстремальный телесный протест послевоенной Японии. Буто отвергает классическую beauty и скорость. Это танец предельно замедленного увядания, гротеска, уязвимости и слияния с землей. Танцоры покрывают тела белой глиной.",
+                quote: "Мы танцуем не в пространстве. Мы танцуем саму тяжесть этого мира.",
+                author: "Тацуми Хидзиката",
+                concept: "Гротескное замедление",
+                exercise: "Представьте, что ваше тело весит тонну и медленно плавится, стекая на пол. Сделайте один шаг длиной в две минуты."
+              },
+              {
+                title: "Пина Бауш",
+                subtitle: "Немецкий Танцтеатр (Tanztheater)",
+                time: "1980-е годы",
+                description: "Синтез глубочайшего драматического театра и экспрессивной пластики. Пина Бауш засыпала сцену тоннами живых роз, заливала водой и заставляла танцоров проживать реальные человеческие страхи, одиночество и страсть.",
+                quote: "Меня меньше интересует то, как люди двигаются. Меня интересует, что ими движет.",
+                author: "Пина Бауш",
+                concept: "Эмоциональный экспрессионизм",
+                exercise: "Вспомните чувство детской радости и превратите его в одно повторяющееся, гиперболизированное движение рук."
+              },
+              {
+                title: "Contemporary Dance",
+                subtitle: "Свободная гибридизация стилей",
+                time: "Наши дни",
+                description: "Современный интеллектуальный танец, сочетающий элементы релиза, уличных стилей, йоги и восточных единоборств. Фокус смещен на исследование анатомических возможностей суставов и индивидуальный почерк танцора.",
+                quote: "Границ больше не существует. Тело — это абсолютный и бесконечный медиум.",
+                author: "Современная хореография",
+                concept: "Анатомическая интеграция",
+                exercise: "Инициируйте воображаемый импульс движения из локтя, затем позвольте ему пройти через плечо, позвоночник и уйти в стопу."
+              },
+              {
+                title: "Цифровой перформанс",
+                subtitle: "Медиа-тело будущего",
+                time: "Будущее",
+                description: "Слияние физического тела с цифровой реальностью. Танцоры взаимодействуют с нейросетями, датчиками захвата движения (Motion Capture) и VR-пространством. Граница между телом и его пиксельным следом стирается.",
+                quote: "Технологии не заменяют тело. Они дают ему бесконечную цифровую проекцию.",
+                author: "Кибер-перформанс",
+                concept: "Цифровой биоморфизм",
+                exercise: "Представьте, что ваши пальцы оставляют неоновые светящиеся линии в воздухе. Нарисуйте узор вокруг себя."
+              }
+            ]
+          },
+          en: {
+            appTitle: "Seamless Movement",
+            appSubtitle: "Research Project 2026",
+            timeLabel: "Era",
+            conceptLabel: "Concept",
+            exerciseLabel: "Physical Exercise",
+            autoFlow: "Timeline Auto-play",
+            autoFlowDesc: "Automatically flows through movement eras",
+            synthLabel: "Sound Synthesizer",
+            synthActive: "Synth Active",
+            synthInactive: "Synth Muted",
+            helperText: "Move or hold your cursor/finger on the canvas to improvise",
+            settingsTitle: "Kinetic Simulation Parameters",
+            resetPreset: "Reset to Preset",
+            paramGravity: "Gravity Force (downward pull)",
+            paramFriction: "Medium Friction (viscosity)",
+            paramParticles: "Kinetic Particles Count",
+            paramTrail: "Trail Inertia (movement smear)",
+            footerTitle: "Seamless Movement Research Project 2026",
+            footerSubtitle: "Interactive movement simulation environment",
+            eras: [
+              {
+                title: "Introduction",
+                subtitle: "Energy of Pure Form",
+                time: "The Beginning",
+                description: "Movement is humanity's primary signaling system. Here, the body liberates itself from mundane contexts to become a pure vector in space. Interact with the canvas on the right to feel the genesis of physical impulse.",
+                quote: "Space is the canvas, the body is the brush, and movement is the paint.",
+                author: "Movement Lab",
+                concept: "Kinetic Energy",
+                exercise: "Close your eyes and feel your center of balance right behind your navel. Let it lead your entire body."
+              },
+              {
+                title: "Isadora Duncan",
+                subtitle: "Free Dance • Greek Plasticity",
+                time: "1910s",
+                description: "A radical rebellion against corsets and the rigid geometries of classical ballet. Duncan returned dance to its natural, organic state, inspired by deep breathing, sea waves, wind, and ancient Greek simplicity. Performed barefoot in flowing tunics.",
+                quote: "You were born to move freely, like the wind or the waves of the ocean.",
+                author: "Isadora Duncan",
+                concept: "Organic Fluidity",
+                exercise: "Take a deep breath, raising your arms as if catching a warm wind. Let the movement flow gently to your fingertips."
+              },
+              {
+                title: "Oskar Schlemmer",
+                subtitle: "Triadic Ballet of Bauhaus",
+                time: "1920s",
+                description: "An architectural exploration of the human figure in space. Dancers were encased in bulky metal and cardboard sculptural costumes, transforming their natural movements into rigid geometric vectors of cubes, spheres, and cylinders.",
+                quote: "Dance is the mathematical measurement of space by the human body.",
+                author: "Oskar Schlemmer",
+                concept: "Geometric Constructivism",
+                exercise: "Move through your space using strictly straight lines and sharp 90-degree turns. Feel the architecture of your frame."
+              },
+              {
+                title: "Martha Graham",
+                subtitle: "Contraction & Release",
+                time: "1930s",
+                description: "The founding technique of American modern dance. All movement originates from the physiological act of breathing: a sharp muscular contraction of the pelvis on exhalation (contraction) and an instantaneous release of energy on inhalation (release).",
+                quote: "Dance never lies. The body says what words cannot yet formulate.",
+                author: "Martha Graham",
+                concept: "Gravitational Tension",
+                exercise: "Exhale sharply, curving your spine and pulling your stomach deep inside. Inhale and suddenly expand your chest to the sky."
+              },
+              {
+                title: "Merce Cunningham",
+                subtitle: "Chance Operations Method",
+                time: "1960s",
+                description: "The grand deconstructor of choreography. Cunningham separated dance from music, narrative, and scenery. He determined the sequence of movements using coin tosses (from the I Ching), producing an unpredictable, chaotic, yet organic flow.",
+                quote: "Any movement can be a dance, and any space can be a stage.",
+                author: "Merce Cunningham",
+                concept: "Stochastic Process",
+                exercise: "Write 5 actions on small papers (jump, step, spin, squat, freeze). Mix them up and perform them in the randomly selected order."
+              },
+              {
+                title: "Tatsumi Hijikata",
+                subtitle: "Butoh • The Dance of Darkness",
+                time: "Japan, 1960s",
+                description: "An extreme physical protest born in post-war Japan. Butoh rejects Western speed and symmetry. It is a dance of extremely slow decay, grotesque form, raw vulnerability, and merging with the soil. Dancers cover their bodies with white ash or clay.",
+                quote: "We do not dance in space. We dance the heavy weight of the world itself.",
+                author: "Tatsumi Hijikata",
+                concept: "Grotesque Deceleration",
+                exercise: "Imagine your body weighs a thousand pounds and is slowly melting into the floor. Take a single step that lasts two full minutes."
+              },
+              {
+                title: "Pina Bausch",
+                subtitle: "German Tanztheater",
+                time: "1980s",
+                description: "A synthesis of deep psychological drama and raw physical expression. Bausch covered stages with tons of fresh roses, flooded them with water, and forced performers to physically live out genuine human fears, isolation, and passion.",
+                quote: "I find myself less interested in how people move. I am interested in what moves them.",
+                author: "Pina Bausch",
+                concept: "Emotional Expressionism",
+                exercise: "Recall a moment of pure childhood joy and translate it into a single, highly exaggerated, repetitive movement of your arms."
+              },
+              {
+                title: "Contemporary Dance",
+                subtitle: "Free Hybridization of Styles",
+                time: "Present Day",
+                description: "An intellectual form of modern dance combining release technique, floorwork, martial arts, street styles, and yoga. The primary focus is shifted toward anatomical efficiency, articulation of joints, and individual kinetic voice.",
+                quote: "Boundaries no longer exist. The body is an absolute, infinite medium.",
+                author: "Contemporary Choreography",
+                concept: "Anatomical Integration",
+                exercise: "Initiate an imaginary impulse of movement from your left elbow, pass it through your shoulder, down your spine, and let it exit through your foot."
+              },
+              {
+                title: "Digital Performance",
+                subtitle: "Media Body of the Future",
+                time: "Future",
+                description: "The fusion of the physical body with digital environments. Dancers interact with neural networks, motion capture arrays, and virtual reality spaces. The boundary between physical mass and its pixel projection is completely dissolved.",
+                quote: "Technology does not replace the body. It projects it into infinite digital space.",
+                author: "Cyber-Performance",
+                concept: "Digital Biomorphism",
+                exercise: "Imagine your fingers are leaving glowing neon lines in the air. Paint a complex geometric web all around you."
+              }
+            ]
+          }
+        };
+
+        // Пресеты физики для каждой из 9 сцен
+        const STYLE_PRESETS = [
+          { gravity: 0, friction: 0.02, particleCount: 150, trail: 0.1, particleSize: 2 },
+          { gravity: -0.01, friction: 0.05, particleCount: 100, trail: 0.05, particleSize: 3 },
+          { gravity: 0, friction: 0.2, particleCount: 50, trail: 0.25, particleSize: 6 },
+          { gravity: 0.15, friction: 0.03, particleCount: 120, trail: 0.08, particleSize: 2.5 },
+          { gravity: 0, friction: 0.01, particleCount: 200, trail: 0.3, particleSize: 1.5 },
+          { gravity: 0.4, friction: 0.08, particleCount: 80, trail: 0.02, particleSize: 4 },
+          { gravity: 0.05, friction: 0.04, particleCount: 140, trail: 0.07, particleSize: 3 },
+          { gravity: 0, friction: 0.02, particleCount: 120, trail: 0.12, particleSize: 3.5 },
+          { gravity: 0, friction: 0.01, particleCount: 250, trail: 0.2, particleSize: 1 }
+        ];
+
+        const SOUND_PRESETS = [
+          { type: 'sine', freqBase: 180 },
+          { type: 'sine', freqBase: 220 },
+          { type: 'square', freqBase: 120 },
+          { type: 'sawtooth', freqBase: 95 },
+          { type: 'sine', freqBase: 440 },
+          { type: 'triangle', freqBase: 60 },
+          { type: 'sine', freqBase: 130 },
+          { type: 'sine', freqBase: 290 },
+          { type: 'sine', freqBase: 520 }
+        ];
+
+        // --- КОМПОНЕНТЫ ИКОНОК ---
+        const PlayIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        );
+        const PauseIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+        );
+        const RotateCcwIcon = ({ size = 12 }) => (
+          <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><polyline points="3 3 3 8 8 8"></polyline></svg>
+        );
+        const Volume2Icon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        );
+        const VolumeXIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        );
+        const SlidersIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="2" y1="14" x2="6" y2="14"></line><line x1="10" y1="8" x2="14" y2="8"></line><line x1="18" y1="16" x2="22" y2="16"></line></svg>
+        );
+        const SparklesIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5z"></path><path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"></path></svg>
+        );
+        const ActivityIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        );
+        const ChevronLeftIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        );
+        const ChevronRightIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        );
+        const LanguagesIcon = () => (
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg>
+        );
+
+
+        // --- ОСНОВНОЕ ПРИЛОЖЕНИЕ ---
+        function App() {
+          const [lang, setLang] = useState('ru'); // 'ru' | 'en'
+          const [activeId, setActiveId] = useState(0);
+          const [isPlaying, setIsPlaying] = useState(false);
+          const [soundEnabled, setSoundEnabled] = useState(false);
+          
+          // Инициализируем физику пресетом текущей сцены
+          const [physics, setPhysics] = useState(STYLE_PRESETS[0]);
+          const [showHelper, setShowHelper] = useState(true);
+          
+          const canvasRef = useRef(null);
+          const audioCtxRef = useRef(null);
+          const masterGainRef = useRef(null);
+          const animationFrameRef = useRef(null);
+          
+          // Хранилище координат мыши / тача
+          const mouseRef = useRef({ x: 0, y: 0, active: false });
+          // Абсолютно сквозной реф-мост для параметров физики и окружения (предотвращает перезапуски Canvas)
+          const stateRef = useRef({
+            activeId: 0,
+            physics: STYLE_PRESETS[0],
+            mouse: { x: 0, y: 0, active: false }
+          });
+
+          // Синхронизируем мост при любых изменениях ползунков и сцен
+          useEffect(() => {
+            stateRef.current.physics = physics;
+          }, [physics]);
+
+          useEffect(() => {
+            stateRef.current.activeId = activeId;
+          }, [activeId]);
+
+          // При переключении сцены автоматически загружаем её нативный физический пресет
+          useEffect(() => {
+            setPhysics(STYLE_PRESETS[activeId]);
+          }, [activeId]);
+
+          // Смена сцен по таймеру
+          useEffect(() => {
+            let interval = null;
+            if (isPlaying) {
+              interval = setInterval(() => {
+                setActiveId((prev) => (prev + 1) % TOTAL_ERAS);
+              }, 9500); 
+            }
+            return () => clearInterval(interval);
+          }, [isPlaying]);
+
+          // Запуск аудио-движка (вызывается жестом пользователя)
+          const initAudio = () => {
+            if (audioCtxRef.current) return;
+            try {
+              const AudioContext = window.AudioContext || window.webkitAudioContext;
+              const ctx = new AudioContext();
+              const gainNode = ctx.createGain();
+              gainNode.gain.setValueAtTime(0, ctx.currentTime);
+              gainNode.connect(ctx.destination);
+              
+              audioCtxRef.current = ctx;
+              masterGainRef.current = gainNode;
+            } catch (e) {
+              console.error("Audio API not supported.", e);
+            }
+          };
+
+          // Метод звукового синтеза индивидуальных нот
+          const playSynthTone = (freq, type = 'sine', duration = 0.6, vol = 0.15) => {
+            const ctx = audioCtxRef.current;
+            const master = masterGainRef.current;
+            if (!ctx || !soundEnabled || !master || ctx.state === 'suspended') return;
+
+            try {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+
+              osc.type = type;
+              osc.frequency.setValueAtTime(freq, ctx.currentTime);
+              
+              gain.gain.setValueAtTime(vol, ctx.currentTime);
+              gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+
+              osc.connect(gain);
+              gain.connect(master);
+
+              osc.start();
+              osc.stop(ctx.currentTime + duration);
+            } catch (err) {
+              console.warn("Sound synth interrupted: ", err);
+            }
+          };
+
+          // Звуковой секвенсор (синхронизирован с состоянием звука и активной сценой)
+          useEffect(() => {
+            if (!soundEnabled) return;
+
+            if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+              audioCtxRef.current.resume();
+            }
+
+            let step = 0;
+            const intervalTime = 320; 
+
+            const intervalId = setInterval(() => {
+              step++;
+              const currentPreset = SOUND_PRESETS[activeId];
+              const base = currentPreset.freqBase;
+              const type = currentPreset.type;
+
+              switch (activeId) {
+                case 0: // Введение
+                  if (step % 8 === 0) playSynthTone(base, type, 2.2, 0.25);
+                  if (step % 8 === 4) playSynthTone(base * 1.5, type, 1.4, 0.18);
+                  break;
+                case 1: // Айседора Дункан
+                  const scaleDuncan = [1, 1.25, 1.5, 1.75, 2];
+                  const noteFactor = scaleDuncan[Math.floor(Math.sin(step * 0.5) * 2 + 2)];
+                  playSynthTone(base * noteFactor, type, 1.0, 0.18);
+                  break;
+                case 2: // Баухаус
+                  if (step % 2 === 0) {
+                    const steps = [1, 1.2, 1.4, 1.6];
+                    playSynthTone(base * steps[step % steps.length], type, 0.12, 0.12);
+                  }
+                  break;
+                case 3: // Марта Грэм
+                  if (step % 4 === 0) {
+                    playSynthTone(base, type, 0.6, 0.3); 
+                  } else if (step % 4 === 2) {
+                    playSynthTone(base * 1.33, 'sine', 1.0, 0.15); 
+                  }
+                  break;
+                case 4: // Мерс Каннингем
+                  if (Math.random() > 0.4) {
+                    const randFreq = base * (0.6 + Math.random() * 1.8);
+                    playSynthTone(randFreq, type, 0.1 + Math.random() * 0.4, 0.1);
+                  }
+                  break;
+                case 5: // Буто
+                  if (step % 8 === 0) {
+                    playSynthTone(base, type, 3.2, 0.4);
+                    playSynthTone(base * 1.03, 'sine', 2.8, 0.2);
+                  }
+                  break;
+                case 6: // Пина Бауш
+                  if (step % 6 === 0) playSynthTone(base, type, 2.0, 0.25);
+                  if (step % 6 === 3) playSynthTone(base * 1.2, type, 1.2, 0.18);
+                  break;
+                case 7: // Контемпорари
+                  const mouseNorm = stateRef.current.mouse.active ? (stateRef.current.mouse.x / window.innerWidth) : 0.5;
+                  playSynthTone(base + (mouseNorm * 220), type, 0.7, 0.15);
+                  break;
+                case 8: // Цифровой перформанс
+                  if (step % 2 === 0) {
+                    const glitchFreq = base * (Math.random() > 0.8 ? 2.5 : 1.25);
+                    playSynthTone(glitchFreq, type, 0.08, 0.12);
+                  }
+                  break;
+              }
+            }, intervalTime);
+
+            return () => clearInterval(intervalId);
+          }, [soundEnabled, activeId]);
+
+          // Включение/выключение звукового тракта
+          const toggleSound = async () => {
+            initAudio();
+            const ctx = audioCtxRef.current;
+            if (!ctx) return;
+
+            if (ctx.state === 'suspended') {
+              await ctx.resume();
+            }
+
+            const nextSoundState = !soundEnabled;
+            setSoundEnabled(nextSoundState);
+
+            if (nextSoundState && masterGainRef.current) {
+              masterGainRef.current.gain.setValueAtTime(masterGainRef.current.gain.value, ctx.currentTime);
+              masterGainRef.current.gain.linearRampToValueAtTime(0.18, ctx.currentTime + 0.5);
+            } else if (masterGainRef.current) {
+              masterGainRef.current.gain.setValueAtTime(masterGainRef.current.gain.value, ctx.currentTime);
+              masterGainRef.current.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
+            }
+          };
+
+          // ЕДИНЫЙ, БЕСШОВНЫЙ ЦИКЛ СИМУЛЯЦИИ CANVAS (Вызывается ровно 1 раз)
+          useEffect(() => {
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let w = canvas.width = canvas.parentElement.clientWidth;
+            let h = canvas.height = canvas.parentElement.clientHeight;
+
+            const handleResize = () => {
+              if (canvas && canvas.parentElement) {
+                w = canvas.width = canvas.parentElement.clientWidth;
+                h = canvas.height = canvas.parentElement.clientHeight;
+              }
+            };
+            window.addEventListener('resize', handleResize);
+
+            // Функция создания единичной кинетической точки
+            const createSingleParticle = (pw, ph, size) => ({
+              x: Math.random() * pw,
+              y: Math.random() * ph,
+              vx: (Math.random() - 0.5) * 3,
+              vy: (Math.random() - 0.5) * 3,
+              size: Math.random() * size + 1,
+              angle: Math.random() * Math.PI * 2,
+              speed: Math.random() * 0.5 + 0.5,
+              phase: Math.random() * Math.PI
+            });
+
+            // Наполняем начальный массив
+            let particles = [];
+            const initialPreset = stateRef.current.physics;
+            for (let i = 0; i < initialPreset.particleCount; i++) {
+              particles.push(createSingleParticle(w, h, initialPreset.particleSize));
+            }
+
+            let localTime = 0;
+
+            const render = () => {
+              localTime += 0.015;
+              
+              // ЧИТАЕМ ПАРАМЕТРЫ ФИЗИКИ И АКТИВНОГО СЛАЙДА ИЗ МОСТА В РЕАЛЬНОМ ВРЕМЕНИ
+              const currentPhysics = stateRef.current.physics;
+              const currentActiveId = stateRef.current.activeId;
+              const currentMouse = stateRef.current.mouse;
+
+              // ДИНАМИЧЕСКИ КОРРЕКТИРУЕМ КОЛИЧЕСТВО ЧАСТИЦ БЕЗ ПЕРЕЗАПУСКА ЦИКЛА
+              if (particles.length < currentPhysics.particleCount) {
+                while (particles.length < currentPhysics.particleCount) {
+                  particles.push(createSingleParticle(w, h, currentPhysics.particleSize));
+                }
+              } else if (particles.length > currentPhysics.particleCount) {
+                particles.splice(currentPhysics.particleCount);
+              }
+
+              // Применяем обновленный шлейф
+              ctx.fillStyle = `rgba(10, 10, 10, ${currentPhysics.trail})`;
+              ctx.fillRect(0, 0, w, h);
+
+              const cx = w / 2;
+              const cy = h / 2;
+
+              switch (currentActiveId) {
+                case 0: // Введение - Плавный дрейф
+                  particles.forEach((p) => {
+                    p.vy += currentPhysics.gravity * 0.1; // Гравитация
+                    p.vx += Math.sin(p.y * 0.005 + localTime) * 0.05;
+                    p.vy += Math.cos(p.x * 0.005 + localTime) * 0.05;
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    p.vx *= (1 - currentPhysics.friction);
+                    p.vy *= (1 - currentPhysics.friction);
+
+                    if (currentMouse.active) {
+                      const dx = currentMouse.x - p.x;
+                      const dy = currentMouse.y - p.y;
+                      const dist = Math.sqrt(dx*dx + dy*dy);
+                      if (dist < 150) {
+                        p.vx += (dx / dist) * 0.2;
+                        p.vy += (dy / dist) * 0.2;
+                      }
+                    }
+
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(0.5, currentSize), 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+                    ctx.fill();
+
+                    if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+                    if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+                  });
+                  break;
+
+                case 1: // Айседора Дункан
+                  particles.forEach((p, idx) => {
+                    p.vx += 0.15; 
+                    const waveY = (h / 2) + Math.sin(p.x * 0.005 + localTime + p.phase) * (150 * (1 - currentPhysics.gravity * 1.5));
+                    p.vy += (waveY - p.y) * 0.04;
+
+                    p.vy += currentPhysics.gravity * 0.2; 
+                    p.vx *= (1 - currentPhysics.friction);
+                    p.vy *= (1 - currentPhysics.friction);
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (currentMouse.active) {
+                      const dx = currentMouse.x - p.x;
+                      const dy = currentMouse.y - p.y;
+                      const dist = Math.sqrt(dx*dx + dy*dy);
+                      if (dist < 150) {
+                        p.vy += (dy / dist) * 0.25;
+                      }
+                    }
+
+                    if (p.x > w) p.x = 0;
+                    if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(0.5, currentSize), 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+                    ctx.fill();
+                  });
+                  break;
+
+                case 2: // Оскар Шлеммер
+                  particles.forEach((p, idx) => {
+                    const orbitIndex = idx % 5;
+                    const radius = (70 + orbitIndex * 40) * (1 - currentPhysics.gravity * 0.6); 
+                    const speedFactor = (0.25 - orbitIndex * 0.03) * (1 - currentPhysics.friction * 3.5); 
+                    const angle = localTime * speedFactor + p.phase;
+
+                    const targetX = cx + Math.cos(angle) * radius;
+                    const targetY = cy + Math.sin(angle) * radius + (currentPhysics.gravity * 150); 
+
+                    p.x += (targetX - p.x) * 0.1;
+                    p.y += (targetY - p.y) * 0.1;
+
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+
+                    ctx.fillStyle = idx % 2 === 0 ? '#ffffff' : 'rgba(255, 255, 255, 0.25)';
+                    ctx.beginPath();
+                    if (idx % 3 === 0) {
+                      ctx.rect(p.x - currentSize, p.y - currentSize, currentSize * 2, currentSize * 2);
+                    } else if (idx % 3 === 1) {
+                      ctx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
+                    } else {
+                      ctx.moveTo(p.x, p.y - currentSize);
+                      ctx.lineTo(p.x + currentSize, p.y + currentSize);
+                      ctx.lineTo(p.x - currentSize, p.y + currentSize);
+                      ctx.closePath();
+                    }
+                    ctx.fill();
+                  });
+
+                  if (currentMouse.active) {
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+                    ctx.beginPath();
+                    ctx.moveTo(0, currentMouse.y); ctx.lineTo(w, currentMouse.y);
+                    ctx.moveTo(currentMouse.x, 0); ctx.lineTo(currentMouse.x, h);
+                    ctx.stroke();
+                  }
+                  break;
+
+                case 3: // Марта Грэм
+                  const breathe = Math.abs(Math.sin(localTime * 1.5 * (1 - currentPhysics.friction * 2.5))); 
+                  const maxRadius = (100 + breathe * 150) * (1 - currentPhysics.gravity * 0.4); 
+
+                  ctx.strokeStyle = `rgba(255, 255, 255, ${0.05 + (1 - breathe) * 0.12})`;
+                  ctx.lineWidth = 0.8;
+                  ctx.beginPath();
+
+                  particles.forEach((p, index) => {
+                    const targetX = cx + Math.cos(p.angle) * maxRadius;
+                    const targetY = cy + Math.sin(p.angle) * maxRadius + (currentPhysics.gravity * 120); 
+
+                    p.x += (targetX - p.x) * 0.08;
+                    p.y += (targetY - p.y) * 0.08;
+
+                    if (index > 0 && index % 4 === 0) {
+                      ctx.moveTo(p.x, p.y);
+                      ctx.lineTo(particles[index - 1].x, particles[index - 1].y);
+                    }
+
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(0.5, currentSize * (1 + breathe * 0.5)), 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${0.3 + breathe * 0.5})`;
+                    ctx.fill();
+                  });
+                  ctx.stroke();
+                  break;
+
+                case 4: // Мерс Каннингем
+                  particles.forEach((p) => {
+                    p.vy += currentPhysics.gravity * 0.15; 
+                    
+                    p.x += p.vx * 1.8 * (1 - currentPhysics.friction * 3); 
+                    p.y += p.vy * 1.8 * (1 - currentPhysics.friction * 3);
+
+                    if (p.x < 0 || p.x > w) p.vx *= -1;
+                    if (p.y < 0 || p.y > h) p.vy *= -1;
+
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+                    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+                    ctx.fillRect(p.x - currentSize, p.y - currentSize, currentSize * 2, currentSize * 2);
+                  });
+
+                  ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+                  ctx.lineWidth = 1;
+                  for (let i = 0; i < particles.length; i += 2) {
+                    for (let j = i + 1; j < particles.length; j += 4) {
+                      const dx = particles[i].x - particles[j].x;
+                      const dy = particles[i].y - particles[j].y;
+                      const dist = Math.sqrt(dx*dx + dy*dy);
+                      if (dist < 90) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                      }
+                    }
+                  }
+                  break;
+
+                case 5: // Буто
+                  ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                  particles.forEach((p) => {
+                    p.vy += currentPhysics.gravity * 0.25; 
+                    
+                    p.vx *= (1 - currentPhysics.friction * 1.5); 
+                    p.vy *= (1 - currentPhysics.friction * 1.5);
+
+                    p.x += p.vx * 0.5;
+                    p.y += p.vy * 0.5;
+
+                    if (p.y > h - 12) {
+                      p.y = h - 12;
+                      p.vy = 0;
+                      p.vx = (Math.random() - 0.5) * 0.1;
+                    }
+
+                    if (currentMouse.active) {
+                      const dx = currentMouse.x - p.x;
+                      const dy = currentMouse.y - p.y;
+                      const dist = Math.sqrt(dx*dx + dy*dy);
+                      if (dist < 100) {
+                        p.vy -= (1 - dist / 100) * 1.8;
+                        p.vx += (dx / dist) * 0.8;
+                      }
+                    }
+
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(0.5, currentSize), 0, Math.PI * 2);
+                    ctx.fill();
+                  });
+                  break;
+
+                case 6: // Пина Бауш
+                  particles.forEach((p) => {
+                    p.y += (Math.abs(p.vy) * 0.4 + 0.8) * (1 + currentPhysics.gravity * 3); 
+                    p.x += Math.sin(p.y * 0.015 + p.phase) * 0.8 * (1 - currentPhysics.friction * 2.8); 
+
+                    if (p.y > h) {
+                      p.y = -15;
+                      p.x = Math.random() * w;
+                      p.vy = Math.random() * 0.5 + 0.5;
+                    }
+
+                    if (currentMouse.active) {
+                      const dx = currentMouse.x - p.x;
+                      const dy = currentMouse.y - p.y;
+                      const dist = Math.sqrt(dx*dx + dy*dy);
+                      if (dist < 120) {
+                        p.x -= (dx / dist) * 4;
+                        p.y -= (dy / dist) * 1.5;
+                      }
+                    }
+
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.y * 0.008 + p.phase);
+                    ctx.fillStyle = 'rgba(235, 60, 90, 0.65)';
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, Math.max(1, currentSize * 2.5), Math.max(0.5, currentSize * 1.5), 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                  });
+                  break;
+
+                case 7: // ПОЛНОСТЬЮ ОБНОВЛЕННАЯ СЦЕНА 8 (Contemporary) — Жидкое Векторное Поле (Безупречная видимость)
+                  particles.forEach((p, idx) => {
+                    // Создаем плавные завихрения воздушных потоков (Flow Field)
+                    const angle = Math.sin(p.y * 0.008 + localTime) * Math.PI * 0.5 + Math.cos(p.x * 0.008 - localTime) * Math.PI * 0.5;
+                    p.vx += Math.cos(angle) * 0.12;
+                    p.vy += Math.sin(angle) * 0.12;
+
+                    // Учитываем гравитацию
+                    p.vy += currentPhysics.gravity * 0.15;
+
+                    // Плавный интерактив с пальцем/мышкой (расталкивание с затуханием)
+                    if (currentMouse.active) {
+                      const dx = currentMouse.x - p.x;
+                      const dy = currentMouse.y - p.y;
+                      const dist = Math.sqrt(dx*dx + dy*dy);
+                      if (dist < 160) {
+                        const pushPower = (160 - dist) / 160;
+                        p.vx -= (dx / dist) * pushPower * 1.1;
+                        p.vy -= (dy / dist) * pushPower * 1.1;
+                      }
+                    }
+
+                    // Применение трения
+                    p.vx *= (1 - currentPhysics.friction);
+                    p.vy *= (1 - currentPhysics.friction);
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    // Бесшовный обход границ экрана
+                    if (p.x < -10) p.x = w + 10; if (p.x > w + 10) p.x = -10;
+                    if (p.y < -10) p.y = h + 10; if (p.y > h + 10) p.y = -10;
+
+                    // Вычисление размера
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+
+                    // Отрисовка светящихся узлов-ядер
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(1, currentSize), 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${0.45 + Math.sin(localTime + p.phase) * 0.2})`;
+                    ctx.fill();
+
+                    // Бесшовная паутина связей между соседними точками
+                    for (let j = idx + 1; j < particles.length; j++) {
+                      const p2 = particles[j];
+                      const dx = p.x - p2.x;
+                      const dy = p.y - p2.y;
+                      const dist = Math.sqrt(dx*dx + dy*dy);
+                      if (dist < 95) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.18 * (1 - dist / 95)})`;
+                        ctx.lineWidth = 0.65;
+                        ctx.stroke();
+                      }
+                    }
+                  });
+                  break;
+
+                case 8: // Цифровой кибер-перформанс
+                  ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                  ctx.lineWidth = 1;
+                  const gridSize = 40;
+
+                  for (let x = 0; x < w; x += gridSize) {
+                    for (let y = 0; y < h; y += gridSize) {
+                      let angle = Math.sin(x * 0.002 + localTime) * Math.PI * 2 + (currentPhysics.gravity * Math.PI); 
+                      
+                      if (currentMouse.active) {
+                        const dx = currentMouse.x - x;
+                        const dy = currentMouse.y - y;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+                        if (dist < 150) {
+                          angle = Math.atan2(dy, dx) + Math.PI / 2;
+                        }
+                      }
+
+                      const len = gridSize * 0.4 * (1 - currentPhysics.friction * 2); 
+                      ctx.beginPath();
+                      ctx.moveTo(x, y);
+                      ctx.lineTo(x + Math.cos(angle) * len, y + Math.sin(angle) * len);
+                      ctx.stroke();
+                    }
+                  }
+
+                  ctx.fillStyle = '#ffffff';
+                  particles.forEach(p => {
+                    p.vy += currentPhysics.gravity * 0.1;
+                    p.vx *= (1 - currentPhysics.friction);
+                    p.vy *= (1 - currentPhysics.friction);
+                    p.x += p.vx * 1.5;
+                    p.y += p.vy * 1.5;
+                    if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+                    if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+
+                    const currentSize = (p.size / STYLE_PRESETS[currentActiveId].particleSize) * currentPhysics.particleSize;
+                    ctx.fillRect(p.x, p.y, Math.max(1, currentSize), Math.max(1, currentSize));
+                  });
+                  break;
+              }
+
+              animationFrameRef.current = requestAnimationFrame(render);
+            };
+
+            render();
+
+            return () => {
+              cancelAnimationFrame(animationFrameRef.current);
+              window.removeEventListener('resize', handleResize);
+            };
+          }, []); // Пустые зависимости — бесконечный бесшовный цикл
+
+          // --- ОБРАБОТЧИКИ ДЛЯ ТАЧПАДОВ И МЫШЕК ---
+          const handleMouseMove = (e) => {
+            const rect = canvasRef.current.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            mouseRef.current = { x, y, active: true };
+            stateRef.current.mouse = { x, y, active: true };
+          };
+
+          const handleMouseEnter = () => {
+            setShowHelper(false);
+            mouseRef.current.active = true;
+            stateRef.current.mouse.active = true;
+          };
+
+          const handleMouseLeave = () => {
+            mouseRef.current.active = false;
+            stateRef.current.mouse.active = false;
+          };
+
+          // Фиксы для тач-скрина (смартфоны)
+          const handleTouchStart = (e) => {
+            setShowHelper(false);
+            const rect = canvasRef.current.getBoundingClientRect();
+            const touch = e.touches[0];
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            mouseRef.current = { x, y, active: true };
+            stateRef.current.mouse = { x, y, active: true };
+          };
+
+          const handleTouchMove = (e) => {
+            const rect = canvasRef.current.getBoundingClientRect();
+            const touch = e.touches[0];
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            mouseRef.current = { x, y, active: true };
+            stateRef.current.mouse = { x, y, active: true };
+          };
+
+          const handleTouchEnd = () => {
+            mouseRef.current.active = false;
+            stateRef.current.mouse.active = false;
+          };
+
+          const resetPhysics = () => {
+            setPhysics(STYLE_PRESETS[activeId]);
+          };
+
+          const updatePhysicsParam = (param, val) => {
+            setPhysics(prev => ({
+              ...prev,
+              [param]: Number(val)
+            }));
+          };
+
+          const currentEra = TRANSLATIONS[lang].eras[activeId];
+          const labels = TRANSLATIONS[lang];
+
+          return (
+            <div className="w-full min-h-screen bg-[#070707] text-white flex flex-col font-sans selection:bg-white selection:text-black">
+              
+              {/* Шапка лаборатории */}
+              <header className="px-8 py-5 border-b border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 bg-black/40 backdrop-blur-md">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></div>
+                  <div>
+                    <h1 className="text-sm font-semibold tracking-[0.3em] uppercase">{labels.appTitle}</h1>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-0.5">{labels.appSubtitle}</p>
+                  </div>
+                </div>
+
+                {/* Языковой переключатель и Навигационный пульт */}
+                <div className="flex items-center gap-4">
+                  
+                  {/* Языковая кнопка */}
+                  <button 
+                    onClick={() => setLang(prev => prev === 'ru' ? 'en' : 'ru')}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900 border border-white/5 text-xs text-zinc-300 hover:text-white transition-colors"
+                    title="Switch Language / Сменить Язык"
+                  >
+                    <LanguagesIcon />
+                    <span className="uppercase font-semibold font-mono">{lang === 'ru' ? 'RU' : 'EN'}</span>
+                  </button>
+
+                  {/* Пульт */}
+                  <div className="flex items-center gap-1.5 bg-zinc-900/80 p-1 rounded-full border border-white/5">
+                    <button 
+                      onClick={() => setActiveId(prev => (prev - 1 + TOTAL_ERAS) % TOTAL_ERAS)}
+                      className="p-1.5 rounded-full hover:bg-white/10 transition-colors text-zinc-400 hover:text-white"
+                    >
+                      <ChevronLeftIcon />
+                    </button>
+                    
+                    <span className="text-xs px-3 font-medium text-zinc-300 select-none min-w-[130px] text-center">
+                      {activeId + 1} / {TOTAL_ERAS} • {currentEra.time}
+                    </span>
+
+                    <button 
+                      onClick={() => setActiveId(prev => (prev + 1) % TOTAL_ERAS)}
+                      className="p-1.5 rounded-full hover:bg-white/10 transition-colors text-zinc-400 hover:text-white"
+                    >
+                      <ChevronRightIcon />
+                    </button>
+                  </div>
+                </div>
+              </header>
+
+              {/* Основной двухпанельный интерфейс */}
+              <main className="flex-grow grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 items-stretch">
+                
+                {/* ЛЕВАЯ ПАНЕЛЬ: ТЕОРИЯ, КОНЦЕПТЫ И УПРАЖНЕНИЯ */}
+                <section className="lg:col-span-5 flex flex-col gap-6">
+                  
+                  {/* Информационная карточка активной эпохи */}
+                  <div className="flex-grow bg-zinc-950/80 border border-white/5 rounded-2xl p-6 flex flex-col justify-between backdrop-blur-md">
+                    <div>
+                      <div className="flex justify-between items-start mb-4">
+                        <span className="text-[10px] bg-white/10 text-white/80 px-2.5 py-1 rounded-full uppercase tracking-wider font-semibold">
+                          {currentEra.time}
+                        </span>
+                        <span className="text-xs text-zinc-500 font-mono">
+                          {labels.conceptLabel}: {currentEra.concept}
+                        </span>
+                      </div>
+
+                      <h2 className="text-3xl font-light font-serif italic text-zinc-100 mb-1 tracking-wide lowercase">
+                        {currentEra.title}
+                      </h2>
+                      <p className="text-xs text-zinc-500 uppercase tracking-widest font-medium mb-6">
+                        {currentEra.subtitle}
+                      </p>
+
+                      <p className="text-zinc-300 text-sm leading-relaxed mb-6 font-light">
+                        {currentEra.description}
+                      </p>
+
+                      {/* Цитата эпохи */}
+                      <div className="border-l-2 border-red-600/60 pl-4 py-1 italic text-zinc-400 text-sm my-6 bg-red-950/5">
+                        "{currentEra.quote}"
+                        <span className="block text-[10px] uppercase tracking-widest text-zinc-500 mt-2 not-italic font-sans">
+                          — {currentEra.author}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Вкладка: Практический импульс */}
+                    <div className="border-t border-white/5 pt-4">
+                      <div className="flex gap-4 mb-3">
+                        <span className="text-xs uppercase tracking-widest pb-1 border-b-2 border-white font-semibold text-white">
+                          {labels.conceptLabel}
+                        </span>
+                      </div>
+                      
+                      <div className="text-xs text-zinc-400 bg-white/[0.02] p-3.5 rounded-xl border border-white/5">
+                        <p className="font-semibold text-white mb-1 uppercase tracking-wider text-[10px] flex items-center gap-1.5">
+                          <ActivityIcon /> {labels.exerciseLabel}:
+                        </p>
+                        {currentEra.exercise}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Интерактивный плеер времени */}
+                  <div className="bg-zinc-950/80 border border-white/5 rounded-2xl p-5 flex items-center justify-between backdrop-blur-md">
+                    <div className="flex items-center gap-4">
+                      <button 
+                        onClick={() => setIsPlaying(!isPlaying)}
+                        className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${isPlaying ? 'bg-white text-black' : 'bg-zinc-800 text-white hover:bg-zinc-700'}`}
+                      >
+                        {isPlaying ? <PauseIcon /> : <PlayIcon />}
+                      </button>
+                      
+                      <div>
+                        <span className="text-xs uppercase tracking-widest text-zinc-400">{labels.autoFlow}</span>
+                        <p className="text-[10px] text-zinc-500 font-light">{labels.autoFlowDesc}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <button 
+                        onClick={toggleSound}
+                        className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${soundEnabled ? 'bg-red-600 text-white border border-red-500 animate-pulse' : 'bg-zinc-800 text-zinc-400 hover:text-white'}`}
+                        title={labels.synthLabel}
+                      >
+                        {soundEnabled ? <Volume2Icon /> : <VolumeXIcon />}
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                {/* ПРАВАЯ ПАНЕЛЬ: ИНТЕРАКТИВНЫЙ ХОЛСТ И ПАНЕЛЬ НАСТРОЙКИ ФИЗИКИ */}
+                <section className="lg:col-span-7 flex flex-col gap-6">
+                  
+                  {/* Интерактивный генеративный холст */}
+                  <div className="flex-grow bg-[#0a0a0a] rounded-2xl border border-white/5 relative overflow-hidden group min-h-[350px]">
+                    {showHelper && (
+                      <div className="absolute top-4 left-4 z-10 pointer-events-none text-[9px] uppercase tracking-widest bg-black/60 px-3 py-1.5 rounded-full border border-white/5 flex items-center gap-1.5">
+                        <SparklesIcon /> {labels.helperText}
+                      </div>
+                    )}
+
+                    <canvas 
+                      ref={canvasRef}
+                      onMouseMove={handleMouseMove}
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      onTouchStart={handleTouchStart}
+                      onTouchMove={handleTouchMove}
+                      onTouchEnd={handleTouchEnd}
+                      onTouchCancel={handleTouchEnd}
+                      className="w-full h-full cursor-none"
+                    />
+                  </div>
+
+                  {/* Панель тонкой настройки физики движения */}
+                  <div className="bg-zinc-950/80 border border-white/5 rounded-2xl p-6 backdrop-blur-md">
+                    <div className="flex justify-between items-center mb-5">
+                      <div className="flex items-center gap-2">
+                        <SlidersIcon />
+                        <h3 className="text-xs uppercase tracking-widest font-semibold text-zinc-300">
+                          {labels.settingsTitle}
+                        </h3>
+                      </div>
+                      <button 
+                        onClick={resetPhysics}
+                        className="text-[10px] uppercase tracking-widest text-zinc-500 hover:text-white flex items-center gap-1.5 transition-colors"
+                      >
+                        <RotateCcwIcon size={10} /> {labels.resetPreset}
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                      {/* Слайдер: Плотность (Гравитация) */}
+                      <div className="flex flex-col gap-2">
+                        <div className="flex justify-between text-[10px] uppercase tracking-widest text-zinc-500">
+                          <span>{labels.paramGravity}</span>
+                          <span className="font-mono text-zinc-300">{physics.gravity}</span>
+                        </div>
+                        <input 
+                          type="range" 
+                          min="-0.5" 
+                          max="0.8" 
+                          step="0.01" 
+                          value={physics.gravity}
+                          onChange={(e) => updatePhysicsParam('gravity', e.target.value)}
+                          className="w-full accent-white bg-zinc-800 h-1 rounded-lg appearance-none cursor-pointer"
+                        />
+                      </div>
+
+                      {/* Слайдер: Сила трения среды */}
+                      <div className="flex flex-col gap-2">
+                        <div className="flex justify-between text-[10px] uppercase tracking-widest text-zinc-500">
+                          <span>{labels.paramFriction}</span>
+                          <span className="font-mono text-zinc-300">{(physics.friction * 100).toFixed(0)}%</span>
+                        </div>
+                        <input 
+                          type="range" 
+                          min="0.0" 
+                          max="0.3" 
+                          step="0.01" 
+                          value={physics.friction}
+                          onChange={(e) => updatePhysicsParam('friction', e.target.value)}
+                          className="w-full accent-white bg-zinc-800 h-1 rounded-lg appearance-none cursor-pointer"
+                        />
+                      </div>
+
+                      {/* Слайдер: Количество танцующих частиц */}
+                      <div className="flex flex-col gap-2">
+                        <div className="flex justify-between text-[10px] uppercase tracking-widest text-zinc-500">
+                          <span>{labels.paramParticles}</span>
+                          <span className="font-mono text-zinc-300">{physics.particleCount}</span>
+                        </div>
+                        <input 
+                          type="range" 
+                          min="10" 
+                          max="350" 
+                          step="5" 
+                          value={physics.particleCount}
+                          onChange={(e) => updatePhysicsParam('particleCount', e.target.value)}
+                          className="w-full accent-white bg-zinc-800 h-1 rounded-lg appearance-none cursor-pointer"
+                        />
+                      </div>
+
+                      {/* Слайдер: Инерция следа (шлейф движения) */}
+                      <div className="flex flex-col gap-2">
+                        <div className="flex justify-between text-[10px] uppercase tracking-widest text-zinc-500">
+                          <span>{labels.paramTrail}</span>
+                          <span className="font-mono text-zinc-300">{physics.trail}</span>
+                        </div>
+                        <input 
+                          type="range" 
+                          min="0.01" 
+                          max="0.6" 
+                          step="0.01" 
+                          value={physics.trail}
+                          onChange={(e) => updatePhysicsParam('trail', e.target.value)}
+                          className="w-full accent-white bg-zinc-800 h-1 rounded-lg appearance-none cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </main>
+
+              {/* Футер приложения */}
+              <footer className="px-8 py-4 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-2 bg-black/20 text-[10px] text-zinc-500 uppercase tracking-widest">
+                <span>{labels.footerTitle}</span>
+                <span>{labels.footerSubtitle}</span>
+              </footer>
+            </div>
+          );
+        }
+
+        // Рендеринг приложения в DOM
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>
