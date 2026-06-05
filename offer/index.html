@@ -224,12 +224,21 @@ function gtag_report_conversion(url) {
     line-height: 1.8;
   }
   .video-wrap {
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: var(--bg3);
+    max-width: 480px;
+    aspect-ratio: 9/16;
+    background: #1a1a16;
     border: 1px solid var(--border2);
+    border-radius: 12px;
     position: relative;
     overflow: hidden;
+    margin: 0 auto;
+  }
+  .video-wrap video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .video-wrap iframe {
     position: absolute;
@@ -606,15 +615,15 @@ function gtag_report_conversion(url) {
 <section class="section" id="free-lesson">
   <div class="section-inner reveal">
     <div class="section-label">Free · Start here</div>
-    <h2 class="lesson-title"><em>Follow the pull</em> —<br>an 8-minute solo practice</h2>
-    <p class="lesson-desc">Feel what movement invitations are — in your own body, right now. No partner, no experience needed. This is the foundation of everything we teach.</p>
+    <h2 class="lesson-title" style="text-align:center;"><em>Follow the pull</em> —<br>an 8-minute solo practice</h2>
+    <p class="lesson-desc" style="text-align:center;max-width:480px;margin:0 auto 40px;">Feel what movement invitations are — in your own body, right now. No partner, no experience needed. This is the foundation of everything we teach.</p>
     <div class="video-wrap">
       <!-- Replace with free lesson embed when ready -->
-      <video controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;" poster="">
+      <video controls playsinline preload="metadata" poster="free-lesson-poster.jpg">
         <source src="https://lab.158-220-125-28.nip.io/offer-free-lesson.mp4" type="video/mp4">
       </video>
     </div>
-    <p class="lesson-note">8 min · solo · no equipment</p>
+    <p class="lesson-note" style="text-align:center;">8 min · solo · no equipment</p>
   </div>
 </section>
 
