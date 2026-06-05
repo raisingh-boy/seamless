@@ -1,311 +1,834 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Start Improvising — Solo & With a Partner</title>
-  <meta name="description" content="Learn to move freely. Foundation for Contact Improvisation — floorwork, space awareness, partner connection. Start with a free practice.">
-  <meta http-equiv="cache-control" content="no-cache, must-revalidate">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948032858"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "AW-17948032858");
-  </script>
-  <script>
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof(url) != "undefined") window.location = url;
-    };
-    gtag("event", "conversion", {
-      "send_to": "AW-17948032858/u95HCKCL2bYcENr-pO5C",
-      "value": 1.0, "currency": "TRY",
-      "transaction_id": "",
-      "event_callback": callback
-    });
-    return false;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn to Move — SEAMLESS Education</title>
+<meta name="description" content="Two beginner courses in contact improvisation and floorwork. Start solo or with a partner. No experience needed.">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948032858"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "AW-17948032858");
+</script>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != "undefined") window.location = url;
+  };
+  gtag("event", "conversion", {
+    "send_to": "AW-17948032858/u95HCKCL2bYcENr-pO5C",
+    "value": 1.0, "currency": "TRY",
+    "transaction_id": "",
+    "event_callback": callback
+  });
+  return false;
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --bg2: #f2ede4;
+    --bg3: #e8e0d4;
+    --ink: #1a1a16;
+    --ink2: #3d3d36;
+    --ink3: #7a7870;
+    --gold: #9a7340;
+    --gold2: #b8905a;
+    --border: rgba(26,26,22,0.08);
+    --border2: rgba(154,115,64,0.25);
   }
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #f5eedb;
-      --bg-card: rgba(255,255,255,0.45);
-      --text: #1a1712;
-      --text-muted: #7a7060;
-      --accent: #8a7230;
-      --accent-light: #b89d40;
-      --border: rgba(255,255,255,0.7);
-    }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      min-height: 100vh;
-    }
-    .page { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
-    .hero { text-align: center; padding: 40px 0 32px; }
-    .hero-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--text-muted); margin-bottom: 12px;
-    }
-    .hero h1 {
-      font-family: 'Space Mono', monospace;
-      font-size: 28px; font-weight: 700; line-height: 1.2;
-      margin-bottom: 12px;
-    }
-    .hero p {
-      font-size: 15px; color: var(--text-muted);
-      max-width: 500px; margin: 0 auto;
-    }
-    .video-wrap {
-      position: relative;
-      width: 100%; max-width: 400px; margin: 0 auto 32px;
-      aspect-ratio: 9/16; border-radius: 16px; overflow: hidden;
-      background: #ddd5c0;
-    }
-    .video-wrap iframe {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; border: 0;
-    }
-    .section-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 16px; text-align: center;
-    }
-    .card {
-      background: var(--bg-card); border-radius: 16px;
-      padding: 28px 24px; margin-bottom: 32px;
-      border: 1px solid var(--border);
-    }
-    .card p { font-size: 14px; margin-bottom: 12px; color: var(--text); }
-    .card p:last-child { margin-bottom: 0; }
-    .card strong { color: var(--accent); }
-    .card-center { text-align: center; }
 
-    .testimonial {
-      background: #ede7d4; border-radius: 12px; padding: 16px 20px;
-      max-width: 85%; margin-bottom: 12px;
-    }
-    .testimonial-left {
-      border-radius: 12px 12px 12px 4px;
-      align-self: flex-start;
-    }
-    .testimonial-right {
-      border-radius: 12px 12px 4px 12px;
-      align-self: flex-end;
-    }
-    .testimonial p { font-size: 13px; line-height: 1.6; }
-    .testimonial .author { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
-    .testimonial .author-photo {
-      width: 28px; height: 28px; border-radius: 50%; object-fit: cover;
-      vertical-align: middle; margin-right: 6px;
-    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 
-    .plans { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
-    .plan {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px;
-      margin-bottom: 24px;
-    }
-    .plan:last-child { margin-bottom: 0; }
-    .plan-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 15px; font-weight: 700; margin-bottom: 4px;
-    }
-    .plan-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
-    .plan-price {
-      font-family: 'Space Mono', monospace;
-      font-size: 36px; font-weight: 700; margin-bottom: 8px;
-      padding: 8px 0;
-    }
-    .plan-features { list-style: none; font-size: 13px; margin-bottom: 16px; }
-    .plan-features li { padding: 4px 0; }
-    .plan-features li::before { content: '✓ '; color: var(--accent); }
-    .btn {
-      display: block; width: 100%; padding: 14px; text-align: center;
-      background: var(--accent); color: white; border: none; border-radius: 12px;
-      font-family: 'Space Mono', monospace; font-size: 13px;
-      letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
-      cursor: pointer;
-    }
-    .btn:hover { background: var(--accent-light); }
-    .btn-ig {
-      display: inline-block; padding: 12px 28px;
-      background: transparent; border: 1.5px solid var(--accent); color: var(--accent);
-      border-radius: 12px; font-family: 'Space Mono', monospace;
-      font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
-      text-decoration: none;
-    }
-    .btn-ig:hover { background: var(--accent); color: white; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-    .foundation-grid {
-      display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;
-    }
-    .foundation-item {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 20px;
-    }
-    .foundation-item h3 {
-      font-family: 'Space Mono', monospace;
-      font-size: 14px; margin-bottom: 6px;
-    }
-    .foundation-item p { font-size: 13px; color: var(--text-muted); }
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(250,248,244,0.98) 60%, transparent);
+  }
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--ink2);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink3);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-link:hover { color: var(--ink); }
 
-    .proof-stats {
-      display: flex; justify-content: center; gap: 32px;
-      margin-bottom: 20px; flex-wrap: wrap;
-    }
-    .proof-stat { text-align: center; }
-    .proof-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 24px; font-weight: 700; color: var(--accent);
-    }
-    .proof-label { font-size: 11px; color: var(--text-muted); }
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 72px;
+    overflow: hidden;
+  }
+  .hero-video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #111;
+  }
+  .hero-video-wrap iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 177.78vh;
+    height: 100vh;
+    min-width: 100%;
+    min-height: 56.25vw;
+    transform: translate(-50%, -50%);
+    border: none;
+    pointer-events: none;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10,10,8,0.15) 0%,
+      rgba(10,10,8,0.05) 35%,
+      rgba(10,10,8,0.55) 70%,
+      rgba(10,10,8,0.85) 100%
+    );
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    color: #f5f0e8;
+  }
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(245,240,232,0.6);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero-title {
+    font-size: clamp(44px, 6.5vw, 92px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    max-width: 780px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+    color: #f5f0e8;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: #d4b07a;
+  }
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 19px;
+    font-weight: 300;
+    color: rgba(245,240,232,0.75);
+    max-width: 460px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+  .hero-cta {
+    margin-top: 36px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+  .btn-scroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.8);
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(245,240,232,0.25);
+    padding: 13px 22px;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-scroll:hover {
+    border-color: rgba(245,240,232,0.6);
+    color: #f5f0e8;
+  }
 
-    .faq { margin-bottom: 32px; }
-    .faq-item {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 16px 20px; margin-bottom: 8px;
-    }
-    .faq-q { font-weight: 500; font-size: 14px; margin-bottom: 4px; }
-    .faq-a { font-size: 13px; color: var(--text-muted); }
+  /* LAYOUT */
+  .section { padding: 96px 48px; }
+  .section-inner { max-width: 880px; margin: 0 auto; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 48px;
+  }
 
-    .back { text-align: center; padding-top: 24px; }
-    .back a {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--text-muted); text-decoration: none;
-    }
-    .back a:hover { color: var(--accent); }
+  /* FREE LESSON */
+  .lesson-title {
+    font-size: clamp(30px, 3.5vw, 48px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .lesson-title em { font-style: italic; color: var(--gold2); }
+  .lesson-desc {
+    font-size: 18px;
+    color: var(--ink2);
+    max-width: 520px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+  .video-wrap {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    position: relative;
+    overflow: hidden;
+  }
+  .video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .play-btn {
+    width: 64px; height: 64px;
+    border: 1px solid var(--border2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play-btn svg { width: 24px; height: 24px; fill: var(--gold); margin-left: 4px; }
+  .video-placeholder p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--ink3);
+    text-transform: uppercase;
+  }
+  .lesson-note {
+    margin-top: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--ink3);
+  }
 
-    .ig-section {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 24px; margin-bottom: 32px;
-      text-align: center;
-    }
+  /* CONNECTION */
+  .connection-box {
+    background: var(--bg2);
+    border-left: 2px solid var(--gold);
+    padding: 40px 44px;
+  }
+  .connection-title {
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .connection-title em { font-style: italic; color: var(--gold2); }
+  .connection-text {
+    font-size: 17px;
+    color: var(--ink2);
+    line-height: 1.85;
+    max-width: 640px;
+  }
 
-    @media (max-width: 500px) {
-      .hero h1 { font-size: 22px; }
-    }
-  </style>
+  /* COURSES */
+  .courses-header { margin-bottom: 44px; }
+  .courses-title {
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .courses-title em { font-style: italic; color: var(--gold2); }
+  .courses-desc { font-size: 17px; color: var(--ink2); max-width: 480px; }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .course-card {
+    background: var(--bg);
+    padding: 48px 44px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s;
+  }
+  .course-card:hover { background: var(--bg2); }
+  .course-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .course-name {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .course-name em { font-style: italic; }
+  .course-level {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink3);
+    margin-bottom: 24px;
+  }
+  .course-desc {
+    font-size: 16px;
+    color: var(--ink2);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+  .course-list {
+    list-style: none;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .course-list li {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: var(--ink2);
+    padding-left: 18px;
+    position: relative;
+  }
+  .course-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  .course-price {
+    font-size: 44px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .price-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .btn-buy {
+    display: block;
+    padding: 16px 28px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s;
+  }
+  .btn-buy:hover { background: var(--ink2); }
+
+  /* COMPARE TABLE */
+  .compare-title {
+    font-size: clamp(24px, 2.8vw, 38px);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 36px;
+  }
+  .compare-title em { font-style: italic; color: var(--gold2); }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .compare-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--border2);
+    background: var(--bg2);
+  }
+  .compare-table td {
+    padding: 18px 18px;
+    color: var(--ink2);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td:first-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .compare-table td.ours {
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-title {
+    font-size: clamp(24px, 2.8vw, 38px);
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+  .testimonials-title em { font-style: italic; color: var(--gold2); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .testimonial {
+    background: var(--bg);
+    padding: 36px 32px;
+  }
+  .testimonial-text {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink2);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .testimonial-author {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink3);
+  }
+
+  /* WHO */
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+  .who-title {
+    font-size: clamp(26px, 2.8vw, 38px);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .who-title em { font-style: italic; color: var(--gold2); }
+  .who-text { font-size: 17px; color: var(--ink2); line-height: 1.85; }
+  .who-text p + p { margin-top: 18px; }
+  .who-stats { display: flex; flex-direction: column; }
+  .who-stat {
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    background: var(--bg2);
+  }
+  .who-stat:first-child { border-top: 1px solid var(--border); }
+  .stat-num {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--gold);
+    min-width: 60px;
+  }
+  .stat-text { font-size: 14px; color: var(--ink2); line-height: 1.4; }
+
+  /* FAQ */
+  .faq-title { font-size: 34px; font-weight: 300; margin-bottom: 40px; }
+  .faq-item { border-top: 1px solid var(--border); padding: 24px 0; }
+  .faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .faq-q { font-size: 19px; font-weight: 300; margin-bottom: 10px; color: var(--ink); }
+  .faq-a { font-size: 16px; color: var(--ink2); line-height: 1.75; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg2);
+  }
+  .footer-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink3);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .footer-link:hover { color: var(--ink); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 0 20px 52px; }
+    .section { padding: 60px 20px; }
+    .divider { margin: 0 20px; }
+    .courses-grid { grid-template-columns: 1fr; }
+    .course-card { padding: 36px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; gap: 40px; }
+    .connection-box { padding: 28px 24px; }
+    footer { flex-direction: column; gap: 20px; padding: 28px 20px; text-align: center; }
+    .compare-table { font-size: 13px; }
+    .compare-table td, .compare-table th { padding: 12px 10px; }
+  }
+</style>
 </head>
 <body>
-<div class="page">
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="hero-label">Movement Practice</div>
-    <h1>How to Start Improvising<br>Solo & With a Partner</h1>
-    <p>Feel free on the floor. Move with confidence alone. Connect naturally with someone else. This is the foundation.</p>
+<nav>
+  <a href="https://seamless.club" class="nav-logo">Seamless</a>
+  <a href="https://www.instagram.com/contact_impro/" class="nav-link" target="_blank">Instagram ↗</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/Av61eyd4OR4?autoplay=1&mute=1&loop=1&playlist=Av61eyd4OR4&controls=0&playsinline=1&rel=0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
   </div>
-
-  <!-- Video -->
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/Av61eyd4OR4?autoplay=1&mute=1&loop=1&playlist=Av61eyd4OR4&v=2"
-      allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
-  </div>
-
-  <!-- Free Practice — Start here -->
-  <div class="section-title">Start Here</div>
-  <div class="card card-center">
-    <p><strong>You can begin right now.</strong> No sign-up, no waiting. This practice will stay with you for life.</p>
-    <div style="margin-top:16px; padding:40px 0; background:var(--bg-card); border:2px dashed var(--accent-light); border-radius:16px;">
-      <p style="font-family:'Space Mono',monospace; font-size:12px; color:var(--text-muted); letter-spacing:1px;">🎬 Free practice video</p>
-      <p style="margin-top:8px; font-size:13px; color:var(--text-muted);">Coming soon</p>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Seamless Education</div>
+    <h1 class="hero-title">
+      Learn to move —<br><em>solo or with a partner</em>
+    </h1>
+    <p class="hero-sub">Two beginner courses in contact improvisation and floorwork. No experience needed.</p>
+    <div class="hero-cta">
+      <a href="#free-lesson" class="btn-scroll">Watch free lesson ↓</a>
     </div>
   </div>
+</section>
 
-  <!-- Testimonials -->
-  <div class="section-title">What people say</div>
-  <div style="display:flex; flex-direction:column; margin-bottom:32px;">
-    <div class="testimonial testimonial-left">
-      <p>"Материал курса выстроен очень грамотно, просто и доступно для понимания. После каждого занятия остаётся возможность как проработать материал, так и поисследовать в своем направлении."</p>
-      <div class="author">
-        <img src="elena.jpg" alt="" class="author-photo"> Elena
+<!-- FREE LESSON -->
+<section class="section" id="free-lesson">
+  <div class="section-inner reveal">
+    <div class="section-label">Free · Start here</div>
+    <h2 class="lesson-title"><em>Follow the pull</em> —<br>a 5-minute solo practice</h2>
+    <p class="lesson-desc">Feel what movement invitations are — in your own body, right now. No partner, no experience needed. This is the foundation of everything we teach.</p>
+    <div class="video-wrap">
+      <!-- Replace with free lesson embed when ready -->
+      <div class="video-placeholder">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p>Free lesson — coming soon</p>
       </div>
     </div>
-    <div class="testimonial testimonial-right">
-      <p>"Инструмент супер интересный, открывающий телесные возможности. Возникла телесная свобода и творческий подход к материалу."</p>
-      <div class="author">
-        <img src="olga.jpg" alt="" class="author-photo"> Olga
+    <p class="lesson-note">5 min · solo · no equipment</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONNECTION -->
+<section class="section">
+  <div class="section-inner reveal">
+    <div class="connection-box">
+      <h3 class="connection-title">Two courses — <em>one foundation</em></h3>
+      <p class="connection-text">Floorwork and Contact Improvisation aren't two separate paths — they're the same practice from different angles. Floorwork teaches your body to move through space on its own: weight, momentum, transitions between levels. Contact Improvisation builds on exactly that — but with another person. Start solo if you have no partner yet. Either way, both courses make you better at the other.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COURSES -->
+<section class="section" id="courses">
+  <div class="section-inner">
+    <div class="courses-header reveal">
+      <div class="section-label">Choose your path</div>
+      <h2 class="courses-title">Where do you want<br>to <em>begin?</em></h2>
+      <p class="courses-desc">Both courses start from zero. Both include Telegram community. Access forever.</p>
+    </div>
+    <div class="courses-grid reveal">
+      <div class="course-card">
+        <div class="course-tag">Solo · Foundation</div>
+        <h3 class="course-name">Keys to<br><em>Floorwork</em></h3>
+        <p class="course-level">Beginners</p>
+        <p class="course-desc">Learn to move through levels — standing, crouching, floor. Discover how the ground supports you. Build the movement vocabulary that makes partner dancing richer.</p>
+        <ul class="course-list">
+          <li>Floor transitions & level changes</li>
+          <li>Weight, flow, spatial awareness</li>
+          <li>Solo improvisation tools</li>
+          <li>Direct preparation for CI</li>
+          <li>Telegram community + Q&A</li>
+        </ul>
+        <div class="course-price">$49</div>
+        <p class="price-note">One-time · Access forever</p>
+        <a href="https://web.tribute.tg/s/S6N" onclick="return gtag_report_conversion(this.href)" class="btn-buy" target="_blank" rel="noopener">Get Floorwork Course →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-tag">Partner · Connection</div>
+        <h3 class="course-name">Contact<br><em>Improvisation</em></h3>
+        <p class="course-level">Beginners</p>
+        <p class="course-desc">Learn the basics of moving with another person — weight sharing, listening through touch, finding flow together. Prepare for open jams and partner practice anywhere.</p>
+        <ul class="course-list">
+          <li>First steps in partner movement</li>
+          <li>Weight sharing & supports</li>
+          <li>How to arrive, listen, respond</li>
+          <li>Floor work in partner context</li>
+          <li>Telegram community + Q&A</li>
+        </ul>
+        <div class="course-price">$49</div>
+        <p class="price-note">One-time · Access forever</p>
+        <a href="https://web.tribute.tg/s/RKl" onclick="return gtag_report_conversion(this.href)" class="btn-buy" target="_blank" rel="noopener">Get CI Course →</a>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- The Foundation -->
-  <!-- Keys to Floorwork -->
-  <div class="section-title">Keys to Floorwork</div>
-  <div class="plan" style="text-align:center;">
-    <div class="plan-title">🔑 Keys to Floorwork</div>
-    <div class="plan-sub">Transitions between levels — low-level movement, floor confidence</div>
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Moving between standing, sitting, and lying down — without tension, without fear. Knowing your space. Feeling safe on the floor. The golden foundation for everything that follows.</p>
-    <div class="plan-price">$49</div>
-    <ul class="plan-features" style="text-align:left;">
-      <li>Full video lesson with detailed breakdown</li>
-      <li>Access via Telegram — files stay with you forever</li>
-    </ul>
-    <a class="btn" href="https://web.tribute.tg/s/S6N" onclick="return gtag_report_conversion(this.href)" target="_blank" rel="noopener">Get Keys to Floorwork — $49</a>
+<div class="divider"></div>
+
+<!-- COMPARE -->
+<section class="section">
+  <div class="section-inner reveal">
+    <h2 class="compare-title">Why not just find a<br><em>workshop or free class?</em></h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>This course</th>
+          <th>Typical workshop</th>
+          <th>Drop-in class</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Price</td>
+          <td class="ours">$49 — once</td>
+          <td>$200–500 / weekend</td>
+          <td>$30–50 / hour</td>
+        </tr>
+        <tr>
+          <td>Access</td>
+          <td class="ours">Forever, rewatch anytime</td>
+          <td>Time-bound, no replay</td>
+          <td>No replay</td>
+        </tr>
+        <tr>
+          <td>Pace</td>
+          <td class="ours">Your own schedule</td>
+          <td>Fixed schedule</td>
+          <td>Fixed time</td>
+        </tr>
+        <tr>
+          <td>Community</td>
+          <td class="ours">Telegram — ongoing</td>
+          <td>One-time group</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td class="ours">Anywhere</td>
+          <td>Travel required</td>
+          <td>Local only</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</section>
 
-  <!-- CI Course -->
-  <div class="section-title">Contact Improvisation Course</div>
-  <div class="plan" style="text-align:center;">
-    <div class="plan-title">🎯 Contact Improvisation Course</div>
-    <div class="plan-sub">10 video lessons — one payment, access forever</div>
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">From the simplest things (how to feel yourself in space) to lifts (how to lift a partner with ease) — floorwork, weight sharing, all the fundamentals broken down clearly. No fluff.</p>
-    <ul class="plan-features" style="text-align:left;">
-      <li>Arriving in the space — grounding and presence</li>
-      <li>Keys to Floorwork — moving between levels</li>
-      <li>CI Beginners — first steps and foundations</li>
-      <li>Spherokinesis · Release — flow & presence</li>
-      <li>Partner lifts — easy, safe, clear technique</li>
-    </ul>
-    <div class="plan-price">$49</div>
-    <a class="btn" href="https://web.tribute.tg/s/RKl" onclick="return gtag_report_conversion(this.href)" target="_blank" rel="noopener">Get the Full Course — $49</a>
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-inner">
+    <h2 class="testimonials-title reveal">What <em>students say</em></h2>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial">
+        <p class="testimonial-text">"I came with no movement background at all. The videos are the perfect length — easy to fit into a morning or evening. Everything is explained clearly, and I kept wanting to do the next lesson."</p>
+        <p class="testimonial-author">Sarah M.</p>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"After the first few sessions my body started to open up — tension I didn't even know I had began to release. It feels like something you can keep exploring for a long time."</p>
+        <p class="testimonial-author">Anna K.</p>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"What surprised me most: the solo practice directly changed how I move with a partner. I felt more confident and present in contact than ever before."</p>
+        <p class="testimonial-author">Lucas B.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <!-- Get to know us -->
-  <div class="section-title">Get to know us</div>
-  <div class="ig-section">
-    <p style="font-size:14px; margin-bottom:16px;">See our practice — live jams, workshops, the community in motion.</p>
-    <a class="btn-ig" href="https://www.instagram.com/contact_impro/" target="_blank" rel="noopener">Open Instagram →</a>
+<div class="divider"></div>
+
+<!-- WHO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="who-grid">
+      <div class="reveal">
+        <h2 class="who-title">Teaching movement<br>for <em>15 years</em></h2>
+        <div class="who-text">
+          <p>Roman Nevzorov — movement practitioner, teacher, psychologist. Based in Bali for the last 3 years, building an international CI community.</p>
+          <p>Everything in these courses comes from 15 years of daily training — contact improvisation, floorwork, somatic work, soft acrobatics.</p>
+          <p>After our month-long Seamless Intensive, 10 students now lead their own CI classes at festivals worldwide.</p>
+        </div>
+      </div>
+      <div class="who-stats reveal">
+        <div class="who-stat">
+          <span class="stat-num">15+</span>
+          <span class="stat-text">Years of daily practice and teaching</span>
+        </div>
+        <div class="who-stat">
+          <span class="stat-num">15</span>
+          <span class="stat-text">Countries in our community</span>
+        </div>
+        <div class="who-stat">
+          <span class="stat-num">10</span>
+          <span class="stat-text">Students now teaching CI worldwide</span>
+        </div>
+        <div class="who-stat">
+          <span class="stat-num">70%</span>
+          <span class="stat-text">International participants in Bali</span>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <!-- FAQ -->
-  <div class="section-title">FAQ</div>
-  <div class="faq">
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner reveal" style="max-width:680px">
+    <h2 class="faq-title">Questions</h2>
     <div class="faq-item">
-      <div class="faq-q">Is this for complete beginners?</div>
-      <div class="faq-a">Yes. The course starts from zero — no movement or dance experience needed.</div>
+      <p class="faq-q">Do I need any experience?</p>
+      <p class="faq-a">No. Both courses start from zero. If you can walk, you can start.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">How do I get access?</div>
-      <div class="faq-a">After purchase you get access to a private Telegram channel. All files are there — you can download and keep them forever.</div>
+      <p class="faq-q">Do I need a partner?</p>
+      <p class="faq-a">Not to start. Floorwork is entirely solo. The CI course introduces partner work, but you can begin alone and find someone as you go.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Is the English translation good?</div>
-      <div class="faq-a">AI-translated and reviewed. Clear, natural, and accurate.</div>
+      <p class="faq-q">Which course should I start with?</p>
+      <p class="faq-a">No partner right now — start with Floorwork. It builds exactly the foundation that makes CI easier. Already have someone to practice with — go straight to CI.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What if I want to teach CI after this?</div>
-      <div class="faq-a">After this course you'll be ready to join open jams and continue exploring CI with others. Teaching requires deeper practice over time.</div>
+      <p class="faq-q">Can I get both?</p>
+      <p class="faq-a">Yes. They complement each other directly — many students do both.</p>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Do you offer certificates?</div>
-      <div class="faq-a">No. CI is an open-source movement — there are no certificates, and that's by philosophy. What you get is practice and a path to keep growing.</div>
+      <p class="faq-q">How long do I have access?</p>
+      <p class="faq-a">Forever. One purchase, no expiry.</p>
     </div>
   </div>
+</section>
 
-  <!-- Back to main -->
-  <div class="back">
-    <a href="/">← SEAMLESS Education</a>
+<footer>
+  <a href="https://seamless.club" class="footer-logo">Seamless Education</a>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/contact_impro/" class="footer-link" target="_blank">Instagram</a>
+    <a href="https://seamless.club" class="footer-link">All courses</a>
   </div>
+</footer>
 
-</div>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
