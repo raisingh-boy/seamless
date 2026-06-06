@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Improvisation in Bali — Weekly Jam, Courses, Intensives | Seamless</title>
+<meta name="description" content="Contact Improvisation in Ubud, Bali. Weekly jams, beginner courses (CI, Floorwork, Partnering), intensives (TRINITY), and private coaching. Online & offline.">
+<meta name="keywords" content="contact improvisation bali, contact improvisation ubud, CI jam bali, floorwork, partnering, contact improv course, dance intensive bali">
+<meta property="og:title" content="Contact Improvisation in Bali — Seamless">
+<meta property="og:description" content="Weekly jams, courses & intensives in Ubud. Online & offline.">
+<meta property="og:image" content="https://seamless.club/offer/og-image.jpg">
+<link rel="canonical" href="https://seamless.club/ci-bali/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Seamless",
+  "url": "https://seamless.club",
+  "description": "Contact Improvisation, floorwork & release technique in Bali and online.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Ubud", "addressCountry": "ID" }
+}
+</script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0a0a10;
+    color: #e0dcd0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(180deg, rgba(10,10,16,0.95) 0%, rgba(10,10,16,1) 100%);
+    border-bottom: 1px solid rgba(223,183,87,0.15);
+    padding: 60px 0 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(223,183,87,0.03) 0%, transparent 70%),
+                radial-gradient(ellipse at 70% 50%, rgba(100,200,255,0.02) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 5vw, 48px);
+    color: #DFB757;
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .hero .subtitle {
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: #999;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero .tagline {
+    font-family: Georgia, serif;
+    font-size: clamp(15px, 2vw, 20px);
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  /* GRAPH */
+  .graph-wrapper {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    margin: 20px 0;
+  }
+  #graph {
+    width: 100%;
+    height: 100%;
+  }
+  #graph svg {
+    width: 100%;
+    height: 100%;
+  }
+  .graph-label {
+    font-size: 11px;
+    fill: #e0dcd0;
+    text-anchor: middle;
+    pointer-events: none;
+    font-weight: 600;
+  }
+  .graph-tip {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* SECTIONS */
+  .section { padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .section:last-of-type { border-bottom: none; }
+  .section-title {
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    color: #DFB757;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .section-subtitle {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
+  .cards { display: grid; gap: 16px; }
+  .cards-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .cards-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+  .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .card:hover { border-color: rgba(223,183,87,0.3); background: rgba(255,255,255,0.05); }
+  .card h3 {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    color: #DFB757;
+    margin-bottom: 8px;
+  }
+  .card p { font-size: 14px; color: #aaa; line-height: 1.5; margin-bottom: 12px; }
+  .card .meta { font-size: 12px; color: #666; margin-bottom: 12px; }
+  .card .price { font-size: 15px; color: #DFB757; font-weight: bold; }
+  .btn {
+    display: inline-block;
+    background: #DFB757;
+    color: #0a0a10;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .btn:hover { background: #c9a34e; }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid rgba(223,183,87,0.4);
+    color: #DFB757;
+  }
+  .btn-outline:hover { background: rgba(223,183,87,0.1); }
+
+  /* ABOUT */
+  .about-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #bbb;
+    max-width: 700px;
+  }
+  .about-text p { margin-bottom: 16px; }
+
+  /* TESTIMONIALS */
+  .testimonial {
+    background: rgba(255,255,255,0.02);
+    border-left: 2px solid rgba(223,183,87,0.3);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 16px;
+  }
+  .testimonial .text { font-size: 14px; font-style: italic; color: #ccc; margin-bottom: 6px; }
+  .testimonial .author { font-size: 12px; color: #888; }
+
+  /* EVENTS */
+  .event-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date { font-size: 13px; color: #DFB757; min-width: 70px; }
+  .event-name { font-size: 14px; color: #e0dcd0; flex: 1; padding: 0 12px; }
+  .event-loc { font-size: 12px; color: #666; min-width: 80px; text-align: right; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #555;
+    font-size: 12px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .graph-wrapper { height: 300px; }
+    .cards-2, .cards-3 { grid-template-columns: 1fr; }
+    .event-row { flex-wrap: wrap; gap: 4px; }
+    .event-date, .event-loc { min-width: auto; }
+  }
+
+  /* NODE BADGE */
+  .node-circle { cursor: pointer; stroke: rgba(255,255,255,0.2); }
+  .node-circle:hover { stroke: #DFB757; stroke-width: 2.5; }
+  .link-line { stroke: rgba(255,255,255,0.08); stroke-width: 1; }
+
+  /* FAQ */
+  .faq-item { margin-bottom: 16px; }
+  .faq-q {
+    font-size: 14px; color: #DFB757; cursor: pointer;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .faq-a {
+    font-size: 13px; color: #aaa; line-height: 1.6;
+    padding: 10px 0 0; display: none;
+  }
+  .faq-a.open { display: block; }
+
+  .cta-section {
+    background: linear-gradient(180deg, transparent, rgba(223,183,87,0.04));
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .cta-section h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(20px, 3vw, 28px);
+    color: #DFB757;
+    margin-bottom: 12px;
+  }
+  .cta-section p { color: #999; font-size: 14px; margin-bottom: 24px; }
+  .cta-section .btn { font-size: 15px; padding: 14px 36px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <h1>Contact Improvisation in Bali</h1>
+    <div class="subtitle">Ubud · Weekly Jams · Courses · Intensives</div>
+    <div class="tagline">
+      Movement begins where certainty ends.<br>
+      Weekly jams, beginner courses, and deep intensives — online and in Ubud.
+    </div>
+  </div>
+</div>
+
+<!-- GRAPH -->
+<div class="container">
+  <div class="graph-wrapper" id="graph"></div>
+  <div class="graph-tip">✨ Click any node to explore</div>
+</div>
+
+<!-- JAM -->
+<div class="section" id="jam">
+  <div class="container">
+    <div class="section-subtitle">Every Sunday</div>
+    <h2 class="section-title">☀ Weekly Contact Improvisation Jam</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Open Jam</h3>
+        <p>Contact Improvisation jam open to all levels — from absolute beginners to experienced movers. No partner needed.</p>
+        <div class="meta">📍 Ubud, Bali · Sun 18:00-20:00 · IDR 100K</div>
+        <a href="https://web.tribute.tg/s/Xu8" class="btn">Join the Jam →</a>
+      </div>
+      <div class="card">
+        <h3>What to expect</h3>
+        <p>Warm-up, guided scores, open dance. We explore weight-sharing, falling, lifting, rolling, and being present with another body. Every jam ends with a closing circle.</p>
+        <div class="meta">Bring: comfortable clothes, water, open mind</div>
+        <a href="https://www.instagram.com/seamless_movement/" class="btn btn-outline">Follow for updates</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COURSES -->
+<div class="section" id="courses">
+  <div class="container">
+    <div class="section-subtitle">Online · Self-Paced</div>
+    <h2 class="section-title">📚 Courses</h2>
+    <div class="cards cards-3">
+      <div class="card">
+        <h3>CI for Beginners</h3>
+        <p>Start your CI journey. Learn the fundamentals: rolling, falling, weight-sharing, and the art of listening through touch.</p>
+        <div class="price">$29</div>
+        <a href="https://web.tribute.tg/s/Xu8" class="btn">Enroll →</a>
+      </div>
+      <div class="card">
+        <h3>Keys to Floorwork</h3>
+        <p>Drop to the floor with confidence. Spiral rolls, transitions, floor paths, and finding freedom in low space.</p>
+        <div class="price">$29</div>
+        <a href="https://web.tribute.tg/s/Xu9" class="btn">Enroll →</a>
+      </div>
+      <div class="card">
+        <h3>Partnering & Lifts</h3>
+        <p>Safe and playful partnering: counterbalance, points of contact, lifts from floor to standing, and dynamic duets.</p>
+        <div class="price">$29</div>
+        <a href="https://web.tribute.tg/s/Xu8" class="btn">Enroll →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INTENSIVES -->
+<div class="section" id="intensives">
+  <div class="container">
+    <div class="section-subtitle">Intensives</div>
+    <h2 class="section-title">🔥 Upcoming Intensives</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>TRINITY Intensive</h3>
+        <p>3 days of CI, floorwork, and release technique. From solo grounding to high-energy partnering. Ubud, Bali.</p>
+        <div class="meta">📅 11-13 Jun 2026 · Ubud</div>
+        <a href="https://web.tribute.tg/s/Xu8" class="btn">Sign Up →</a>
+      </div>
+      <div class="card">
+        <h3>SEAMLESS Intensive 2026</h3>
+        <p>Deep immersion in the Seamless method: anatomy, improvisation, somatics, and performance. Dates TBA.</p>
+        <div class="meta">📅 TBA 2026 · Location TBA</div>
+        <a href="https://www.instagram.com/seamless_movement/" class="btn btn-outline">Stay Tuned</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVATE -->
+<div class="section" id="private">
+  <div class="container">
+    <div class="section-subtitle">One-on-One</div>
+    <h2 class="section-title">👤 Private Sessions</h2>
+    <div class="cards cards-2">
+      <div class="card">
+        <h3>Online Coaching</h3>
+        <p>Personalized CI coaching via video call. We analyse your movement, build technique, and address your specific goals.</p>
+        <div class="meta">📍 Zoom / Google Meet · 60 min</div>
+        <a href="https://t.me/contact_impro" class="btn">Book Online →</a>
+      </div>
+      <div class="card">
+        <h3>In-Person (Bali)</h3>
+        <p>One-on-one session in Ubud. For dancers wanting focused attention on their practice, whether beginner or advanced.</p>
+        <div class="meta">📍 Ubud, Bali · 90 min</div>
+        <a href="https://t.me/contact_impro" class="btn btn-outline">Book In-Person →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="container">
+    <div class="section-subtitle">About</div>
+    <h2 class="section-title">🌿 Seamless</h2>
+    <div class="about-text">
+      <p>Seamless is a movement practice rooted in Contact Improvisation, floorwork, and release technique. It's a playground for curious bodies — where dance meets somatics, improvisation meets anatomy, and you stop trying to look good and start feeling real.</p>
+      <p>Founded by Roman in Ubud, Bali, Seamless grew from weekly jams into a full ecosystem: beginner courses, intensives, online programs, and private coaching. The practice is for everyone — professional dancers, movers who never danced, therapists, athletes, and anyone who wants to explore what their body can say.</p>
+      <p>Beyond the physical, Seamless is building <strong>Seamless Universe</strong> — an interactive knowledge graph that maps the connections between movement, awareness, philosophy, and science. Think Wikipedia meets 3D galaxy of embodied knowledge.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section">
+  <div class="container">
+    <div class="section-subtitle">Testimonials</div>
+    <h2 class="section-title">💬 What People Say</h2>
+    <div class="testimonial">
+      <div class="text">"Seamless gave me structure I never had in my movement practice. I finally understand what I'm doing with my body."</div>
+      <div class="author">— Elena, dancer, Berlin</div>
+    </div>
+    <div class="testimonial">
+      <div class="text">"I came to CI as a complete beginner. Roman's explanations made everything click — the physics, the touch, the trust."</div>
+      <div class="author">— Olga, yoga teacher, Moscow</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <div class="container">
+    <h2 class="section-title">❓ FAQ</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open')">Do I need a partner?</div>
+      <div class="faq-a">No. You can come alone. Partners rotate during jams. In courses you work with different people.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open')">What should I wear?</div>
+      <div class="faq-a">Comfortable clothes for movement (leggings, shorts, t-shirt). No shoes. Knee pads optional but helpful.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open')">I'm a beginner. Is this for me?</div>
+      <div class="faq-a">Absolutely. CI for Beginners course is designed for complete newcomers. Jams welcome all levels.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open')">Can I attend if I'm injured?</div>
+      <div class="faq-a">Yes, with awareness. CI is adaptable. Let your partner and the facilitator know before starting.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="container">
+    <h2>Ready to move?</h2>
+    <p>Come to a jam, take a course, or book a session. First time? Start with CI for Beginners.</p>
+    <a href="https://web.tribute.tg/s/Xu8" class="btn">Start with CI for Beginners →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="container">
+    <p>© Seamless · Ubud, Bali · <a href="https://seamless.club" style="color:#666">seamless.club</a></p>
+  </div>
+</div>
+
+<script>
+// =========== 2D INTERACTIVE GRAPH ===========
+const nodes = [
+  { id: "start", label: "✨ What brings you here?", color: "#DFB757", r: 16, type: "hub" },
+  { id: "dance", label: "🕺 Want to dance", color: "#7ec8e3", r: 12, type: "intent" },
+  { id: "learn", label: "📖 Want to learn", color: "#a8d5a2", r: 12, type: "intent" },
+  { id: "deep", label: "🌀 Want to dive deep", color: "#e3a87e", r: 12, type: "intent" },
+  { id: "solo", label: "👤 Want personal", color: "#c9a0dc", r: 12, type: "intent" },
+  { id: "scared", label: "😬 I'm nervous", color: "#e07a7a", r: 10, type: "intent" },
+  { id: "jam", label: "☀ Weekly Jam", color: "#DFB757", r: 10, type: "product" },
+  { id: "ci", label: "CI for Beginners", color: "#a8d5a2", r: 9, type: "product" },
+  { id: "floor", label: "Keys to Floorwork", color: "#a8d5a2", r: 9, type: "product" },
+  { id: "partner", label: "Partnering", color: "#a8d5a2", r: 9, type: "product" },
+  { id: "trinity", label: "TRINITY Intensive", color: "#e3a87e", r: 10, type: "product" },
+  { id: "seamless-int", label: "SEAMLESS Intensive", color: "#e3a87e", r: 10, type: "product" },
+  { id: "online", label: "Private Online", color: "#c9a0dc", r: 8, type: "product" },
+  { id: "inperson", label: "Private In-Person", color: "#c9a0dc", r: 8, type: "product" },
+  { id: "about", label: "About Seamless", color: "#e3a87e", r: 9, type: "info" },
+  { id: "faq", label: "FAQ", color: "#e3a87e", r: 9, type: "info" },
+];
+
+const links = [
+  { s: "start", t: "dance" }, { s: "start", t: "learn" },
+  { s: "start", t: "deep" }, { s: "start", t: "solo" },
+  { s: "start", t: "scared" },
+  { s: "dance", t: "jam" },
+  { s: "learn", t: "ci" }, { s: "learn", t: "floor" }, { s: "learn", t: "partner" },
+  { s: "deep", t: "trinity" }, { s: "deep", t: "seamless-int" },
+  { s: "deep", t: "about" },
+  { s: "solo", t: "online" }, { s: "solo", t: "inperson" },
+  { s: "scared", t: "ci" }, { s: "scared", t: "about" },
+  { s: "ci", t: "jam" }, { s: "floor", t: "jam" }, { s: "partner", t: "jam" },
+  { s: "scared", t: "faq" },
+];
+
+// Scroll map
+const scrollTargets = {
+  "jam": "jam", "ci": "courses", "floor": "courses", "partner": "courses",
+  "trinity": "intensives", "seamless-int": "intensives",
+  "online": "private", "inperson": "private",
+  "about": "about", "faq": "faq",
+};
+
+const width = document.getElementById('graph').clientWidth || 800;
+const height = document.getElementById('graph').clientHeight || 420;
+
+const svg = d3.select("#graph")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height)
+  .attr("viewBox", [0, 0, width, height]);
+
+const g = svg.append("g");
+
+// Zoom
+svg.call(d3.zoom().scaleExtent([0.5, 2]).on("zoom", (e) => {
+  g.attr("transform", e.transform);
+}));
+
+// Simulation
+const sim = d3.forceSimulation(nodes)
+  .force("link", d3.forceLink(links).id(d => d.id).distance(d => {
+    return d.s === "start" ? 80 : 60;
+  }))
+  .force("charge", d3.forceManyBody().strength(d => d.type === "hub" ? -300 : d.type === "intent" ? -200 : -120))
+  .force("center", d3.forceCenter(width/2, height/2))
+  .force("collision", d3.forceCollide().radius(d => d.r + 6));
+
+const link = g.append("g")
+  .selectAll("line")
+  .data(links)
+  .join("line")
+  .attr("class", "link-line");
+
+const node = g.append("g")
+  .selectAll("g")
+  .data(nodes)
+  .join("g")
+  .call(d3.drag()
+    .on("start", (e, d) => {
+      if (!e.active) sim.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y;
+    })
+    .on("drag", (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on("end", (e, d) => {
+      if (!e.active) sim.alphaTarget(0);
+      d.fx = null; d.fy = null;
+    }));
+
+// Circles
+node.append("circle")
+  .attr("r", d => d.r)
+  .attr("class", "node-circle")
+  .attr("fill", d => d.color)
+  .attr("opacity", d => d.type === "hub" ? 1 : d.type === "intent" ? 0.85 : 0.7)
+  .on("click", (e, d) => {
+    const target = scrollTargets[d.id];
+    if (target) {
+      document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+
+// Labels
+node.append("text")
+  .text(d => d.label)
+  .attr("class", "graph-label")
+  .attr("dy", d => d.r + 14)
+  .attr("fill", d => d.type === "hub" ? "#DFB757" : d.type === "intent" ? "#ccc" : "#999")
+  .style("font-size", d => d.type === "hub" ? "12px" : d.type === "intent" ? "11px" : "10px");
+
+// Glow on start node
+node.filter(d => d.id === "start")
+  .append("circle")
+  .attr("r", 22)
+  .attr("fill", "none")
+  .attr("stroke", "#DFB757")
+  .attr("stroke-width", 1)
+  .attr("opacity", 0.3)
+  .style("animation", "pulse 3s ease-in-out infinite");
+
+// Append pulse style
+d3.select("head").append("style").text(`
+  @keyframes pulse {
+    0%, 100% { opacity: 0.2; r: 22; }
+    50% { opacity: 0.5; r: 26; }
+  }
+`);
+
+sim.on("tick", () => {
+  link.attr("x1", d => d.s.x).attr("y1", d => d.s.y)
+      .attr("x2", d => d.t.x).attr("y2", d => d.t.y);
+  node.attr("transform", d => `translate(${d.x},${d.y})`);
+});
+
+// Resize
+window.addEventListener("resize", () => {
+  const w = document.getElementById('graph').clientWidth;
+  const h = document.getElementById('graph').clientHeight;
+  svg.attr("width", w).attr("height", h).attr("viewBox", [0, 0, w, h]);
+  sim.force("center", d3.forceCenter(w/2, h/2));
+  sim.alpha(0.3).restart();
+});
+
+// Scroll to section from URL hash on load
+if (window.location.hash) {
+  setTimeout(() => {
+    const el = document.querySelector(window.location.hash);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }, 500);
+}
+</script>
+</body>
+</html>
