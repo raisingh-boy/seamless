@@ -446,7 +446,7 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
  </audio>
  <button onclick="toggleAudio()" id="play-btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 28px;background:var(--bark);color:var(--w);border:none;border-radius:50px;font-family:&#39;Karla&#39;,sans-serif;font-size:0.95rem;cursor:pointer;transition:background .2s;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
  <svg id="play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-top:1px"><polygon points="8,4 20,12 8,20"/></svg>
- <span id="play-label">Listen &mdash; 5:42</span>
+ <span id="play-label">Listen &mdash; 5:37</span>
  </button>
  <p id="audio-status" style="font-size:0.8rem;color:#999;margin-top:10px;min-height:18px;"></p>
  </div>
@@ -454,7 +454,7 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 </section>
 
 <script>
-function toggleAudio(){var a=document.getElementById('seamless-audio'),b=document.getElementById('play-btn'),i=document.getElementById('play-icon'),l=document.getElementById('play-label'),s=document.getElementById('audio-status');if(a.paused){a.play();b.style.background='#4a3f30';i.innerHTML='<rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/>';l.textContent='Playing...';s.textContent='';a.addEventListener('ended',function(){b.style.background='#2b2318';i.innerHTML='<polygon points="8,4 20,12 8,20"/>';l.innerHTML='Listen &mdash; 5:42';s.textContent='Now pick your path below.'});}else{a.pause();a.currentTime=0;b.style.background='#2b2318';i.innerHTML='<polygon points="8,4 20,12 8,20"/>';l.innerHTML='Listen &mdash; 5:42';s.textContent='';}
+function toggleAudio(){var a=document.getElementById('seamless-audio'),b=document.getElementById('play-btn'),i=document.getElementById('play-icon'),l=document.getElementById('play-label'),s=document.getElementById('audio-status');if(a.paused){a.play();b.style.background='#4a3f30';i.innerHTML='<rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/>';l.textContent='Playing...';s.textContent='';a.addEventListener('ended',function(){b.style.background='#2b2318';i.innerHTML='<polygon points="8,4 20,12 8,20"/>';l.innerHTML='Listen &mdash; 5:37';s.textContent='Now pick your path below.'});}else{a.pause();a.currentTime=0;b.style.background='#2b2318';i.innerHTML='<polygon points="8,4 20,12 8,20"/>';l.innerHTML='Listen &mdash; 5:37';s.textContent='';}
 }
 </script>
 
