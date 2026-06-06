@@ -214,6 +214,7 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
   <a href="#products" class="nav-cta">Get the Course</a>
 </nav>
 
+
 <!-- HERO -->
 <section id="hero">
   <div class="hero-video-bg">
@@ -234,6 +235,7 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
     <div class="stat"><div class="n">70%</div><div class="l">International</div></div>
   </div>
 </section>
+
 
 <!-- ABOUT -->
 <section id="about">
@@ -262,83 +264,6 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
   </div>
 </section>
 
-<!-- COMPARE -->
-<section id="compare">
-  <div class="sec-inner">
-    <div class="mono">Why this course</div>
-    <h2>Better than a<br><em>weekend workshop</em></h2>
-    <table class="cmp-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="hl">This Course</th>
-          <th>Typical Workshop</th>
-          <th>Single Class</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Price</td>
-          <td class="hl">$29.40 one-time</td>
-          <td>$200–500 for a weekend</td>
-          <td>$30–50 for 1 hour</td>
-        </tr>
-        <tr>
-          <td>Format</td>
-          <td class="hl">Recorded — watch anytime</td>
-          <td>Zoom only, time-bound</td>
-          <td>Live only, no replay</td>
-        </tr>
-        <tr>
-          <td>Access</td>
-          <td class="hl">Forever</td>
-          <td>During event only</td>
-          <td>No replay</td>
-        </tr>
-        <tr>
-          <td>Pace</td>
-          <td class="hl">Yours — repeat anytime</td>
-          <td>Fixed schedule</td>
-          <td>Fixed schedule</td>
-        </tr>
-        <tr>
-          <td>Level</td>
-          <td class="hl">Starts from zero</td>
-          <td>Often intermediate</td>
-          <td>Varies</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- INFOGRAPHIC + AUDIO -->
-<section style="padding:80px 24px;background:var(--cream);border-top:1px solid #ddd;">
- <div style="max-width:900px;margin:0 auto;text-align:center;">
- <p style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:16px;">Stuck? Scared?</p>
- <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:8px;">You&rsquo;re not alone.</h2>
- <p style="font-size:0.9rem;color:#666;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;">Most beginners feel the same way. See how it connects.</p>
- <img src="seamless-infographic.png" alt="Solo and Contact paths" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin-bottom:32px;">
- 
- <!-- Audio button inline -->
- <div style="margin-bottom:4px;">
- <p style="font-size:0.8rem;color:#999;margin-bottom:16px;">&mdash; or listen &mdash;</p>
- <audio id="seamless-audio" preload="none" style="display:none">
- <source src="seamless-podcast.mp3" type="audio/mpeg">
- </audio>
- <button onclick="toggleAudio()" id="play-btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 28px;background:var(--bark);color:var(--w);border:none;border-radius:50px;font-family:&#39;Karla&#39;,sans-serif;font-size:0.95rem;cursor:pointer;transition:background .2s;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
- <svg id="play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-top:1px"><polygon points="8,4 20,12 8,20"/></svg>
- <span id="play-label">Listen &mdash; 5:42</span>
- </button>
- <p id="audio-status" style="font-size:0.8rem;color:#999;margin-top:10px;min-height:18px;"></p>
- </div>
- </div>
-</section>
-
-<script>
-function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b=document.getElementById(&#39;play-btn&#39;),i=document.getElementById(&#39;play-icon&#39;),l=document.getElementById(&#39;play-label&#39;),s=document.getElementById(&#39;audio-status&#39;);if(a.paused){a.play();b.style.background=&#39;#4a3f30&#39;;i.innerHTML=&#39;<rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/>&#39;;l.textContent=&#39;Playing...&#39;;s.textContent=&#39;&#39;;a.addEventListener(&#39;ended&#39;,function(){b.style.background=&#39;#2b2318&#39;;i.innerHTML=&#39;<polygon points="8,4 20,12 8,20"/>&#39;;l.innerHTML=&#39;Listen &mdash; 5:42&#39;;s.textContent=&#39;Now pick your path below.&#39;;});}else{a.pause();a.currentTime=0;b.style.background=&#39;#2b2318&#39;;i.innerHTML=&#39;<polygon points="8,4 20,12 8,20"/>&#39;;l.innerHTML=&#39;Listen &mdash; 5:42&#39;;s.textContent=&#39;&#39;;}
-}
-</script>
 
 <!-- PRODUCTS -->
 <section id="products">
@@ -425,6 +350,7 @@ function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b
   </div>
 </section>
 
+
 <!-- HOW THEY CONNECT -->
 <section id="logic">
   <div class="sec-inner">
@@ -450,6 +376,87 @@ function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b
   </div>
 </section>
 
+
+
+
+<!-- COMPARE -->
+<section id="compare">
+  <div class="sec-inner">
+    <div class="mono">Why this course</div>
+    <h2>Better than a<br><em>weekend workshop</em></h2>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="hl">This Course</th>
+          <th>Typical Workshop</th>
+          <th>Single Class</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Price</td>
+          <td class="hl">$29.40 one-time</td>
+          <td>$200–500 for a weekend</td>
+          <td>$30–50 for 1 hour</td>
+        </tr>
+        <tr>
+          <td>Format</td>
+          <td class="hl">Recorded — watch anytime</td>
+          <td>Zoom only, time-bound</td>
+          <td>Live only, no replay</td>
+        </tr>
+        <tr>
+          <td>Access</td>
+          <td class="hl">Forever</td>
+          <td>During event only</td>
+          <td>No replay</td>
+        </tr>
+        <tr>
+          <td>Pace</td>
+          <td class="hl">Yours — repeat anytime</td>
+          <td>Fixed schedule</td>
+          <td>Fixed schedule</td>
+        </tr>
+        <tr>
+          <td>Level</td>
+          <td class="hl">Starts from zero</td>
+          <td>Often intermediate</td>
+          <td>Varies</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- INFOGRAPHIC + AUDIO -->
+<section style="padding:80px 24px;background:var(--cream);border-top:1px solid #ddd;">
+ <div style="max-width:900px;margin:0 auto;text-align:center;">
+ <p style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:16px;">Stuck? Scared?</p>
+ <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:8px;">You&rsquo;re not alone.</h2>
+ <p style="font-size:0.9rem;color:#666;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;">Most beginners feel the same way. See how it connects.</p>
+ <img src="seamless-infographic.png" alt="Solo and Contact paths" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin-bottom:32px;">
+ 
+ <!-- Audio button inline -->
+ <div style="margin-bottom:4px;">
+ <p style="font-size:0.8rem;color:#999;margin-bottom:16px;">&mdash; or listen &mdash;</p>
+ <audio id="seamless-audio" preload="none" style="display:none">
+ <source src="seamless-podcast.mp3" type="audio/mpeg">
+ </audio>
+ <button onclick="toggleAudio()" id="play-btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 28px;background:var(--bark);color:var(--w);border:none;border-radius:50px;font-family:&#39;Karla&#39;,sans-serif;font-size:0.95rem;cursor:pointer;transition:background .2s;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+ <svg id="play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-top:1px"><polygon points="8,4 20,12 8,20"/></svg>
+ <span id="play-label">Listen &mdash; 5:42</span>
+ </button>
+ <p id="audio-status" style="font-size:0.8rem;color:#999;margin-top:10px;min-height:18px;"></p>
+ </div>
+ </div>
+</section>
+
+<script>
+function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b=document.getElementById(&#39;play-btn&#39;),i=document.getElementById(&#39;play-icon&#39;),l=document.getElementById(&#39;play-label&#39;),s=document.getElementById(&#39;audio-status&#39;);if(a.paused){a.play();b.style.background=&#39;#4a3f30&#39;;i.innerHTML=&#39;<rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/>&#39;;l.textContent=&#39;Playing...&#39;;s.textContent=&#39;&#39;;a.addEventListener(&#39;ended&#39;,function(){b.style.background=&#39;#2b2318&#39;;i.innerHTML=&#39;<polygon points="8,4 20,12 8,20"/>&#39;;l.innerHTML=&#39;Listen &mdash; 5:42&#39;;s.textContent=&#39;Now pick your path below.&#39;;});}else{a.pause();a.currentTime=0;b.style.background=&#39;#2b2318&#39;;i.innerHTML=&#39;<polygon points="8,4 20,12 8,20"/>&#39;;l.innerHTML=&#39;Listen &mdash; 5:42&#39;;s.textContent=&#39;&#39;;}
+}
+</script>
 
 
 <!-- FAQ -->
@@ -498,6 +505,7 @@ function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b
   </div>
 </section>
 
+
 <!-- INSTAGRAM -->
 <section id="social">
   <div class="soc-inner">
@@ -510,6 +518,7 @@ function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b
     </a>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
