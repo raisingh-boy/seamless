@@ -3,550 +3,583 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seamless Bali — Contact Improvisation in Ubud: Jams, Courses, Intensives</title>
-<meta name="description" content="Contact Improvisation in Ubud, Bali. Weekly jams every Sunday, CI for Beginners, Floorwork, Partnering courses, TRINITY Intensive, private sessions — online and in person.">
-<meta name="keywords" content="contact improvisation bali, contact improvisation ubud, CI jam bali, floorwork class ubud, dance intensive bali, partnering workshop">
-<meta property="og:title" content="Seamless Bali — CI in Ubud">
-<meta property="og:description" content="Weekly jams, courses & intensives. Online & offline.">
-<meta property="og:image" content="https://seamless.club/ci-bali/og.jpg">
+<title>Seamless Bali — Contact Improvisation Ecosystem</title>
+<meta name="description" content="Contact Improvisation in Ubud, Bali. Weekly jams every Sunday, CI for Beginners, Keys to Floorwork, Partnering, TRINITY Intensive, private sessions.">
 <link rel="canonical" href="https://seamless.club/ci-bali/">
+<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
   * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    background: #08080f;
-    color: #e2ddd4;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    overflow-x: hidden;
-  }
+  body { background:#07070c; color:#e0ddd5; font-family: 'Inter', system-ui, sans-serif; overflow-x:hidden; }
 
   /* ===== HERO ===== */
   .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px 20px;
-    position: relative;
-    background:
-      radial-gradient(ellipse 140% 60% at 50% 100%, rgba(223,183,87,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 100% 40% at 80% 20%, rgba(100,200,255,0.03) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 30% at 10% 70%, rgba(220,120,80,0.03) 0%, transparent 50%);
-    overflow: hidden;
+    position:relative; min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center; padding:40px 24px 20px;
+    overflow:hidden;
   }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
+  .hero-bg {
+    position:absolute; inset:0; z-index:0;
     background:
-      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 0),
-      radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.1) 0%, transparent 0),
-      radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.12) 0%, transparent 0),
-      radial-gradient(1px 1px at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 0),
-      radial-gradient(1px 1px at 15% 90%, rgba(255,255,255,0.1) 0%, transparent 0),
-      radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.07) 0%, transparent 0),
-      radial-gradient(1.5px 1.5px at 50% 10%, rgba(223,183,87,0.2) 0%, transparent 0),
-      radial-gradient(1.5px 1.5px at 70% 55%, rgba(223,183,87,0.12) 0%, transparent 0);
-    pointer-events: none;
+      radial-gradient(ellipse 100% 70% at 20% 80%, rgba(223,183,87,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 50% at 80% 20%, rgba(120,80,200,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 120% 40% at 50% 100%, rgba(50,150,220,0.03) 0%, transparent 60%);
   }
+  .hero > * { position:relative; z-index:1; }
 
-  .hero-badge {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #DFB757;
-    border: 1px solid rgba(223,183,87,0.2);
-    padding: 6px 18px;
-    border-radius: 100px;
-    margin-bottom: 24px;
-    position: relative;
+  .hero-eyebrow {
+    font-size:11px; letter-spacing:0.35em; text-transform:uppercase;
+    color:#DFB757; border:1px solid rgba(223,183,87,0.2);
+    padding:5px 18px; border-radius:100px; margin-bottom:28px;
   }
   .hero h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(32px, 7vw, 64px);
-    color: #eee;
-    letter-spacing: 0.02em;
-    line-height: 1.1;
-    margin-bottom: 12px;
-    position: relative;
+    font-family:'Playfair Display', Georgia, serif;
+    font-size:clamp(40px, 10vw, 90px);
+    font-weight:700;
+    line-height:1;
+    letter-spacing:-0.02em;
+    margin-bottom:16px;
+    background:linear-gradient(135deg, #eee 0%, #DFB757 50%, #ffd78a 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
   }
-  .hero h1 span { color: #DFB757; }
-  .hero .sub {
-    font-size: clamp(14px, 2vw, 20px);
-    color: #999;
-    max-width: 520px;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    position: relative;
+  .hero-sub {
+    font-size:clamp(15px, 2vw, 22px); color:#999; font-weight:300;
+    max-width:540px; line-height:1.6; margin-bottom:40px;
   }
-  .hero-arrow {
-    width: 24px; height: 40px;
-    border: 1.5px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
-    position: relative;
-    animation: bounce 2s infinite;
+  .hero-cta {
+    display:inline-flex; gap:12px; align-items:center;
+    background:#DFB757; color:#0a0a10; padding:14px 36px;
+    border-radius:100px; text-decoration:none; font-weight:600; font-size:15px;
+    transition:transform 0.2s, box-shadow 0.2s;
   }
-  .hero-arrow::after {
-    content: '';
-    position: absolute; top: 8px; left: 50%;
-    width: 4px; height: 8px; background: #DFB757;
-    margin-left: -2px; border-radius: 2px;
-    animation: scrollHint 2s infinite;
-  }
-  @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
-  @keyframes scrollHint { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .hero-cta:hover { transform:translateY(-1px); box-shadow:0 8px 30px rgba(223,183,87,0.25); }
 
-  /* ===== NAVIGATION MAP ===== */
-  .map-section {
-    padding: 60px 20px 40px;
-    position: relative;
+  .scroll-hint {
+    position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+    width:20px; height:34px; border:1.5px solid rgba(255,255,255,0.12);
+    border-radius:10px; display:flex; justify-content:center; padding-top:6px;
   }
-  .map-section::before {
-    content: '';
-    position: absolute; top: 0; left: 10%; right: 10%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(223,183,87,0.15), transparent);
+  .scroll-hint::after {
+    content:''; width:3px; height:8px; background:#DFB757; border-radius:2px;
+    animation: scrollBounce 2s ease-in-out infinite;
   }
-  .map-title {
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: clamp(18px, 2.5vw, 26px);
-    color: #eee;
-    margin-bottom: 6px;
-  }
-  .map-sub {
-    text-align: center;
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 30px;
-    letter-spacing: 0.05em;
-  }
-
-  #graph {
-    width: 100%;
-    max-width: 900px;
-    height: 440px;
-    margin: 0 auto;
-    display: block;
-  }
-  #graph svg { width: 100%; height: 100%; }
-
-  .graph-node { cursor: pointer; transition: filter 0.3s; }
-  .graph-node:hover { filter: brightness(1.3); }
-  .graph-label { font-size: 10px; fill: #ccc; text-anchor: middle; pointer-events: none; font-weight: 500; }
-  .graph-link { stroke: rgba(255,255,255,0.06); stroke-width: 1; }
-
-  /* ===== ECOSYSTEM ===== */
-  .eco-section {
-    padding: 60px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .eco-title {
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: clamp(22px, 3vw, 30px);
-    color: #eee;
-    margin-bottom: 8px;
-  }
-  .eco-sub {
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 40px;
-  }
-
-  .eco-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-  .eco-card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: border-color 0.3s, transform 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .eco-card:hover {
-    border-color: rgba(223,183,87,0.2);
-    transform: translateY(-2px);
-  }
-  .eco-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #DFB757, transparent);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .eco-card:hover::before { opacity: 0.3; }
-  .eco-card .icon { font-size: 28px; margin-bottom: 10px; }
-  .eco-card h3 { font-size: 16px; color: #DFB757; margin-bottom: 6px; font-family: Georgia, serif; }
-  .eco-card p { font-size: 13px; color: #999; line-height: 1.5; margin-bottom: 8px; }
-  .eco-card .meta { font-size: 12px; color: #555; }
-  .eco-card .action {
-    display: inline-block; margin-top: 10px;
-    font-size: 12px; color: #DFB757; text-decoration: none; font-weight: 600;
-    letter-spacing: 0.05em;
-  }
-  .eco-card .action:hover { text-decoration: underline; }
-  .eco-card .price-tag {
-    position: absolute; top: 16px; right: 16px;
-    font-size: 14px; font-weight: bold; color: #DFB757;
-  }
-  .eco-card .tag {
-    display: inline-block; font-size: 10px;
-    padding: 2px 10px; border-radius: 100px;
-    background: rgba(223,183,87,0.08);
-    color: #DFB757;
-    margin-top: 8px;
-  }
+  @keyframes scrollBounce { 0%,100% { transform:translateY(0); opacity:1; } 50% { transform:translateY(8px); opacity:0.3; } }
 
   /* ===== INTRO ===== */
-  .intro-section {
-    padding: 80px 20px;
-    background: 
-      radial-gradient(ellipse 120% 50% at 50% 0%, rgba(223,183,87,0.03) 0%, transparent 70%);
-    text-align: center;
+  .intro {
+    max-width:720px; margin:0 auto; padding:80px 24px;
+    text-align:center; position:relative;
   }
-  .intro-section .container {
-    max-width: 700px;
-    margin: 0 auto;
+  .intro::before {
+    content:''; position:absolute; top:0; left:15%; right:15%;
+    height:1px; background:linear-gradient(90deg, transparent, rgba(223,183,87,0.15), transparent);
   }
-  .intro-section h2 {
-    font-family: Georgia, serif;
-    font-size: clamp(20px, 3vw, 28px);
-    color: #eee;
-    margin-bottom: 16px;
+  .intro h2 {
+    font-family:'Playfair Display', serif;
+    font-size:clamp(26px, 4vw, 38px); color:#eee; margin-bottom:16px;
   }
-  .intro-section p {
-    font-size: 15px;
-    color: #999;
-    line-height: 1.7;
-    margin-bottom: 16px;
+  .intro p {
+    font-size:16px; color:#999; line-height:1.8; font-weight:300;
   }
+
+  /* ===== GRAPH ===== */
+  .graph-section {
+    padding:40px 24px 60px; max-width:960px; margin:0 auto;
+  }
+  .graph-section h3 {
+    font-family:'Playfair Display', serif;
+    text-align:center; font-size:22px; color:#eee; margin-bottom:4px;
+  }
+  .graph-section .hint {
+    text-align:center; font-size:12px; color:#555; margin-bottom:16px;
+  }
+  #cy {
+    width:100%; height:480px; border-radius:20px;
+    background:rgba(255,255,255,0.01);
+    border:1px solid rgba(255,255,255,0.04);
+  }
+  @media(max-width:640px) { #cy { height:360px; } }
+
+  /* ===== FLOWING SECTIONS ===== */
+  .section {
+    max-width:1100px; margin:0 auto; padding:70px 24px;
+    position:relative;
+  }
+  .section-header {
+    text-align:center; margin-bottom:48px;
+  }
+  .section-tag {
+    font-size:11px; letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(223,183,87,0.6); margin-bottom:8px;
+  }
+  .section-header h2 {
+    font-family:'Playfair Display', serif;
+    font-size:clamp(24px, 3.5vw, 36px); color:#eee;
+  }
+  .section-header p {
+    font-size:14px; color:#888; margin-top:8px; font-weight:300;
+  }
+
+  /* Split layout */
+  .split {
+    display:grid; grid-template-columns:1fr 1fr; gap:40px;
+    align-items:center;
+  }
+  .split-full { grid-template-columns:1fr; }
+  @media(max-width:768px) { .split { grid-template-columns:1fr; gap:24px; } }
+
+  .split-visual {
+    aspect-ratio:1; border-radius:24px; overflow:hidden;
+    background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04);
+    display:flex; align-items:center; justify-content:center;
+    font-size:64px;
+  }
+
+  .split-text h3 {
+    font-family:'Playfair Display', serif;
+    font-size:24px; color:#eee; margin-bottom:12px;
+  }
+  .split-text p {
+    font-size:14px; color:#999; line-height:1.7; font-weight:300;
+    margin-bottom:16px;
+  }
+  .split-text .meta {
+    font-size:12px; color:#555; margin-bottom:12px;
+  }
+  .split-link {
+    display:inline-block; font-size:13px; font-weight:600;
+    color:#DFB757; text-decoration:none;
+    padding-bottom:2px; border-bottom:1px solid rgba(223,183,87,0.2);
+    transition:border-color 0.2s;
+  }
+  .split-link:hover { border-bottom-color:#DFB757; }
+
+  .split-price {
+    display:inline-block; font-size:22px; font-weight:700;
+    color:#DFB757; margin-top:8px;
+  }
+  .split-badge {
+    display:inline-block; font-size:10px; padding:3px 12px;
+    border-radius:100px; background:rgba(223,183,87,0.08);
+    color:#DFB757; margin-left:8px; vertical-align:middle;
+  }
+
+  /* Cards row */
+  .card-row {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:16px;
+  }
+  .card-simple {
+    background:rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:16px; padding:24px;
+    transition:border-color 0.3s, transform 0.3s;
+  }
+  .card-simple:hover {
+    border-color:rgba(223,183,87,0.2); transform:translateY(-2px);
+  }
+  .card-simple .icon { font-size:24px; margin-bottom:8px; }
+  .card-simple h4 { font-size:15px; color:#DFB757; margin-bottom:4px; }
+  .card-simple p { font-size:12px; color:#888; line-height:1.5; }
+  .card-simple .price { font-size:18px; font-weight:700; color:#DFB757; margin-top:8px; }
 
   /* ===== JOURNEY ===== */
-  .journey {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 20px;
+  .journey-grid {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:20px;
   }
-  .journey-title {
-    text-align: center;
-    font-family: Georgia, serif;
-    font-size: clamp(20px, 3vw, 28px);
-    color: #eee;
-    margin-bottom: 30px;
+  .journey-step {
+    text-align:center; padding:24px 16px;
+    background:rgba(255,255,255,0.01);
+    border-radius:16px; border:1px solid rgba(255,255,255,0.04);
   }
-  .step {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
-    align-items: flex-start;
+  .journey-step .num {
+    width:40px; height:40px; border-radius:50%;
+    border:1px solid rgba(223,183,87,0.3);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 10px; font-weight:700; color:#DFB757; font-size:14px;
   }
-  .step-num {
-    width: 36px; height: 36px; min-width: 36px;
-    border-radius: 50%;
-    border: 1px solid rgba(223,183,87,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: bold; color: #DFB757;
+  .journey-step h4 { font-size:14px; color:#eee; margin-bottom:4px; }
+  .journey-step p { font-size:12px; color:#888; line-height:1.5; margin-bottom:10px; }
+  .journey-step .step-link { font-size:12px; color:#DFB757; text-decoration:none; }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    max-width:200px; margin:0 auto;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(223,183,87,0.2), transparent);
   }
-  .step-content h4 { font-size: 15px; color: #e2ddd4; margin-bottom: 4px; }
-  .step-content p { font-size: 13px; color: #888; line-height: 1.5; }
-  .step-content .step-link { font-size: 12px; color: #DFB757; text-decoration: none; }
 
   /* ===== CTA ===== */
-  .cta-block {
-    text-align: center;
-    padding: 80px 20px;
-    background:
-      radial-gradient(ellipse 100% 40% at 50% 100%, rgba(223,183,87,0.04) 0%, transparent 70%);
+  .cta-section {
+    text-align:center; padding:80px 24px;
+    position:relative;
   }
-  .cta-block h2 { font-family: Georgia, serif; font-size: clamp(22px, 3vw, 30px); color: #eee; margin-bottom: 10px; }
-  .cta-block p { font-size: 14px; color: #888; margin-bottom: 24px; }
-  .cta-btn {
-    display: inline-block;
-    background: #DFB757; color: #0a0a10;
-    padding: 14px 36px; border-radius: 8px;
-    text-decoration: none; font-size: 15px; font-weight: 600;
-    transition: background 0.2s;
+  .cta-section::before {
+    content:''; position:absolute; top:0; left:20%; right:20%;
+    height:1px; background:linear-gradient(90deg, transparent, rgba(223,183,87,0.15), transparent);
   }
-  .cta-btn:hover { background: #c9a34e; }
+  .cta-section h2 {
+    font-family:'Playfair Display', serif;
+    font-size:clamp(26px, 4vw, 40px); color:#eee; margin-bottom:10px;
+  }
+  .cta-section p {
+    font-size:14px; color:#888; margin-bottom:28px; font-weight:300;
+  }
 
   /* ===== FOOTER ===== */
   .footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: #444;
-    font-size: 12px;
+    text-align:center; padding:40px 24px;
+    color:#444; font-size:12px;
   }
-  .footer a { color: #666; text-decoration: none; }
+  .footer a { color:#666; text-decoration:none; }
+  .footer a:hover { color:#999; }
 
-  @media (max-width: 640px) {
-    #graph { height: 320px; }
-    .eco-grid { grid-template-columns: 1fr; }
+  /* ===== CY STYLES ===== */
+  .tooltip {
+    position:fixed; display:none;
+    background:rgba(7,7,12,0.92);
+    border:1px solid rgba(223,183,87,0.2);
+    border-radius:10px; padding:10px 14px;
+    font-size:12px; color:#e0ddd5; pointer-events:none;
+    z-index:1000; max-width:200px;
   }
 </style>
 </head>
 <body>
+<div class="tooltip" id="tooltip"></div>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">Bali · Ubud</div>
-  <h1>Move in <span>Bali</span></h1>
-  <div class="sub">Contact Improvisation, floorwork & release —<br>weekly jams, courses, intensives. Online & in Ubud.</div>
-  <div class="hero-arrow"></div>
-</div>
-
-<!-- MAP -->
-<div class="map-section" id="explore">
-  <div class="map-title">🌿 What moves you?</div>
-  <div class="map-sub">Click a node to explore</div>
-  <div id="graph"></div>
-</div>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">Bali · Ubud</div>
+  <h1>Seamless</h1>
+  <div class="hero-sub">
+    Contact Improvisation, floorwork & release technique —<br>
+    weekly jams, online courses, intensives, private sessions.
+  </div>
+  <a class="hero-cta" href="https://web.tribute.tg/s/Xu8">
+    Start with CI for Beginners
+    <span style="font-size:18px;margin-left:4px;">→</span>
+  </a>
+  <div class="scroll-hint"></div>
+</section>
 
 <!-- INTRO -->
-<div class="intro-section">
-  <div class="container">
-    <h2>Welcome to Seamless</h2>
-    <p>Seamless is a living ecosystem of body, movement, and awareness — rooted in Contact Improvisation and growing through jams, courses, intensives, and one-on-one coaching.</p>
-    <p>Founded in Ubud, Bali. Practiced everywhere.</p>
-  </div>
+<div class="intro">
+  <h2>An ecosystem of movement</h2>
+  <p>Seamless is a practice, a community, and a growing map of embodied knowledge. From your first Sunday jam to a deep-dive intensive — everything connects.</p>
 </div>
 
-<!-- ECOSYSTEM -->
-<div class="eco-section" id="ecosystem">
-  <div class="eco-title">🌋 The Ecosystem</div>
-  <div class="eco-sub">Six ways in. One practice.</div>
-  <div class="eco-grid">
-    <div class="eco-card">
-      <div class="icon">☀</div>
-      <h3>Weekly Jam</h3>
-      <p>Every Sunday in Ubud. Open to all levels. Warm-up, scores, open dance, closing circle.</p>
-      <div class="meta">📍 Ubud · Sun 18:00-20:00 · IDR 100K</div>
-      <a class="action" href="https://www.instagram.com/seamless_movement/">Follow →</a>
-    </div>
-    <div class="eco-card">
-      <div class="icon">📖</div>
-      <h3>CI for Beginners</h3>
-      <p>Start here. Rolling, falling, weight-sharing. The fundamentals of listening through touch.</p>
-      <div class="price-tag">$29</div>
-      <div class="tag">self-paced</div>
-      <a class="action" href="https://web.tribute.tg/s/Xu8">Start Learning →</a>
-    </div>
-    <div class="eco-card">
-      <div class="icon">⬇</div>
-      <h3>Keys to Floorwork</h3>
-      <p>Drop with confidence. Spiral rolls, floor paths, transitions — freedom in low space.</p>
-      <div class="price-tag">$29</div>
-      <div class="tag">self-paced</div>
-      <a class="action" href="https://web.tribute.tg/s/Xu9">Go Low →</a>
-    </div>
-    <div class="eco-card">
-      <div class="icon">🤝</div>
-      <h3>Partnering & Lifts</h3>
-      <p>Counterbalance, points of contact, lifts from floor to standing. Safe, playful, dynamic.</p>
-      <div class="price-tag">$29</div>
-      <div class="tag">self-paced</div>
-      <a class="action" href="https://web.tribute.tg/s/Xu8">Partner Up →</a>
-    </div>
-    <div class="eco-card">
-      <div class="icon">🔥</div>
-      <h3>TRINITY Intensive</h3>
-      <p>3 days of CI, floorwork, release. Solo grounding to high-energy partnering.</p>
-      <div class="meta">📅 11-13 Jun · Ubud</div>
-      <a class="action" href="https://web.tribute.tg/s/Xu8">Join →</a>
-    </div>
-    <div class="eco-card">
-      <div class="icon">👤</div>
-      <h3>Private Sessions</h3>
-      <p>One-on-one coaching. Online (Zoom) or in-person (Ubud). For your unique practice.</p>
-      <div class="meta">📍 Online · Ubud</div>
-      <a class="action" href="https://t.me/contact_impro">Book →</a>
+<!-- GRAPH -->
+<div class="graph-section">
+  <h3>Explore the ecosystem</h3>
+  <div class="hint">Click any node to jump to it</div>
+  <div id="cy"></div>
+</div>
+<div class="divider"></div>
+
+<!-- JAM + COURSES -->
+<section class="section" id="jam">
+  <div class="section-header">
+    <div class="section-tag">Every Sunday</div>
+    <h2>Weekly Jam</h2>
+    <p>Open to all levels · Ubud · 18:00-20:00</p>
+  </div>
+  <div class="split">
+    <div class="split-visual">☀️</div>
+    <div class="split-text">
+      <h3>Contact Improvisation Jam</h3>
+      <p>No experience needed. No partner needed. Just come as you are.</p>
+      <p>We start with a guided warm-up, move into open scores, and finish with a closing circle. Every body is welcome — dancers, movers, athletes, therapists, absolute beginners.</p>
+      <div class="meta">📍 Ubud · Every Sunday 18:00-20:00 · IDR 100K</div>
+      <a class="split-link" href="https://www.instagram.com/seamless_movement/">Follow for location →</a>
     </div>
   </div>
-</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="courses">
+  <div class="section-header">
+    <div class="section-tag">Online · Self-Paced</div>
+    <h2>Courses</h2>
+    <p>Start anywhere. Go at your own pace.</p>
+  </div>
+  <div class="card-row">
+    <div class="card-simple">
+      <div class="icon">📖</div>
+      <h4>CI for Beginners</h4>
+      <p>Rolling, falling, weight-sharing. The fundamentals of listening through touch.</p>
+      <div class="price">$29</div>
+      <a class="split-link" href="https://web.tribute.tg/s/Xu8" style="margin-top:10px;display:inline-block;">Start →</a>
+    </div>
+    <div class="card-simple">
+      <div class="icon">⬇️</div>
+      <h4>Keys to Floorwork</h4>
+      <p>Drop with confidence. Spiral rolls, floor paths, transitions — find freedom in low space.</p>
+      <div class="price">$29</div>
+      <a class="split-link" href="https://web.tribute.tg/s/Xu9" style="margin-top:10px;display:inline-block;">Go low →</a>
+    </div>
+    <div class="card-simple">
+      <div class="icon">🤝</div>
+      <h4>Partnering & Lifts</h4>
+      <p>Counterbalance, points of contact, lifts from floor to standing. Safe and playful.</p>
+      <div class="price">$29</div>
+      <a class="split-link" href="https://web.tribute.tg/s/Xu8" style="margin-top:10px;display:inline-block;">Partner up →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTENSIVES -->
+<section class="section" id="intensives">
+  <div class="section-header">
+    <div class="section-tag">Immersive</div>
+    <h2>Intensives</h2>
+  </div>
+  <div class="split">
+    <div class="split-text">
+      <h3>TRINITY Intensive</h3>
+      <p>3 days of CI, floorwork, and release technique. From solo grounding to high-energy partnering. Suitable for intermediate and experienced movers.</p>
+      <div class="meta">📅 11-13 June 2026 · Ubud, Bali</div>
+      <a class="split-link" href="https://web.tribute.tg/s/Xu8">Register →</a>
+    </div>
+    <div class="split-visual" style="font-size:48px">🔥</div>
+  </div>
+  <div style="height:20px"></div>
+  <div class="split">
+    <div class="split-visual" style="font-size:48px">🌊</div>
+    <div class="split-text">
+      <h3>SEAMLESS Intensive 2026</h3>
+      <p>Deep immersion in the Seamless method: anatomy, improvisation, somatics, performance. Details coming soon.</p>
+      <div class="meta">📅 TBA · Location TBA</div>
+      <a class="split-link" href="https://www.instagram.com/seamless_movement/">Stay tuned →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRIVATE -->
+<section class="section" id="private">
+  <div class="section-header">
+    <div class="section-tag">One-on-One</div>
+    <h2>Private Sessions</h2>
+  </div>
+  <div class="card-row">
+    <div class="card-simple" style="text-align:center">
+      <div class="icon" style="font-size:36px">💻</div>
+      <h4>Online Coaching</h4>
+      <p>Personalized CI coaching via Zoom. We analyse your movement, build technique, address your goals.</p>
+      <a class="split-link" href="https://t.me/contact_impro" style="margin-top:10px;display:inline-block;">Book →</a>
+    </div>
+    <div class="card-simple" style="text-align:center">
+      <div class="icon" style="font-size:36px">🏝️</div>
+      <h4>In-Person (Ubud)</h4>
+      <p>One-on-one movement session in Bali. For focused attention on your practice.</p>
+      <a class="split-link" href="https://t.me/contact_impro" style="margin-top:10px;display:inline-block;">Book →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="split split-full" style="text-align:center;max-width:640px;margin:0 auto;">
+    <div class="section-header">
+      <div class="section-tag">About</div>
+      <h2>The practice</h2>
+    </div>
+    <div class="split-text">
+      <p>Seamless started as a Sunday jam in Ubud and grew into a full ecosystem — because Contact Improvisation isn't just a dance form, it's a way of relating: to gravity, to another body, to uncertainty.</p>
+      <p>It's for dancers who want to go deeper. It's for non-dancers who want to discover what their body can say. It's for therapists, athletes, movers, thinkers — anyone curious about the conversation between bodies.</p>
+      <p style="color:#666;margin-top:20px;font-size:13px;">— Roman, founder of Seamless</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- JOURNEY -->
-<div class="journey" id="start">
-  <div class="journey-title">🧭 Your First Steps</div>
-
-  <div class="step">
-    <div class="step-num">1</div>
-    <div class="step-content">
-      <h4>Just arrived? Come to a Jam</h4>
-      <p>No partner, no experience needed. Every Sunday, 18:00, Ubud. Bring water and an open mind.</p>
-      <a class="step-link" href="https://www.instagram.com/seamless_movement/">📍 Find location →</a>
-    </div>
+<section class="section" id="start">
+  <div class="section-header">
+    <div class="section-tag">How to begin</div>
+    <h2>Your first steps</h2>
   </div>
-
-  <div class="step">
-    <div class="step-num">2</div>
-    <div class="step-content">
-      <h4>Want structure? Take a Course</h4>
-      <p>CI for Beginners → Floorwork → Partnering. Start online now, continue in person.</p>
-      <a class="step-link" href="https://web.tribute.tg/s/Xu8">Start CI for Beginners →</a>
+  <div class="journey-grid">
+    <div class="journey-step">
+      <div class="num">1</div>
+      <h4>Just landed?</h4>
+      <p>Come to a Sunday jam. No experience needed.</p>
+      <a class="step-link" href="https://www.instagram.com/seamless_movement/">📍 Find the jam →</a>
     </div>
-  </div>
-
-  <div class="step">
-    <div class="step-num">3</div>
-    <div class="step-content">
-      <h4>Ready to dive? Join an Intensive</h4>
-      <p>TRINITY (11-13 Jun) is 3 full days. Everything from solo somatics to explosive partnering.</p>
-      <a class="step-link" href="https://web.tribute.tg/s/Xu8">Join TRINITY →</a>
+    <div class="journey-step">
+      <div class="num">2</div>
+      <h4>Want to learn?</h4>
+      <p>Start online: CI for Beginners ($29). Go at your pace.</p>
+      <a class="step-link" href="https://web.tribute.tg/s/Xu8">Start now →</a>
     </div>
-  </div>
-
-  <div class="step">
-    <div class="step-num">4</div>
-    <div class="step-content">
-      <h4>Want depth? Book a Private Session</h4>
-      <p>One-on-one attention. Online via Zoom or in Ubud. We'll work on exactly what you need.</p>
+    <div class="journey-step">
+      <div class="num">3</div>
+      <h4>Ready for depth?</h4>
+      <p>Join TRINITY (11-13 Jun) — 3 full days of CI & floorwork.</p>
+      <a class="step-link" href="https://web.tribute.tg/s/Xu8">Join intensive →</a>
+    </div>
+    <div class="journey-step">
+      <div class="num">4</div>
+      <h4>Need focus?</h4>
+      <p>Book a private session. Online or in Ubud.</p>
       <a class="step-link" href="https://t.me/contact_impro">Book →</a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- CTA -->
-<div class="cta-block">
-  <h2>Ready to move?</h2>
-  <p>First time? Start with CI for Beginners ($29) or come to a Sunday jam.</p>
-  <a class="cta-btn" href="https://web.tribute.tg/s/Xu8">Start with CI for Beginners →</a>
-  <br><br>
-  <a href="https://www.instagram.com/seamless_movement/" style="color:#888;font-size:13px;">Follow on Instagram</a>
+<div class="cta-section">
+  <h2>Begin with CI for Beginners</h2>
+  <p>The complete intro course. $29. Start today.</p>
+  <a class="hero-cta" href="https://web.tribute.tg/s/Xu8">Start the course →</a>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-  <a href="https://seamless.club">Seamless</a> · Ubud, Bali · Contact: <a href="https://t.me/contact_impro">@contact_impro</a>
+  <a href="https://seamless.club">Seamless</a> · Ubud, Bali · 
+  <a href="https://t.me/contact_impro">Contact</a> ·
+  <a href="https://www.instagram.com/seamless_movement/">Instagram</a>
 </div>
 
 <script>
-// ===== INTERACTIVE 2D GRAPH (vanilla SVG, no D3) =====
-(function() {
-  const w = document.getElementById('graph').clientWidth || 800;
-  const h = document.getElementById('graph').clientHeight || 440;
+// ===== CYTOSCAPE FORCE-DIRECTED GRAPH =====
+(function(){
+  const container = document.getElementById('cy');
+  const tooltip = document.getElementById('tooltip');
 
-  const nodes = [
-    { id:'start',  label:'✨ What brings\nyou here?',        x:w*0.5,  y:h*0.15, r:16, color:'#DFB757', group:0 },
-    { id:'dance',  label:'🕺 Want to\ndance',                x:w*0.2,  y:h*0.38, r:12, color:'#7ec8e3', group:1 },
-    { id:'learn',  label:'📖 Want to\nlearn',                 x:w*0.4,  y:h*0.38, r:12, color:'#a8d5a2', group:1 },
-    { id:'deep',   label:'🌀 Want to\ndive deep',             x:w*0.6,  y:h*0.38, r:12, color:'#e3a87e', group:1 },
-    { id:'solo',   label:'👤 Want\npersonal',                 x:w*0.8,  y:h*0.38, r:12, color:'#c9a0dc', group:1 },
-    { id:'jam',    label:'☀ Weekly Jam',                     x:w*0.15, y:h*0.6,  r:11, color:'#DFB757', group:2 },
-    { id:'ci',     label:'CI for Beginners',                  x:w*0.3,  y:h*0.6,  r:10, color:'#a8d5a2', group:2 },
-    { id:'floor',  label:'Keys to\nFloorwork',               x:w*0.4,  y:h*0.75, r:10, color:'#a8d5a2', group:2 },
-    { id:'partner',label:'Partnering',                        x:w*0.5,  y:h*0.65, r:10, color:'#a8d5a2', group:2 },
-    { id:'trinity',label:'TRINITY\nIntensive',                x:w*0.65, y:h*0.6,  r:11, color:'#e3a87e', group:2 },
-    { id:'intense',label:'SEAMLESS\nIntensive',               x:w*0.75, y:h*0.75, r:10, color:'#e3a87e', group:2 },
-    { id:'online', label:'Private\nOnline',                   x:w*0.88, y:h*0.55, r:9,  color:'#c9a0dc', group:2 },
-    { id:'inperson',label:'Private\nIn-Person',               x:w*0.88, y:h*0.7,  r:9,  color:'#c9a0dc', group:2 },
-    { id:'about',  label:'About\nSeamless',                   x:w*0.55, y:h*0.85, r:10, color:'#e3a87e', group:3 },
-    { id:'faq',    label:'FAQ',                               x:w*0.45, y:h*0.88, r:9,  color:'#e3a87e', group:3 },
-  ];
-
-  const links = [
-    {s:'start',t:'dance'},{s:'start',t:'learn'},{s:'start',t:'deep'},{s:'start',t:'solo'},
-    {s:'dance',t:'jam'},{s:'learn',t:'ci'},{s:'learn',t:'floor'},{s:'learn',t:'partner'},
-    {s:'deep',t:'trinity'},{s:'deep',t:'intense'},{s:'deep',t:'about'},
-    {s:'solo',t:'online'},{s:'solo',t:'inperson'},
-    {s:'ci',t:'jam'},{s:'floor',t:'partner'},{s:'trinity',t:'intense'},
-  ];
-
-  const scrollTargets = {
-    jam:'ecosystem', ci:'ecosystem', floor:'ecosystem', partner:'ecosystem',
-    trinity:'ecosystem', intense:'ecosystem', online:'ecosystem', inperson:'ecosystem',
-    about:'intro-section', faq:'start',
+  const elements = {
+    nodes: [
+      { data: { id:'start',   label:'Seamless Bali',   weight:30, type:'hub' } },
+      { data: { id:'jam',     label:'☀ Weekly Jam',    weight:18, type:'product' } },
+      { data: { id:'ci',      label:'CI for\nBeginners',weight:14, type:'course' } },
+      { data: { id:'floor',   label:'Keys to\nFloorwork',weight:14, type:'course' } },
+      { data: { id:'partner', label:'Partnering\n& Lifts',weight:14, type:'course' } },
+      { data: { id:'trinity', label:'TRINITY\nIntensive', weight:16, type:'product' } },
+      { data: { id:'intense', label:'SEAMLESS\nIntensive',weight:14, type:'product' } },
+      { data: { id:'online',  label:'Private\nOnline',    weight:12, type:'service' } },
+      { data: { id:'inperson',label:'Private\nIn-Person',weight:12, type:'service' } },
+    ],
+    edges: [
+      { data: { source:'start', target:'jam', id:'e1' } },
+      { data: { source:'start', target:'ci', id:'e2' } },
+      { data: { source:'start', target:'trinity', id:'e3' } },
+      { data: { source:'start', target:'online', id:'e4' } },
+      { data: { source:'ci', target:'floor', id:'e5' } },
+      { data: { source:'floor', target:'partner', id:'e6' } },
+      { data: { source:'ci', target:'jam', id:'e7' } },
+      { data: { source:'trinity', target:'intense', id:'e8' } },
+      { data: { source:'start', target:'inperson', id:'e9' } },
+    ]
   };
 
-  const svgNS = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(svgNS, 'svg');
-  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-  document.getElementById('graph').appendChild(svg);
+  const scrollTo = {
+    'jam':'jam','ci':'courses','floor':'courses','partner':'courses',
+    'trinity':'intensives','intense':'intensives',
+    'online':'private','inperson':'private',
+  };
 
-  // Links
-  links.forEach(lk => {
-    const sn = nodes.find(n => n.id === lk.s);
-    const tn = nodes.find(n => n.id === lk.t);
-    if (!sn || !tn) return;
-    const line = document.createElementNS(svgNS, 'line');
-    line.setAttribute('x1', sn.x); line.setAttribute('y1', sn.y);
-    line.setAttribute('x2', tn.x); line.setAttribute('y2', tn.y);
-    line.classList.add('graph-link');
-    svg.appendChild(line);
+  const typeColors = {
+    hub:     '#DFB757',
+    product: '#7ec8e3',
+    course:  '#a8d5a2',
+    service: '#c9a0dc',
+  };
+
+  const cy = cytoscape({
+    container,
+    elements,
+    style: [
+      { selector:'node', style:{
+        'background-color': el => typeColors[el.data('type')] || '#888',
+        'label': el => el.data('label'),
+        'color': '#e0ddd5',
+        'font-family': 'Inter, sans-serif',
+        'font-size': '11px',
+        'text-wrap': 'wrap',
+        'text-max-width': '80px',
+        'text-valign': 'center',
+        'text-halign': 'center',
+        'width': el => Math.max(30, el.data('weight') * 2.2),
+        'height': el => Math.max(30, el.data('weight') * 2.2),
+        'border-width': '0',
+        'opacity': el => el.data('type') === 'hub' ? 1 : 0.75,
+        'transition-property': 'opacity, border-width',
+        'transition-duration': '0.2s',
+      }},
+      { selector:'node:selected', style:{
+        'border-width': '2px',
+        'border-color': '#DFB757',
+      }},
+      { selector:'edge', style:{
+        'line-color': 'rgba(255,255,255,0.06)',
+        'width': 1,
+        'curve-style': 'bezier',
+        'target-arrow-shape': 'none',
+      }},
+    ],
+    layout: {
+      name: 'cose',
+      animate: true,
+      animationDuration: 800,
+      gravity: 0.3,
+      idealEdgeLength: 80,
+      nodeOverlap: 10,
+    },
+    userZoomingEnabled: true,
+    userPanningEnabled: true,
+    minZoom: 0.4,
+    maxZoom: 2,
   });
 
-  // Nodes
-  nodes.forEach(n => {
-    const g = document.createElementNS(svgNS, 'g');
-    g.classList.add('graph-node');
-    g.setAttribute('data-id', n.id);
-
-    // Glow for start
-    if (n.id === 'start') {
-      const glow = document.createElementNS(svgNS, 'circle');
-      glow.setAttribute('cx', n.x); glow.setAttribute('cy', n.y);
-      glow.setAttribute('r', n.r + 6);
-      glow.setAttribute('fill', 'none');
-      glow.setAttribute('stroke', '#DFB757');
-      glow.setAttribute('stroke-width', 0.8);
-      glow.setAttribute('opacity', '0.3');
-      g.appendChild(glow);
+  // Click handler — scroll to section
+  cy.on('tap', 'node', function(evt) {
+    const id = evt.target.id();
+    const sectionId = scrollTo[id];
+    if (sectionId) {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
     }
-
-    const circle = document.createElementNS(svgNS, 'circle');
-    circle.setAttribute('cx', n.x); circle.setAttribute('cy', n.y);
-    circle.setAttribute('r', n.r);
-    circle.setAttribute('fill', n.color);
-    circle.setAttribute('opacity', n.group === 0 ? '1' : n.group === 1 ? '0.85' : '0.65');
-    circle.setAttribute('stroke', 'rgba(255,255,255,0.1)');
-    circle.setAttribute('stroke-width', '0.5');
-    g.appendChild(circle);
-
-    // Label
-    const lines = n.label.split('\n');
-    lines.forEach((lineText, i) => {
-      const text = document.createElementNS(svgNS, 'text');
-      text.textContent = lineText;
-      text.setAttribute('x', n.x);
-      text.setAttribute('y', n.y + n.r + 8 + i * 11);
-      text.classList.add('graph-label');
-      if (n.group === 0) text.setAttribute('fill', '#DFB757');
-      else if (n.group === 1) text.setAttribute('fill', '#ccc');
-      else text.setAttribute('fill', '#999');
-      g.appendChild(text);
-    });
-
-    // Click
-    g.addEventListener('click', () => {
-      const target = scrollTargets[n.id];
-      if (target) {
-        const el = document.getElementById(target);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-
-    // Hover
-    g.addEventListener('mouseenter', () => {
-      circle.setAttribute('stroke', '#DFB757');
-      circle.setAttribute('stroke-width', '2');
-    });
-    g.addEventListener('mouseleave', () => {
-      circle.setAttribute('stroke', 'rgba(255,255,255,0.1)');
-      circle.setAttribute('stroke-width', '0.5');
-    });
-
-    svg.appendChild(g);
   });
 
-  // Fade in animation
-  svg.style.opacity = '0';
-  svg.style.transition = 'opacity 0.8s ease';
-  setTimeout(() => { svg.style.opacity = '1'; }, 200);
+  // Hover tooltip
+  cy.on('mouseover', 'node', function(evt) {
+    const n = evt.target;
+    tooltip.textContent = n.data('label').replace(/\n/g,' ');
+    tooltip.style.display = 'block';
+    n.style('opacity', 1);
+  });
+  cy.on('mouseout', 'node', function(evt) {
+    tooltip.style.display = 'none';
+    evt.target.style('opacity', el => el.data('type') === 'hub' ? 1 : 0.75);
+  });
+  document.addEventListener('mousemove', e => {
+    tooltip.style.left = (e.clientX + 12) + 'px';
+    tooltip.style.top = (e.clientY + 12) + 'px';
+  });
+
+  // Resize handler
+  window.addEventListener('resize', () => {
+    cy.resize();
+  });
+
+  // Fade in
+  container.style.opacity = '0';
+  container.style.transition = 'opacity 0.6s';
+  setTimeout(() => { container.style.opacity = '1'; }, 100);
 })();
 </script>
 </body>
