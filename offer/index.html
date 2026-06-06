@@ -312,43 +312,37 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
   </div>
 </section>
 
-<!-- FEAR BLOCK — закрытие сомнений новичков -->
-<section style="padding:80px 24px;background:#f5f4f0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;">
- <div style="max-width:800px;margin:0 auto;">
- <p style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:16px;text-align:center;">Is this for you?</p>
- <h2 style="font-size:1.75rem;font-weight:500;text-align:center;margin-bottom:48px;">&ldquo;But I&rsquo;m too stiff, and I don&rsquo;t know how to dance…&rdquo;</h2>
-
- <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
- <div style="background:#fff;padding:32px;border-radius:16px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
- <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:12px;">🔒 Fear: &ldquo;I am not flexible enough.&rdquo;</h3>
- <p style="font-size:0.9rem;color:#666;line-height:1.6;">
- Somatic movement is not about flexibility or stretching your hamstrings. It is about retraining your brain to release involuntary muscle tension&mdash;what science calls <strong style="color:#000;">Sensory-Motor Amnesia</strong>. If you can breathe and lie on the floor, you can do this.
- </p>
- </div>
-
- <div style="background:#fff;padding:32px;border-radius:16px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
- <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:12px;">🙈 Fear: &ldquo;I will look awkward or silly.&rdquo;</h3>
- <p style="font-size:0.9rem;color:#666;line-height:1.6;">
- There are no mirrors, no complex choreography, and absolutely no performance pressure. We do not care what the movement looks like from the outside. We only care about how it feels from within. This is a judgment-free zone.
- </p>
- </div>
-
- <div style="background:#fff;padding:32px;border-radius:16px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
- <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:12px;">🤝 Fear: &ldquo;I&rsquo;m nervous about physical contact.&rdquo;</h3>
- <p style="font-size:0.9rem;color:#666;line-height:1.6;">
- In Contact Improvisation, we treat touch as pure physics&mdash;momentum, weight sharing, and structure. We teach you how to set clear boundaries, listen to your partner&rsquo;s weight, and move safely in a consensual, respectful space.
- </p>
- </div>
-
- <div style="background:#fff;padding:32px;border-radius:16px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
- <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:12px;">🧠 Fear: &ldquo;I overthink everything.&rdquo;</h3>
- <p style="font-size:0.9rem;color:#666;line-height:1.6;">
- Modern life keeps us trapped in our heads. Our lessons are designed to gently guide your awareness back into your bones, joints, and fluids, quietening your inner critic and shifting your nervous system into &lsquo;rest and digest&rsquo; mode.
- </p>
- </div>
- </div>
+<!-- INFOGRAPHIC -->
+<section style="padding:80px 24px;background:var(--cream);border-top:1px solid #ddd;border-bottom:1px solid #ddd;">
+ <div style="max-width:900px;margin:0 auto;text-align:center;">
+ <p style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:16px;">Stuck? Scared?</p>
+ <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:8px;">You&rsquo;re not alone.</h2>
+ <p style="font-size:0.9rem;color:#666;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;">Most beginners feel the same way. Here&rsquo;s how it connects.</p>
+ <img src="seamless-infographic.png" alt="Solo and Contact paths" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);margin-bottom:24px;">
  </div>
 </section>
+
+<!-- AUDIO PLAYER -->
+<section style="padding:60px 24px;background:#f5f4f0;">
+ <div style="max-width:600px;margin:0 auto;text-align:center;">
+ <p style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:16px;">Listen before you choose</p>
+ <h2 style="font-size:1.5rem;font-weight:500;margin-bottom:16px;">Why movement matters</h2>
+ <p style="font-size:0.9rem;color:#666;margin-bottom:32px;">A short audio guide for beginners &mdash; 5 minutes about fears, the solo path, and how it leads to contact.</p>
+ <audio id="seamless-audio" preload="none" style="display:none">
+ <source src="seamless-podcast.mp3" type="audio/mpeg">
+ </audio>
+ <button onclick="toggleAudio()" id="play-btn" style="display:inline-flex;align-items:center;gap:12px;padding:16px 32px;background:var(--bark);color:var(--w);border:none;border-radius:50px;font-family:&#39;Karla&#39;,sans-serif;font-size:1rem;cursor:pointer;transition:background .2s,transform .1s;box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+ <svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-top:1px"><polygon points="8,4 20,12 8,20"/></svg>
+ <span id="play-label">Listen &mdash; 5:42</span>
+ </button>
+ <p id="audio-status" style="font-size:0.8rem;color:#999;margin-top:12px;min-height:20px;"></p>
+ </div>
+</section>
+
+<script>
+function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b=document.getElementById(&#39;play-btn&#39;),i=document.getElementById(&#39;play-icon&#39;),l=document.getElementById(&#39;play-label&#39;),s=document.getElementById(&#39;audio-status&#39;);if(a.paused){a.play();b.style.background=&#39;#4a3f30&#39;;i.innerHTML=&#39;<rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/>&#39;;l.textContent=&#39;Playing...&#39;;s.textContent=&#39;&#39;;a.addEventListener(&#39;ended&#39;,function(){b.style.background=&#39;#2b2318&#39;;i.innerHTML=&#39;<polygon points="8,4 20,12 8,20"/>&#39;;l.innerHTML=&#39;Listen &mdash; 5:42&#39;;s.textContent=&#39;Thanks for listening. Now pick your path below.&#39;;});}else{a.pause();a.currentTime=0;b.style.background=&#39;#2b2318&#39;;i.innerHTML=&#39;<polygon points="8,4 20,12 8,20"/>&#39;;l.innerHTML=&#39;Listen &mdash; 5:42&#39;;s.textContent=&#39;&#39;;}
+}
+</script>
 
 <!-- PRODUCTS -->
 <section id="products">
