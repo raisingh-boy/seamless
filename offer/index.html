@@ -454,7 +454,7 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 </section>
 
 <script>
-function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b=document.getElementById(&#39;play-btn&#39;),i=document.getElementById(&#39;play-icon&#39;),l=document.getElementById(&#39;play-label&#39;),s=document.getElementById(&#39;audio-status&#39;);if(a.paused){a.play();b.style.background=&#39;#4a3f30&#39;;i.innerHTML=&#39;<rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/>&#39;;l.textContent=&#39;Playing...&#39;;s.textContent=&#39;&#39;;a.addEventListener(&#39;ended&#39;,function(){b.style.background=&#39;#2b2318&#39;;i.innerHTML=&#39;<polygon points="8,4 20,12 8,20"/>&#39;;l.innerHTML=&#39;Listen &mdash; 5:42&#39;;s.textContent=&#39;Now pick your path below.&#39;;});}else{a.pause();a.currentTime=0;b.style.background=&#39;#2b2318&#39;;i.innerHTML=&#39;<polygon points="8,4 20,12 8,20"/>&#39;;l.innerHTML=&#39;Listen &mdash; 5:42&#39;;s.textContent=&#39;&#39;;}
+function toggleAudio(){var a=document.getElementById('seamless-audio'),b=document.getElementById('play-btn'),i=document.getElementById('play-icon'),l=document.getElementById('play-label'),s=document.getElementById('audio-status');if(a.paused){a.play();b.style.background='#4a3f30';i.innerHTML='<rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/>';l.textContent='Playing...';s.textContent='';a.addEventListener('ended',function(){b.style.background='#2b2318';i.innerHTML='<polygon points="8,4 20,12 8,20"/>';l.innerHTML='Listen &mdash; 5:42';s.textContent='Now pick your path below.'});}else{a.pause();a.currentTime=0;b.style.background='#2b2318';i.innerHTML='<polygon points="8,4 20,12 8,20"/>';l.innerHTML='Listen &mdash; 5:42';s.textContent='';}
 }
 </script>
 
@@ -519,6 +519,15 @@ function toggleAudio(){var a=document.getElementById(&#39;seamless-audio&#39;),b
   </div>
 </section>
 
+
+<!-- BACK TO PRODUCTS CTA -->
+<section style="padding:60px 24px 80px;background:var(--cream);border-top:1px solid #ddd;">
+  <div style="max-width:500px;margin:0 auto;text-align:center;">
+    <h2 style="font-size:1.5rem;font-weight:500;margin-bottom:16px;">Ready to begin?</h2>
+    <p style="font-size:0.9rem;color:#666;margin-bottom:32px;">Pick your path — a single course or full library access.</p>
+    <a href="#products" style="display:inline-block;padding:16px 36px;background:var(--bark);color:var(--w);border-radius:50px;font-family:&#39;Karla&#39;,sans-serif;font-size:1rem;font-weight:500;text-decoration:none;transition:background .2s;box-shadow:0 2px 8px rgba(0,0,0,0.1);">Choose your path →</a>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
