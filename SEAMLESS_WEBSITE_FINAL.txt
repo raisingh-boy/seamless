@@ -1,0 +1,258 @@
+╔══════════════════════════════════════════════════════════════╗
+║  SEAMLESS.CLUB — ФИНАЛЬНАЯ ВЕРСИЯ ДЛЯ GOOGLE ADS API      ║
+║  Дата: 11 июня 2026                                        ║
+║  Статус: Готово к подаче                                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════
+📊 ОЦЕНКИ (по шкале Roman)
+═══════════════════════════════════════════════════════════════
+• Доверие Google:          9.5 / 10
+• Владельцы пространств:   8.5 / 10
+• Партнёры:                8.5 / 10
+• Покупка курса:           8 / 10
+• Выглядит как реальный проект: 9.5 / 10
+
+Критических проблем: НЕТ
+(Убраны: SaaS-платформа, инструменты организаторов,
+аналитика, управление рекламой, регистрационные системы)
+
+═══════════════════════════════════════════════════════════════
+📝 ИСПРАВЛЕНО (11 июня, по ревью Roman)
+═══════════════════════════════════════════════════════════════
+
+1. Community section (about/index.html):
+   Было: "Together, the founders' social media channels reach
+          an audience of more than 30,000 followers."
+   Стало:"Together, the founders maintain social media
+          communities with a combined audience of more than
+          30,000 followers."
+
+2. Hero meta description (index.html):
+   Было: "Contact Improvisation, floorwork & release technique.
+          Online courses, private sessions & workshops worldwide."
+   Стало:"International Contact Improvisation education project
+          based in Bali. Workshops, intensives, online courses,
+          movement research, and community events."
+
+═══════════════════════════════════════════════════════════════
+🌐 ТЕХНИЧЕСКАЯ ПРОВЕРКА
+═══════════════════════════════════════════════════════════════
+
+✅ https://seamless.club/              → HTTP 200
+✅ https://seamless.club/about/        → HTTP 200
+✅ https://seamless.club/google-ads-api/ → HTTP 200
+✅ https://seamless.club/privacy-policy/ → HTTP 200
+✅ https://seamless.club/terms-of-service/ → HTTP 200
+✅ https://seamless.club/contact/      → HTTP 200
+✅ https://seamless.club/offer/        → HTTP 200
+
+Все страницы открываются без редиректных ошибок.
+Все страницы доступны без логина.
+
+═══════════════════════════════════════════════════════════════
+📧 ПОЧТА / DNS
+═══════════════════════════════════════════════════════════════
+
+✅ SPF:  v=spf1 include:_spf.mx.cloudflare.net ~all
+✅ MX:   route1.mx.cloudflare.net (25)
+         route2.mx.cloudflare.net (74)
+         route3.mx.cloudflare.net (60)
+✅ DKIM: Автоматически через Cloudflare Email Routing
+         (подписывает исходящие письма)
+
+⚠️  DMARC: НЕ настроен (рекомендуется добавить):
+   Запись _dmarc.seamless.club TXT:
+   "v=DMARC1; p=none; rua=mailto:hello@seamless.club"
+
+⚠️  Email Routing: требуется добавить destination
+   Vologdin.roman@gmail.com в Cloudflare Dashboard
+   → Email → Email Routing → Destination Addresses
+   → Create Route: hello@seamless.club → vologdin.roman@gmail.com
+
+═══════════════════════════════════════════════════════════════
+📄 КОНТЕНТ СТРАНИЦ
+═══════════════════════════════════════════════════════════════
+
+─── ГЛАВНАЯ (index.html) ───
+
+Title: SEAMLESS — Movement · Awareness · Play
+Meta:  International Contact Improvisation education project
+       based in Bali. Workshops, intensives, online courses,
+       movement research, and community events.
+
+Hero:
+> Contact Improvisation
+> Contact Improvisation, floorwork, partnering, movement
+> research, workshops, intensives, and educational programs.
+
+Статистика:
+• 15+ Years Teaching
+• 3+ Years Building Community
+• 70% International Participants
+• 30k+ Combined Audience
+
+About block:
+> Seamless is an international movement education and community
+> project based in Bali.
+>
+> Over the last three years, we have been building a growing
+> international community through Contact Improvisation,
+> movement research, artistic collaboration, workshops,
+> intensives, festivals, retreats, and educational programs.
+>
+> Participants travel from Europe, Australia, the United States,
+> Asia, and many other countries to join our events. Today,
+> approximately 70% of participants are international visitors.
+>
+> Our programs bring together dancers, educators, performers,
+> choreographers, and interdisciplinary artists, creating
+> opportunities for learning, artistic exchange, professional
+> development, and community building.
+>
+> Founded by Roma and Nastya, movement educators and performers
+> with more than 15 years of teaching and performance experience.
+>
+> Alongside our educational activities, we use internal tools to
+> support event organization, registrations, communication, and
+> promotional activities.
+
+Courses: CI Beginners ($49), Keys to Floorwork ($49),
+         Spherokinesis · Release ($35), Movement Library (€15/mo),
+         Private Online Session, Partnering Workshop Recording ($19)
+
+Events:
+• TRINITY Movement Intensive (JUN 12–16) — 3-part CI journey
+• SEAMLESS Intensive 2026 (AUG 30 – SEP 17) — 4th annual
+• CI Jam (Sundays 6–8pm, 150k)
+• Solo Improvisation w/ Nastya (Wednesdays 3–4:30pm)
+• Private Session
+
+Footer links: About, Google Ads API, Privacy Policy,
+              Terms of Service, Contact
+Social: @seamless_mrp, @bali_contactimprov
+Email: hello@seamless.club
+
+─── ABOUT (/about/index.html) ───
+
+Logo: seamless-logo.png (оригинал, 3000×3000px)
+Фото: 7 реальных фото workshops/community
+
+> Seamless is an international movement education and community
+> project based in Bali.
+>
+> Over the last three years, we have been building a growing
+> international community through Contact Improvisation,
+> movement research, artistic collaboration, workshops,
+> intensives, festivals, retreats, and educational programs.
+>
+> Participants travel from Europe, Australia, the United States,
+> Asia, and many other countries to join our events. Today,
+> approximately 70% of participants are international visitors.
+>
+> Our programs bring together dancers, educators, performers,
+> choreographers, and interdisciplinary artists, creating
+> opportunities for learning, artistic exchange, professional
+> development, and community building.
+>
+> Founded by Roma and Nastya, movement educators and performers
+> with more than 15 years of teaching and performance experience.
+
+Community:
+> Our community hosts workshops, intensives, performances,
+> lectures, artist residencies, and educational programs
+> throughout the year. We collaborate with renowned teachers,
+> choreographers, performers, and interdisciplinary artists from
+> around the world, creating opportunities for learning, artistic
+> exchange, and cultural dialogue.
+>
+> Programs include contemporary dance, contact improvisation,
+> performance art, somatic practices, movement research, and
+> online educational intensives led by internationally recognized
+> artists and educators.
+>
+> Seamless is built on years of work within the international
+> movement and dance community. The project is founded and led by
+> Roma and Nastya, movement educators and performers. Together,
+> the founders maintain social media communities with a combined
+> audience of more than 30,000 followers.
+
+Instagram: @karpaanastasya + @contact_impro
+
+─── GOOGLE ADS API (/google-ads-api/index.html) ───
+
+> Google Ads API is used by authorized administrators of the
+> Seamless project to manage and analyze advertising campaigns
+> related to Seamless workshops, educational programs, festivals,
+> retreats, and community events.
+>
+> All advertising actions are initiated and controlled by
+> authorized administrators.
+>
+> Google Ads data is used exclusively for managing and evaluating
+> promotional activities related to Seamless programs and events.
+>
+> We do not sell, share, or transfer Google Ads data to unrelated
+> third parties.
+
+4 коротких абзаца. Никаких AI, automation, optimization,
+customers, user workspaces, campaign generation.
+
+─── PRIVACY POLICY (/privacy-policy/index.html) ───
+
+1. Information We Collect — minimal (names, emails for event reg)
+2. Google API Data Usage — Limited Use compliance, "within the
+   Seamless administration systems" (не "user's workspace")
+3. Data Security — standard measures
+4. Contact — hello@seamless.club
+
+─── TERMS OF SERVICE (/terms-of-service/index.html) ───
+
+1. Acceptance of Terms
+2. Scope of Service — educational & community project.
+   "Authorized administrators are responsible" (не users)
+3. Third-Party Services — Google Ads API integration,
+   compliance with developer policies
+
+─── CONTACT (/contact/index.html) ───
+
+• Project: SEAMLESS
+• Email: hello@seamless.club
+• Location: Bali, Indonesia
+• Instagram: @seamless_mrp
+• Telegram: @bali_contactimprov
+
+═══════════════════════════════════════════════════════════════
+🎯 ЧТО НЕ ТРОГАТЬ (решено Roman)
+═══════════════════════════════════════════════════════════════
+
+• Цифры (15+, 3+, 70%, 30k+)
+• About (основные параграфы)
+• Google Ads API page (все 4 абзаца)
+• Privacy Policy
+• Terms of Service
+• Contact
+
+═══════════════════════════════════════════════════════════════
+📋 ЧЕК-ЛИСТ ПЕРЕД ОТПРАВКОЙ
+═══════════════════════════════════════════════════════════════
+
+[✓] Текст — не главный риск
+[✓] Все страницы 200 OK
+[✓] HTTPS без редиректных ошибок
+[✓] Все страницы открываются без логина
+[✓] SPF настроен
+[✓] DKIM через Cloudflare Email Routing
+[ ] DMARC запись (рекомендуется, не критично)
+[ ] Email Routing: добавить destination + rule
+    (Vologdin.roman@gmail.com) в Cloudflare Dashboard
+[ ] Отправить заявку в Google Ads API
+
+═══════════════════════════════════════════════════════════════
+💬 ВЕРДИКТ ROMAN
+═══════════════════════════════════════════════════════════════
+
+"Если бы это был мой проект, я бы уже перестал переписывать
+тексты и подавал заявку."
+
+═══════════════════════════════════════════════════════════════
