@@ -137,9 +137,7 @@
     .nav-logo-icon{width:28px;height:28px;border-radius:50%;flex-shrink:0}
     .about-logo{display:flex;justify-content:center;margin-bottom:28px}
     .about-logo img{width:100%;max-width:100%;border-radius:12px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
-    .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px}
-    @media(min-width:600px){.photo-grid{grid-template-columns:1fr 1fr 1fr;gap:10px}}
-    .photo-grid img{width:100%;border-radius:10px;object-fit:cover;height:200px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+    img.photo-inline{width:100%;border-radius:12px;margin:20px 0;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
   </style>
 </head>
 <body>
@@ -180,11 +178,7 @@
 <!-- ═══════════ ABOUT ═══════════ -->
 <section id="about">
   <div class="section-inner">
-    <div class="photo-grid">
-      <img src="/assets/photos/IMG_20260611_112911_474.jpg" alt="CI workshop in studio" loading="lazy">
-      <img src="/assets/photos/IMG_20260611_112911_581.jpg" alt="Community connection" loading="lazy">
-      <img src="/assets/photos/IMG_20260611_112911_711.jpg" alt="Group practice" loading="lazy">
-    </div>
+    <img src="/assets/photos/IMG_20260611_112911_689.jpg" alt="Forest CI duet" class="photo-inline">
     <div class="mono">About Seamless</div>
     <div class="about-grid">
       <div class="about-text">
@@ -206,10 +200,7 @@
       </div>
     </div>
 
-    <div class="photo-grid" style="margin-top:8px">
-      <img src="/assets/photos/IMG_20260611_112912_001.jpg" alt="Dancers reaching" loading="lazy" style="height:220px">
-      <img src="/assets/photos/IMG_20260611_112911_689.jpg" alt="Forest CI duet" loading="lazy" style="height:220px">
-    </div>
+    <img src="/assets/photos/IMG_20260611_112912_001.jpg" alt="Dancers reaching" class="photo-inline">
   </div>
 </section>
 
