@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — SEAMLESS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f5eedb;
+      --bg-card: rgba(255,255,255,0.45);
+      --text: #1a1712;
+      --text-muted: #7a7060;
+      --accent: #8a7230;
+      --accent-light: #b89d40;
+      --border: rgba(255,255,255,0.7);
+    }
+    body {
+      background: linear-gradient(160deg, #f5eedb 0%, #e8dfc4 60%, #ddd0a8 100%);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+    }
+    .container {
+      width: 100%;
+      max-width: 640px;
+      padding: 48px 20px 40px;
+    }
+    .back { margin-bottom: 24px; }
+    .back a {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .footer-nav {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      justify-content: center;
+    }
+    .footer-nav a {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .footer-nav a:hover { text-decoration: underline; }
+    .footer-note {
+      margin-top: 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="back"><a href="/">← SEAMLESS</a></div>
+  <h1>About Seamless</h1>
+  <p>Seamless is a platform for event organizers, educators, artists, movement practitioners, and community builders.</p>
+  <p>The platform helps organize workshops, educational programs, festivals, retreats, and community activities. Seamless combines event management, participant registration, community engagement, and marketing tools in a single workspace.</p>
+  <p>Our mission is to help independent organizers build sustainable communities and promote meaningful events more effectively.</p>
+
+  <div class="footer-nav">
+    <a href="/about">About</a>
+    <a href="/google-ads-api">Google Ads API</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-of-service">Terms of Service</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <div class="footer-note">SEAMLESS Education — Bali &amp; Online</div>
+</div>
+</body>
+</html>
