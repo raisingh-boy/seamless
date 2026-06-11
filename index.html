@@ -133,13 +133,20 @@
     .anim>*:nth-child(13){animation-delay:0.65s}.anim>*:nth-child(14){animation-delay:0.70s}.anim>*:nth-child(15){animation-delay:0.75s}
     .anim>*:nth-child(16){animation-delay:0.80s}.anim>*:nth-child(17){animation-delay:0.85s}.anim>*:nth-child(18){animation-delay:0.90s}
     .anim>*:nth-child(19){animation-delay:0.95s}.anim>*:nth-child(20){animation-delay:1.00s}
+    .nav-logo-wrap{display:flex;align-items:center;gap:8px;text-decoration:none}
+    .nav-logo-icon{width:28px;height:28px;border-radius:50%;flex-shrink:0}
+    .about-logo{display:flex;justify-content:center;margin-bottom:28px}
+    .about-logo img{width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">SEAMLESS</a>
+  <a href="/" class="nav-logo-wrap">
+    <img src="/assets/seamless-ed-logo.svg" alt="" class="nav-logo-icon">
+    <span class="nav-logo">SEAMLESS</span>
+  </a>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#courses">Courses</a>
@@ -173,6 +180,7 @@
 <!-- ═══════════ ABOUT ═══════════ -->
 <section id="about">
   <div class="section-inner">
+    <div class="about-logo"><img src="/assets/seamless-ed-logo.svg" alt="Seamless Ed."></div>
     <div class="mono">About Seamless</div>
     <div class="about-grid">
       <div class="about-text">

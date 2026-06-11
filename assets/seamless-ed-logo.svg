@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eddea4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4c48a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blobGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5eec8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e8daa0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ddd096;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1712;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#2a2518;stop-opacity:1" />
+      <stop offset="35%" style="stop-color:#ffffff;stop-opacity:0.4" />
+      <stop offset="45%" style="stop-color:#2a2518;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1712;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00000030"/>
+    </filter>
+    <filter id="innerShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000015"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="80" ry="80" fill="url(#bgGrad)" filter="url(#shadow)"/>
+
+  <!-- Water droplet / blob shape -->
+  <path d="M200 60 
+           C 260 60, 340 120, 340 220 
+           C 340 300, 280 360, 200 360 
+           C 120 360, 60 300, 60 220 
+           C 60 160, 100 100, 160 80
+           C 170 76, 180 80, 185 88
+           C 190 96, 195 105, 200 110
+           C 205 105, 210 96, 215 88
+           C 220 80, 230 76, 240 80
+           C 260 90, 340 120, 340 220
+           C 340 300, 280 340, 200 340
+           C 120 340, 80 300, 80 220
+           C 80 160, 120 100, 160 80
+           C 170 76, 180 80, 185 88
+           C 190 96, 195 105, 200 110
+           C 205 105, 210 96, 215 88
+           C 220 80, 230 76, 240 80
+           C 260 90, 300 120, 310 180
+           C 250 130, 220 120, 200 60
+           Z" 
+        fill="url(#blobGrad)" filter="url(#innerShadow)" opacity="0.3"/>
+
+  <!-- Main droplet -->
+  <path d="M200 80 
+           C 240 80, 300 130, 300 220 
+           C 300 290, 250 330, 200 330 
+           C 150 330, 100 290, 100 220 
+           C 100 130, 160 80, 200 80
+           C 170 90, 130 140, 130 220
+           C 130 280, 170 315, 200 315
+           C 230 315, 270 280, 270 220
+           C 270 140, 230 90, 200 80 Z" 
+        fill="url(#blobGrad)" filter="url(#shadow)"/>
+
+  <!-- Gloss/highlight -->
+  <ellipse cx="165" cy="160" rx="35" ry="50" fill="white" opacity="0.12" transform="rotate(-20 165 160)"/>
+
+  <!-- Text SHEEN layer -->
+  <text x="200" y="205" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="42" font-weight="900" text-anchor="middle" fill="url(#textSheen)" letter-spacing="4">
+    Seamless
+  </text>
+  <text x="200" y="250" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="url(#textSheen)" letter-spacing="8">
+    Ed.
+  </text>
+
+  <!-- Metallic reflection strip on Seamless -->
+  <text x="200" y="205" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="42" font-weight="900" text-anchor="middle" fill="white" opacity="0.15" letter-spacing="4" clip-path="url(#glossClip)">
+    Seamless
+  </text>
+
+  <!-- Subtle ring behind -->
+  <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(26,23,18,0.06)" stroke-width="1.5"/>
+  <circle cx="200" cy="200" r="134" fill="none" stroke="rgba(26,23,18,0.03)" stroke-width="0.5"/>
+</svg>
