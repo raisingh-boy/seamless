@@ -19,7 +19,7 @@
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(250,247,242,0.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(43,35,24,0.07)}
     @media(min-width:600px){nav{padding:16px 44px}}
-    .nav-logo{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--bark);text-decoration:none}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--bark)}
     .nav-links{display:flex;gap:16px;align-items:center}
     .nav-links a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
     .nav-links a:hover{color:var(--bark)}
@@ -136,17 +136,17 @@
     .nav-logo-wrap{display:flex;align-items:center;gap:8px;text-decoration:none}
     .nav-logo-icon{width:28px;height:28px;border-radius:50%;flex-shrink:0}
     .about-logo{display:flex;justify-content:center;margin-bottom:28px}
-    .about-logo img{width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .about-logo img{width:100%;max-width:100%;border-radius:12px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px}
+    @media(min-width:600px){.photo-grid{grid-template-columns:1fr 1fr 1fr;gap:10px}}
+    .photo-grid img{width:100%;border-radius:10px;object-fit:cover;height:200px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo-wrap">
-    <img src="/assets/seamless-ed-logo.svg" alt="" class="nav-logo-icon">
-    <span class="nav-logo">SEAMLESS</span>
-  </a>
+  <a href="/" class="nav-logo">SEAMLESS</a>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#courses">Courses</a>
@@ -180,7 +180,11 @@
 <!-- ═══════════ ABOUT ═══════════ -->
 <section id="about">
   <div class="section-inner">
-    <div class="about-logo"><img src="/assets/seamless-ed-logo.svg" alt="Seamless Ed."></div>
+    <div class="photo-grid">
+      <img src="/assets/photos/IMG_20260611_112911_474.jpg" alt="CI workshop in studio" loading="lazy">
+      <img src="/assets/photos/IMG_20260611_112911_581.jpg" alt="Community connection" loading="lazy">
+      <img src="/assets/photos/IMG_20260611_112911_711.jpg" alt="Group practice" loading="lazy">
+    </div>
     <div class="mono">About Seamless</div>
     <div class="about-grid">
       <div class="about-text">
@@ -200,6 +204,11 @@
         <p>Seamless is built on years of work within the international movement and dance community. The project is founded and led by <strong>Roman Singh</strong>, a movement educator, performer, and organizer whose work reaches more than <strong>20,000 followers</strong> across social media platforms.</p>
         <p style="margin-top:8px"><a href="https://instagram.com/contact_impro" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--accent);text-decoration:none;border:1px solid rgba(138,114,48,0.3);border-radius:8px;padding:6px 14px;display:inline-block;transition:background .2s">📸 @contact_impro →</a></p>
       </div>
+    </div>
+
+    <div class="photo-grid" style="margin-top:8px">
+      <img src="/assets/photos/IMG_20260611_112912_001.jpg" alt="Dancers reaching" loading="lazy" style="height:220px">
+      <img src="/assets/photos/IMG_20260611_112911_689.jpg" alt="Forest CI duet" loading="lazy" style="height:220px">
     </div>
   </div>
 </section>
