@@ -32,6 +32,27 @@ function gtag_report_conversion(url) {
   });
   return false;
 }
+
+// Capture gclid from URL and append to Tribute links
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const gclid = params.get('gclid');
+  if (gclid) {
+    localStorage.setItem('seamless_gclid', gclid);
+  }
+  
+  // Handle outgoing Tribute links
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href*="tribute.tg"]');
+    if (link) {
+      const stored = localStorage.getItem('seamless_gclid');
+      if (stored) {
+        const sep = link.href.includes('?') ? '&' : '?';
+        link.href = link.href + sep + 'gclid=' + stored;
+      }
+    }
+  }, true);
+})();
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
