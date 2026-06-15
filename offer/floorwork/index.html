@@ -106,6 +106,7 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
   section{padding:72px 24px}
   .bullets-grid{grid-template-columns:1fr;gap:28px}
   .hero-stats{gap:24px}
+  #pricing .sec-inner > div:last-child{grid-template-columns:1fr!important}
   h1{font-size:clamp(44px,12vw,72px)}
   footer{padding:20px;flex-direction:column;align-items:start}
 }
@@ -197,11 +198,43 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
   </div>
 </section>
 
-<!-- CTA -->
-<section id="cta">
-  <h2>Start moving on the floor.</h2>
-  <p>24 lessons. Solo practice. Lifetime access. No experience needed.</p>
-  <a href="https://web.tribute.tg/s/Xu9" class="btn-primary" onclick="return gtag_report_conversion(this.href)">Get Floorwork — $29</a>
+<!-- PRICING -->
+<section id="pricing" style="background:var(--w);padding:80px 44px;">
+  <div class="sec-inner">
+    <div class="mono" style="text-align:center">Choose your path</div>
+    <h2 style="text-align:center;margin-bottom:44px;">One course, or<br><em>everything we have</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:700px;margin:0 auto;">
+      <div style="background:var(--cream);padding:44px 34px;border-radius:4px;display:flex;flex-direction:column;">
+        <div class="mono" style="color:var(--gold);">This course</div>
+        <div class="card-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--bark);margin-bottom:20px;">Keys to Floorwork</div>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;font-size:14px;color:var(--bark2);line-height:2;">
+          <li>✅ 24 video lessons</li>
+          <li>✅ Lifetime access</li>
+          <li>✅ One-time payment</li>
+        </ul>
+        <div style="margin-top:auto;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--bark);margin-bottom:4px;">$29</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:24px;">one-time</div>
+          <a href="https://web.tribute.tg/s/Xu9" class="btn-primary" style="display:block;text-align:center;padding:16px 28px;font-size:14px;" onclick="return gtag_report_conversion(this.href)">Get Floorwork</a>
+        </div>
+      </div>
+      <div style="background:var(--bark);padding:44px 34px;border-radius:4px;display:flex;flex-direction:column;position:relative;">
+        <div style="position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;background:var(--gold2);color:var(--bark);padding:3px 10px;border-radius:20px;">Best value</div>
+        <div class="mono" style="color:var(--gold2);">Full library</div>
+        <div class="card-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--sand);margin-bottom:20px;">Monthly Membership</div>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;font-size:14px;color:rgba(230,220,203,.5);line-height:2;">
+          <li>✅ Floorwork + CI Beginners</li>
+          <li>✅ Spherokinesis, Release & more</li>
+          <li>✅ New content every month</li>
+        </ul>
+        <div style="margin-top:auto;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--sand);margin-bottom:4px;">€15</div>
+          <div style="font-size:12px;color:rgba(230,220,203,.5);margin-bottom:24px;">per month · cancel anytime</div>
+          <a href="https://web.tribute.tg/s/Xu9" style="display:block;text-align:center;padding:16px 28px;font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;background:var(--gold2);color:var(--bark);border-radius:2px;transition:background .2s;" onclick="return gtag_report_conversion(this.href)">Get Membership</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
