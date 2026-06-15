@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEAMLESS — Movement · Awareness · Play</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948032858"></script>
+  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17948032858');</script>
+  <!-- Event snippet for Purchase conversion -->
+  <script>function gtag_report_conversion(url){var callback=function(){if(typeof(url)!='undefined'){window.location=url;}};gtag('event','conversion',{'send_to':'AW-17948032858/u95HCKCL2bYcENr-pO5C','value':1.0,'currency':'TRY','transaction_id':'','event_callback':callback});return false;}</script>
+  <meta name="description" content="International Contact Improvisation education project based in Bali. Workshops, intensives, online courses, movement research, and community events.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#f5eedb;--bg-card:rgba(255,255,255,0.45);--bg-card-hover:rgba(255,255,255,0.65);
+      --text:#1a1712;--text-muted:#7a7060;--accent:#8a7230;--accent-light:#b89d40;--border:rgba(255,255,255,0.7);
+      --bark:#2b2318;--bark2:#5a4d38;--sand:#f5f0e6;--sand2:#ede5d6;--cream:#faf7f2;--gold:#b08950;--gold2:#b08d57;--muted:#8a7e6a;--w:#fffdf9;
+    }
+    html{scroll-behavior:smooth}
+    body{background:linear-gradient(160deg,#f5eedb 0%,#e8dfc4 60%,#ddd0a8 100%);color:var(--text);font-family:'Karla',sans-serif;min-height:100vh}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(250,247,242,0.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(43,35,24,0.07)}
+    @media(min-width:600px){nav{padding:16px 44px}}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--bark)}
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .nav-links a{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--bark)}
+    .nav-cta{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--w);background:var(--bark);padding:8px 18px;border-radius:2px;text-decoration:none;transition:background .2s}
+    .nav-cta:hover{background:var(--bark2)}
+
+    /* HERO */
+    #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+    @media(min-width:600px){#hero{padding:130px 44px 80px}}
+    .hero-video-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#d4c48a}
+    .hero-video-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;background:#d4c48a}
+    .hero-overlay{position:absolute;inset:0;z-index:1;background:rgba(250,247,242,0.55)}
+    .hero-play-btn{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(250,247,242,0.7);border:2px solid rgba(138,114,48,0.3);cursor:pointer;display:none;align-items:center;justify-content:center;font-size:24px;color:var(--accent);backdrop-filter:blur(4px);transition:all .2s}
+    #hero>*:not(.hero-overlay):not(.hero-video-bg){position:relative;z-index:2}
+
+    .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .eyebrow::after{content:'';flex:0 0 28px;height:1px;background:var(--gold)}
+    @media(min-width:600px){.eyebrow{font-size:10px;margin-bottom:28px}.eyebrow::after{flex:0 0 36px}}
+
+    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,8vw,100px);font-weight:300;line-height:1.0;color:var(--bark);margin-bottom:20px}
+    h1 em{font-style:italic;color:var(--bark2)}
+    @media(min-width:600px){h1{margin-bottom:30px}}
+
+    .hero-sub{font-size:15px;font-weight:300;color:var(--bark2);line-height:1.7;max-width:480px;margin-bottom:32px}
+    @media(min-width:600px){.hero-sub{font-size:17px;margin-bottom:48px}}
+
+    .hero-cta-wrap{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:40px}
+    @media(min-width:600px){.hero-cta-wrap{margin-bottom:60px}}
+
+    .btn-primary{font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--w);background:var(--bark);padding:14px 30px;border-radius:2px;text-decoration:none;transition:background .2s,transform .15s;display:inline-block}
+    .btn-primary:hover{background:var(--bark2);transform:translateY(-1px)}
+    .btn-ghost{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.5px;border-bottom:1px solid rgba(138,126,106,.3);padding-bottom:2px;transition:color .2s,border-color .2s}
+    .btn-ghost:hover{color:var(--bark);border-color:var(--bark)}
+
+    .hero-stats{display:flex;gap:28px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(43,35,24,.1)}
+    @media(min-width:600px){.hero-stats{gap:48px;padding-top:36px}}
+    .stat .n{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;line-height:1;color:var(--bark)}
+    @media(min-width:600px){.stat .n{font-size:40px}}
+    .stat .l{font-size:11px;color:var(--muted);margin-top:4px}
+
+    /* SECTIONS */
+    section{padding:60px 24px}
+    @media(min-width:600px){section{padding:80px 44px}}
+    .section-inner{max-width:800px;margin:0 auto}
+
+    .mono{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+    .mono::after{content:'';flex:1;height:1px;background:rgba(176,141,87,.2)}
+    h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,42px);font-weight:300;color:var(--bark);margin-bottom:12px;line-height:1.15}
+    h2 em{font-style:italic;color:var(--bark2)}
+    .section-desc{font-size:14px;color:var(--bark2);line-height:1.7;max-width:540px;margin-bottom:36px}
+    @media(min-width:600px){.section-desc{font-size:15px;margin-bottom:48px}}
+    p{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:12px}
+    @media(min-width:600px){p{font-size:15px}}
+
+    /* ABOUT */
+    #about{background:var(--cream)}
+    .about-grid{display:grid;grid-template-columns:1fr;gap:24px}
+    @media(min-width:600px){.about-grid{grid-template-columns:1fr 1fr;gap:40px}}
+    .about-text p{color:var(--bark2);margin-bottom:16px}
+
+    /* CARDS */
+    .card-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    @media(min-width:600px){.card-grid{grid-template-columns:1fr 1fr;gap:12px}}
+
+    .link-card{display:flex;align-items:center;width:100%;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--text);backdrop-filter:blur(4px);transition:background .2s,transform .15s;gap:14px}
+    .link-card:hover{background:var(--bg-card-hover);transform:translateY(-1px)}
+    .card-icon{width:36px;height:36px;border-radius:10px;background:rgba(138,114,48,0.1);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+    .card-body{flex:1;text-align:left}
+    .card-title{font-size:14px;font-weight:500;line-height:1.3}
+    .card-desc{font-size:12px;color:var(--text-muted);margin-top:2px;line-height:1.4}
+    .card-meta{display:flex;align-items:center;gap:6px;flex-shrink:0}
+    .card-price{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);font-weight:500}
+    .card-arrow{font-size:14px;color:var(--text-muted)}
+
+    /* EVENT CARDS */
+    .event-card{width:100%;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;backdrop-filter:blur(4px);margin-bottom:10px}
+    .event-date{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);font-weight:500;letter-spacing:1px;margin-bottom:3px}
+    .event-title{font-size:15px;font-weight:500;margin-bottom:3px}
+    .event-desc{font-size:12px;color:var(--text-muted);line-height:1.5}
+    .event-detail{font-size:12px;color:var(--text-muted);margin-top:5px;line-height:1.6}
+    .event-badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:500;background:var(--accent);color:#fff;padding:3px 10px;border-radius:20px;margin-top:6px;letter-spacing:0.5px}
+    .event-links{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    .event-link{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:var(--accent);text-decoration:none;border:1px solid rgba(138,114,48,0.25);border-radius:8px;padding:5px 14px;transition:background .2s}
+    .event-link:hover{background:rgba(138,114,48,0.08)}
+
+    /* FEATURES */
+    #features{background:var(--cream)}
+
+    /* FOOTER */
+    footer{padding:40px 24px;text-align:center}
+    @media(min-width:600px){footer{padding:48px 44px}}
+    .footer-nav{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;margin-bottom:16px}
+    .footer-nav a{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);text-decoration:none}
+    .footer-nav a:hover{text-decoration:underline}
+    .footer-meta{font-size:11px;color:var(--text-muted);line-height:1.6}
+    .footer-meta a{color:var(--accent);text-decoration:none}
+    .footer-meta a:hover{text-decoration:underline}
+    .footer-email{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--accent);margin-bottom:10px;display:block}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .anim>*{opacity:0;animation:fadeUp 0.5s ease forwards}
+    .anim>*:nth-child(1){animation-delay:0.05s}.anim>*:nth-child(2){animation-delay:0.10s}.anim>*:nth-child(3){animation-delay:0.15s}
+    .anim>*:nth-child(4){animation-delay:0.20s}.anim>*:nth-child(5){animation-delay:0.25s}.anim>*:nth-child(6){animation-delay:0.30s}
+    .anim>*:nth-child(7){animation-delay:0.35s}.anim>*:nth-child(8){animation-delay:0.40s}.anim>*:nth-child(9){animation-delay:0.45s}
+    .anim>*:nth-child(10){animation-delay:0.50s}.anim>*:nth-child(11){animation-delay:0.55s}.anim>*:nth-child(12){animation-delay:0.60s}
+    .anim>*:nth-child(13){animation-delay:0.65s}.anim>*:nth-child(14){animation-delay:0.70s}.anim>*:nth-child(15){animation-delay:0.75s}
+    .anim>*:nth-child(16){animation-delay:0.80s}.anim>*:nth-child(17){animation-delay:0.85s}.anim>*:nth-child(18){animation-delay:0.90s}
+    .anim>*:nth-child(19){animation-delay:0.95s}.anim>*:nth-child(20){animation-delay:1.00s}
+    .nav-logo-wrap{display:flex;align-items:center;gap:8px;text-decoration:none}
+    .nav-logo-icon{width:28px;height:28px;border-radius:50%;flex-shrink:0}
+    .about-logo{display:flex;justify-content:center;margin-bottom:28px}
+    .about-logo img{width:100%;max-width:100%;border-radius:12px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+    img.photo-inline{width:100%;display:block;border-radius:12px;margin:20px 0;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">SEAMLESS</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#events">Events</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline preload="auto" poster="/assets/hero-poster.jpg" id="heroVideo">
+      <source src="/assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-play-btn" id="heroPlayBtn" onclick="document.getElementById('heroVideo').play();this.style.display='none'">▶</div>
+  </div>
+  <div class="hero-overlay"></div>
+  <script>
+    (function(){var v=document.getElementById('heroVideo');v.play().catch(function(){document.getElementById('heroPlayBtn').style.display='flex'});}());
+  </script>
+
+  <div class="eyebrow">Movement · Awareness · Play</div>
+  <h1>Contact<br><em>Improvisation</em></h1>
+  <p class="hero-sub">Contact Improvisation, floorwork, partnering, movement research, workshops, intensives, and educational programs.</p>
+  <div class="hero-cta-wrap">
+    <a href="#courses" class="btn-primary">Explore Courses</a>
+    <a href="#about" class="btn-ghost">About the project →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="n">15+</div><div class="l">Years Teaching</div></div>
+    <div class="stat"><div class="n">3+</div><div class="l">Years Building Community</div></div>
+    <div class="stat"><div class="n">70%</div><div class="l">International Participants</div></div>
+    <div class="stat"><div class="n">30k+</div><div class="l">Combined Audience</div></div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="mono">About Seamless</div>
+    <div class="about-text">
+      <p>Seamless is an international movement education and community project based in Bali.</p>
+      <p>Over the last three years, we have been building a growing international community through Contact Improvisation, movement research, artistic collaboration, workshops, intensives, festivals, retreats, and educational programs.</p>
+      <p>Participants travel from Europe, Australia, the United States, Asia, and many other countries to join our events. Today, approximately 70% of participants are international visitors.</p>
+      <p>Our programs bring together dancers, educators, performers, choreographers, and interdisciplinary artists, creating opportunities for learning, artistic exchange, professional development, and community building.</p>
+      <p>Founded by <strong>Roma and Nastya</strong>, movement educators and performers with more than 15 years of teaching and performance experience.</p>
+      <p>Alongside our educational activities, we use internal tools to support event organization, registrations, communication, and promotional activities.</p>
+    </div>
+
+    <img src="/assets/photos/IMG_20260611_112912_001.jpg" alt="Dancers reaching" class="photo-inline">
+  </div>
+</section>
+
+<!-- ═══════════ COURSES ═══════════ -->
+<section id="courses" class="anim">
+  <div class="section-inner">
+    <div class="mono">Online Courses</div>
+    <h2>Learn CI<br><em>anywhere</em></h2>
+    <p class="section-desc">Practice CI anywhere. 10 video lessons with detailed breakdowns — start solo or with a partner. No dance experience needed.</p>
+
+    <div class="card-grid">
+      <a class="link-card" href="https://web.tribute.tg/s/RKl" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">
+        <div class="card-icon">🎯</div>
+        <div class="card-body">
+          <div class="card-title">CI Beginners</div>
+          <div class="card-desc">First steps in Contact Improvisation. 10 video lessons + breakdowns.</div>
+        </div>
+        <div class="card-meta"><span class="card-price">$49</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="link-card" href="https://web.tribute.tg/s/S6N" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">
+        <div class="card-icon">🤸</div>
+        <div class="card-body">
+          <div class="card-title">Keys to Floorwork</div>
+          <div class="card-desc">Transitions between levels, low-level movement. Build floor confidence.</div>
+        </div>
+        <div class="card-meta"><span class="card-price">$49</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="link-card" href="https://web.tribute.tg/s/RWB" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">
+        <div class="card-icon">🌊</div>
+        <div class="card-body">
+          <div class="card-title">Spherokinesis · Release</div>
+          <div class="card-desc">Release technique, joint mobility, letting go of tension.</div>
+        </div>
+        <div class="card-meta"><span class="card-price">$35</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="link-card" href="https://web.tribute.tg/s/ywf" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">
+        <div class="card-icon">📚</div>
+        <div class="card-body">
+          <div class="card-title">Movement Library</div>
+          <div class="card-desc">Curated library of movement patterns, drills &amp; explorations.</div>
+        </div>
+        <div class="card-meta"><span class="card-price">€15/mo</span><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+
+    <div style="margin-top:14px">
+      <a class="link-card" href="https://t.me/bali_contactimprov" target="_blank" rel="noopener">
+        <div class="card-icon">🧑‍🏫</div>
+        <div class="card-body">
+          <div class="card-title">Private Online Session</div>
+          <div class="card-desc">Personal coaching &amp; feedback — tailored to you.</div>
+        </div>
+        <div class="card-meta"><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+
+    <div style="margin-top:14px;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;backdrop-filter:blur(4px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);margin-bottom:8px;letter-spacing:1px">📦 Recording</div>
+      <a class="link-card" href="https://t.me/bali_contactimprov" target="_blank" rel="noopener" style="border:none;padding:0;background:transparent">
+        <div class="card-icon">🤝</div>
+        <div class="card-body">
+          <div class="card-title">Partnering Workshop — Full Recording</div>
+          <div class="card-desc">Lifts, weight-sharing, transitions, dynamic partnering.</div>
+        </div>
+        <div class="card-meta"><span class="card-price">$19</span><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EVENTS ═══════════ -->
+<section id="events">
+  <div class="section-inner">
+    <div class="mono">📍 Workshops &amp; Events</div>
+    <h2>Join us<br><em>in Bali</em></h2>
+    <p class="section-desc">Regular jams, solo practice sessions, and intensives. All levels welcome.</p>
+
+    <img src="/assets/photos/IMG_20260611_112911_689.jpg" alt="Forest CI duet" class="photo-inline" style="max-width:340px;margin:20px auto">
+
+    <div class="event-card">
+      <div class="event-date">JUN 12–16</div>
+      <div class="event-title">TRINITY Movement Intensive</div>
+      <div class="event-desc">A three-part journey in Contact Improvisation — from grounding and floor confidence to connection with partners, and finally to flight and dynamic lifts.</div>
+      <div class="event-detail">
+        <b>Day 1 · Floorwork: Ground Mechanics</b> — 11am-3pm · EB 900k / Reg 1M<br>
+        <b>Days 2-3 · CI Beginners: Weight &amp; Structure</b> — 11am-3pm · EB 1.8M / Reg 2M<br>
+        <b>Days 4-5 · CI Lifts: Lifts &amp; Transitions</b> — 1-5pm / 11am-3pm · EB 1.8M / Reg 2M
+      </div>
+      <span class="event-badge">🐦 Early Bird until Jun 1</span>
+      <div class="event-links">
+        <a class="event-link" href="https://www.instagram.com/p/DWrB3CsDxeC/" target="_blank">Instagram</a>
+        <a class="event-link" href="https://t.me/bali_contactimprov" target="_blank">DM</a>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">AUG 30 – SEP 17</div>
+      <div class="event-title">SEAMLESS Intensive 2026</div>
+      <div class="event-desc">Our fourth annual intensive — three weeks, four modules. Liftings (Nexus), beginners (Blossom), falling &amp; flow (Yield), dynamics &amp; flying (Soar). Open, accessible, deep.</div>
+      <div class="event-links">
+        <a class="event-link" href="https://docs.google.com/forms/d/1XXN4K2REQHcumzZI08xphfWM8cq_9IUyiWZTe7B3vyA/" target="_blank">Details &amp; Registration →</a>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">Sundays · 6–8pm · 150k</div>
+      <div class="event-title">CI Jam</div>
+      <div class="event-desc">Open floor for contact improvisation. All levels welcome.</div>
+      <div class="event-links">
+        <a class="event-link" href="https://www.instagram.com/p/DStp5p4kc0S/" target="_blank">Instagram</a>
+        <a class="event-link" href="https://t.me/bali_contactimprov" target="_blank">DM</a>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">Wednesdays · 3–4:30pm</div>
+      <div class="event-title">Solo Improvisation w/ Nastya</div>
+      <div class="event-desc">Explore your solo practice — warm-up, find your strengths, work with composition tools. Beginners welcome.</div>
+      <div class="event-links">
+        <a class="event-link" href="https://t.me/bali_contactimprov" target="_blank">DM</a>
+      </div>
+    </div>
+
+    <div style="margin-top:12px">
+      <a class="link-card" href="https://t.me/bali_contactimprov" target="_blank" rel="noopener">
+        <div class="card-icon">🧑‍🏫</div>
+        <div class="card-body">
+          <div class="card-title">Private Session</div>
+          <div class="card-desc">Personal coaching — online or in person. Tailored to you.</div>
+        </div>
+        <div class="card-meta"><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer id="contact">
+  <div class="footer-nav">
+    <a href="/about">About</a>
+    <a href="/google-ads-api">Google Ads API</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-of-service">Terms of Service</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <span class="footer-email">✉ <a href="mailto:hello@seamless.club" style="color:var(--accent);text-decoration:none">hello@seamless.club</a></span>
+  <div class="footer-meta">
+    <a href="https://instagram.com/seamless_mrp">@seamless_mrp</a> · <a href="https://t.me/bali_contactimprov">@bali_contactimprov</a><br>
+    <span style="font-size:10px;">SEAMLESS Education — Bali &amp; Online</span>
+  </div>
+</footer>
+
+</body>
+</html>
