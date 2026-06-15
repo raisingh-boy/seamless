@@ -87,6 +87,7 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
   section{padding:72px 24px}
   .bullets-grid{grid-template-columns:1fr;gap:28px}
   .hero-stats{gap:24px}
+  #pricing .sec-inner > div:last-child{grid-template-columns:1fr!important}
   h1{font-size:clamp(44px,12vw,72px)}
   footer{padding:20px;flex-direction:column;align-items:start}
 }
@@ -102,17 +103,21 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 
 <nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 44px;display:flex;justify-content:space-between;align-items:center;background:rgba(250,247,242,.9);backdrop-filter:blur(4px);border-bottom:1px solid var(--sand2)">
   <a href="https://seamless.club/" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--bark);text-decoration:none">SEAMLESS</a>
-  <a href="https://tribute.tg/s/ywf" onclick="return gtag_report_conversion(this.href)" style="font-size:12px;color:var(--bark);text-decoration:none;letter-spacing:.5px;border-bottom:1px solid var(--sand2);padding-bottom:2px">Start Release →</a>
+  <a href="https://web.tribute.tg/s/RWB" onclick="return gtag_report_conversion(this.href)" style="font-size:12px;color:var(--bark);text-decoration:none;letter-spacing:.5px;border-bottom:1px solid var(--sand2);padding-bottom:2px">Get Spherokinesis →</a>
 </nav>
 
 <section id="hero">
   <div class="mono">Body Freedom · Spherokinesis</div>
   <h1>Release &<br><em>Spherokinesis</em></h1>
   <p class="hero-sub">Let go of tension. Find ease in your body. Release technique, spiral movement, and myofascial practices — for dancers, bodyworkers, or anyone who holds too much.</p>
-  <a href="https://tribute.tg/s/ywf" class="hero-cta" onclick="return gtag_report_conversion(this.href)">Start Release — €15/mo</a>
+  <div class="price-tag">
+    <span class="price-new" style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;">$35</span>
+    <span class="price-note" style="font-size:12px;color:var(--muted);letter-spacing:.5px;margin-bottom:6px;">one-time · lifetime access</span>
+  </div>
+  <a href="https://web.tribute.tg/s/RWB" class="hero-cta" onclick="return gtag_report_conversion(this.href)">Start Release — €15/mo</a>
   <div class="hero-stats">
-    <div class="stat"><div class="n">€15</div><div class="l">Per month</div></div>
-    <div class="stat"><div class="n">50+</div><div class="l">Hours of content</div></div>
+    <div class="stat"><div class="n">$35</div><div class="l">One-time</div></div>
+    <div class="stat"><div class="n">Spherokinesis</div><div class="l">2.0 Course</div></div>
     <div class="stat"><div class="n">All</div><div class="l">Levels welcome</div></div>
   </div>
 </section>
@@ -167,10 +172,43 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
   </div>
 </section>
 
-<section id="cta">
-  <h2>Let go of tension.</h2>
-  <p>Full library — release, spherokinesis, CI, floorwork, somatic practice, and more. Start today, cancel anytime.</p>
-  <a href="https://tribute.tg/s/ywf" class="btn-primary" onclick="return gtag_report_conversion(this.href)">Start Release — €15/mo</a>
+<!-- PRICING -->
+<section id="pricing" style="background:var(--cream);padding:80px 44px;">
+  <div class="sec-inner">
+    <div class="mono" style="text-align:center">Choose your path</div>
+    <h2 style="text-align:center;margin-bottom:44px;">One course, or<br><em>everything we have</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:700px;margin:0 auto;">
+      <div style="background:var(--w);padding:44px 34px;border-radius:4px;display:flex;flex-direction:column;">
+        <div class="mono" style="color:var(--gold);">This course</div>
+        <div class="card-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--bark);margin-bottom:20px;">Spherokinesis · Release</div>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;font-size:14px;color:var(--bark2);line-height:2;">
+          <li>✅ Spherokinesis 2.0 course</li>
+          <li>✅ Release technique & joint mobility</li>
+          <li>✅ Lifetime access</li>
+        </ul>
+        <div style="margin-top:auto;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--bark);margin-bottom:4px;">$35</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:24px;">one-time</div>
+          <a href="https://web.tribute.tg/s/RWB" class="btn-primary" style="display:block;text-align:center;padding:16px 28px;font-size:14px;background:var(--bark);color:var(--w);" onclick="return gtag_report_conversion(this.href)">Get Spherokinesis</a>
+        </div>
+      </div>
+      <div style="background:var(--bark);padding:44px 34px;border-radius:4px;display:flex;flex-direction:column;position:relative;">
+        <div style="position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;background:var(--gold2);color:var(--bark);padding:3px 10px;border-radius:20px;">Best value</div>
+        <div class="mono" style="color:var(--gold2);">Full library</div>
+        <div class="card-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--sand);margin-bottom:20px;">Monthly Membership</div>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;font-size:14px;color:rgba(230,220,203,.5);line-height:2;">
+          <li>✅ Spherokinesis + all courses</li>
+          <li>✅ CI, Floorwork, Release & more</li>
+          <li>✅ New content every month</li>
+        </ul>
+        <div style="margin-top:auto;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--sand);margin-bottom:4px;">€15</div>
+          <div style="font-size:12px;color:rgba(230,220,203,.5);margin-bottom:24px;">per month · cancel anytime</div>
+          <a href="https://tribute.tg/s/ywf" style="display:block;text-align:center;padding:16px 28px;font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;background:var(--gold2);color:var(--bark);border-radius:2px;transition:background .2s;" onclick="return gtag_report_conversion(this.href)">Get Membership</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
