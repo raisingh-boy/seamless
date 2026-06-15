@@ -105,7 +105,8 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,50px);font-we
 h2 em{font-style:italic}
 
 /* ABOUT */
-#about{background:var(--sand)}
+#about{background:var(--bark);position:relative;overflow:hidden}
+#about::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--bark) 30%,transparent 70%)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .body-text{font-size:15px;color:var(--bark2);line-height:1.85}
 .body-text p+p{margin-top:14px}
@@ -197,11 +198,10 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 @media(max-width:900px){
   nav{padding:14px 20px}
   #hero,section{padding:80px 20px}
-  #video{padding:0 20px 60px}
-  #video{padding:72px 20px}
   #guarantee{padding:60px 20px}
   footer{padding:20px;flex-direction:column;align-items:start}
   .about-grid{grid-template-columns:1fr;gap:40px}
+  #about::before{background:linear-gradient(180deg,var(--bark) 20%,transparent 50%)}
   .cards{grid-template-columns:1fr;gap:16px}
   .logic-grid{grid-template-columns:1fr;gap:0}
   .hero-stats{gap:28px}
@@ -247,24 +247,18 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 <section id="about">
   <div class="sec-inner">
     <div class="about-grid">
-      <div>
-        <div class="mono">Who we are</div>
-        <h2>15 years teaching<br><em>Contact Improvisation</em></h2>
-        <div class="body-text">
-          <p><strong>I've been teaching Contact Improvisation for 15 years.</strong> Before that, I was a psychologist and educator — so movement and teaching have always been connected for me.</p>
+      <div style="position:relative;z-index:2;">
+        <div class="mono" style="color:var(--gold2)!important;">Who we are</div>
+        <h2 style="color:var(--sand)!important;">15 years teaching<br><em style="color:var(--gold2)!important;">Contact Improvisation</em></h2>
+        <div class="body-text" style="color:rgba(230,220,203,.8)!important;">
+          <p><strong style="color:var(--sand)!important;">I've been teaching Contact Improvisation for 15 years.</strong> Before that, I was a psychologist and educator — so movement and teaching have always been connected for me.</p>
           <p>For the last 3 years, we've been building an international community in Bali. People from Europe, Australia, the US, and beyond come specifically for our jams, workshops, and intensives.</p>
-          <p><strong>70% of our participants are international.</strong> Our month-long Seamless Intensive has produced teachers who now lead their own CI classes and travel to festivals worldwide — in Europe, Australia, across Asia.</p>
+          <p><strong style="color:var(--sand)!important;">70% of our participants are international.</strong> Our month-long Seamless Intensive has produced teachers who now lead their own CI classes and travel to festivals worldwide — in Europe, Australia, across Asia.</p>
           <p>Contact Improvisation can feel mysterious from the outside. People move, connect, fall, lift, pause — and somehow know what to do. This course gives you the map behind what you see.</p>
         </div>
       </div>
-      <div>
-        <div class="mono">What you get</div>
-        <h2>10 lessons,<br><em>full foundation</em></h2>
-        <div class="body-text">
-          <p>The course covers CI from the very beginning: arriving in the space, floor movement, basics of weight sharing and supports.</p>
-          <p>Lessons are recorded — watch anytime, repeat as many times as you need. No schedule, no live sessions required.</p>
-          <p>The same material we teach in our live intensives, now available anywhere.</p>
-        </div>
+      <div style="position:relative;padding-bottom:75%;height:0;overflow:hidden;border-radius:8px;background:#000;">
+        <iframe src="https://www.youtube.com/embed/Av61eyd4OR4?autoplay=1&mute=1&loop=1&playlist=Av61eyd4OR4&modestbranding=1&rel=0" allow="autoplay" allowfullscreen style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;border:none;object-fit:cover;"></iframe>
       </div>
     </div>
   </div>
@@ -491,18 +485,6 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 
 
 
-<!-- VIDEO -->
-<section id="video" style="background:var(--cream);padding:100px 0;">
-  <div style="max-width:1080px;margin:0 auto;text-align:center;padding:0 24px;">
-    <div class="mono" style="justify-content:center">Watch</div>
-    <h2 style="text-align:center;margin-bottom:44px;">What<br><em>it looks like</em></h2>
-  </div>
-  <div style="max-width:100%;padding:0;margin:0;">
-    <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;">
-      <iframe src="https://www.youtube.com/embed/Av61eyd4OR4?autoplay=1&mute=1&loop=1&playlist=Av61eyd4OR4&modestbranding=1&rel=0" allow="autoplay" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>
-    </div>
-  </div>
-</section>
 
 
 <!-- FINAL CTA -->
