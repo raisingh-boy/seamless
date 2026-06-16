@@ -82,12 +82,13 @@ nav {
 .hero-video-wrap {
   position: absolute; inset: 0; z-index: 0; background: #111;
 }
-.hero-video-wrap iframe {
-  position: absolute; top: 50%; left: 50%;
-  width: 177.78vh; height: 100vh;
-  min-width: 100%; min-height: 56.25vw;
-  transform: translate(-50%, -50%);
-  border: none; pointer-events: none;
+.hero-video-wrap iframe,
+.hero-video-wrap video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none;
+  pointer-events: none;
+  object-fit: cover;
 }
 .hero-overlay {
   position: absolute; inset: 0;
@@ -148,7 +149,8 @@ nav {
   width: 100%; aspect-ratio: 16/9; background: var(--bg3); border: 1px solid var(--border2);
   position: relative; overflow: hidden;
 }
-.video-wrap iframe {
+.video-wrap iframe,
+.video-wrap video {
   position: absolute; inset: 0; width: 100%; height: 100%;
   border: none;
 }
@@ -268,10 +270,9 @@ footer {
 
 <section class="hero">
   <div class="hero-video-wrap">
-    <iframe
-      src="https://www.youtube.com/embed/0aLJVEs-xPY?autoplay=1&mute=1&loop=1&playlist=0aLJVEs-xPY&controls=0&playsinline=1&rel=0"
-      allow="autoplay; encrypted-media" allowfullscreen>
-    </iframe>
+    <video autoplay muted loop playsinline
+      src="https://ads-callback.158-220-125-28.nip.io/videos/short-wave.mp4">
+    </video>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -306,10 +307,9 @@ footer {
     <h2 class="lesson-title">A simple first step &mdash;<br><em>shifting your weight</em></h2>
     <p class="lesson-desc">One solo exercise: how to shift weight from one part of your body to another, and improvise with it. No partner needed &mdash; and it's exactly what you'll use later if you explore partner work.</p>
     <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/7QyMfySGIjA?controls=1&playsinline=1&rel=0"
-        allow="encrypted-media" allowfullscreen>
-      </iframe>
+      <video controls preload="metadata" playsinline
+      src="https://ads-callback.158-220-125-28.nip.io/videos/free-lesson-intro.mp4">
+    </video>
     </div>
     <div class="lesson-meta-row">
       <p class="lesson-note">Solo &middot; no equipment &middot; try it anywhere</p>
@@ -390,7 +390,7 @@ footer {
       <p class="connection-text">Movement Library gives you access to both courses, plus new lessons added regularly, and the full Telegram community &mdash; for one low monthly price. Cancel anytime.</p>
       <div style="margin-top: 24px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
         <span style="font-size: 36px; font-weight: 300; color: var(--ink);">&euro;15<span style="font-size: 16px; color: var(--ink3);">/month</span></span>
-        <a href="https://tribute.tg/s/ywf" onclick="return gtag_report_conversion(this.href)" style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--border2); padding-bottom: 2px;">Join Movement Library &rarr;</a>
+        <a href="https://web.tribute.tg/s/ywf" onclick="return gtag_report_conversion(this.href)" style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--border2); padding-bottom: 2px;">Join Movement Library &rarr;</a>
       </div>
     </div>
   </div>
