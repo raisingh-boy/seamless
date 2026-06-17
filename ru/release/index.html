@@ -50,13 +50,13 @@ function gtag_report_conversion(url) {
   --bark:#2b2318;--bark2:#4a3f30;--muted:#8a7d6a;
   --gold:#a28655;--gold2:#b08d57;--w:#fff;
 }
-html{width:100vw;min-height:100%;overflow-x:hidden}
-body{width:100vw;min-height:100vh;overflow-x:hidden;font-family:'Karla',sans-serif;color:var(--bark);background:var(--cream);line-height:1.6}
-h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05}
+html{overflow-x:hidden}
+body{width:100%;min-height:100vh;font-family:'Karla',sans-serif;color:var(--bark);background:var(--cream);line-height:1.6}
+h1,h2{overflow-wrap:break-word;font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05}
 .mono{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
 #hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;padding:100px 24px;background:linear-gradient(160deg,var(--cream),var(--sand))}
 @media(min-width:801px){#hero{padding:80px 44px}}
-#hero h1{font-size:clamp(56px,10vw,100px);margin-bottom:16px}
+#hero h1{font-size:clamp(40px,10vw,100px);margin-bottom:16px}
 #hero h1 em{font-style:italic}
 .hero-sub{font-size:17px;color:var(--bark2);max-width:500px;margin-bottom:36px;line-height:1.75}
 .hero-cta{display:inline-block;padding:18px 44px;background:var(--bark);color:var(--w);border-radius:2px;font-size:15px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background .2s}
@@ -87,6 +87,8 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 .footer-note{font-size:11px;color:rgba(138,125,106,.45)}
 @media(max-width:800px){
   #hero{padding:100px 24px;min-height:auto}
+  #pricing .sec-inner > div{grid-template-columns:1fr!important}
+  #pricing{padding:72px 24px!important}
   section{padding:72px 24px}
   .bullets-grid{grid-template-columns:1fr;gap:28px}
   .hero-stats{gap:24px}
@@ -201,11 +203,11 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 </section>
 
 <!-- PRICING -->
-<section id="pricing" style="background:var(--cream);padding:80px 44px;">
+<section id="pricing" style="background:var(--cream);">
   <div class="sec-inner">
     <div class="mono" style="text-align:center">Выберите путь</div>
     <h2 style="text-align:center;margin-bottom:44px;">Один курс или<br><em>всё, что у нас есть</em></h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:700px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:700px;margin:0 auto;width:100%;">
       <div style="background:var(--w);padding:44px 34px;border-radius:4px;display:flex;flex-direction:column;">
         <div class="mono" style="color:var(--gold);">Этот курс</div>
         <div class="card-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--bark);margin-bottom:20px;">Сферокинезис 2.0</div>
