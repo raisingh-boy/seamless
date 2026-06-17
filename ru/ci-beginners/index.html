@@ -51,12 +51,14 @@ function gtag_report_conversion(url) {
   --bark:#2b2318;--bark2:#4a3f30;--muted:#8a7d6a;
   --gold:#a28655;--gold2:#b08d57;--w:#fff;
 }
-body{width:100%;min-height:100vh;font-family:'Karla',sans-serif;color:var(--bark);background:var(--cream);line-height:1.6}
+html{width:100%;min-height:100%}
+body{width:100%;min-height:100vh;overflow-x:hidden;font-family:'Karla',sans-serif;color:var(--bark);background:var(--cream);line-height:1.6}
 h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05}
 .mono{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 44px;position:relative;background:linear-gradient(160deg,var(--cream),var(--sand))}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 24px;position:relative;background:linear-gradient(160deg,var(--cream),var(--sand))}
+@media(min-width:801px){#hero{padding:80px 44px}}
 #hero h1{font-size:clamp(56px,10vw,110px);margin-bottom:20px;color:var(--bark)}
 #hero h1 em{font-style:italic;color:var(--bark2)}
 .hero-sub{font-size:17px;color:var(--bark2);max-width:520px;margin-bottom:40px;line-height:1.75}
@@ -71,7 +73,8 @@ h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05}
 .stat .l{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
 
 /* SECTIONS */
-section{padding:100px 44px}
+section{padding:72px 24px}
+@media(min-width:801px){section{padding:100px 44px}}
 .sec-inner{max-width:900px;margin:0 auto}
 h2{font-size:clamp(28px,3.5vw,44px);margin-bottom:20px}
 h2 em{font-style:italic;color:var(--gold2)}
@@ -148,9 +151,9 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
 
 
 <!-- NAV -->
-<nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:10px 44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;background:rgba(250,247,242,.95);backdrop-filter:blur(4px);border-bottom:1px solid var(--sand2)">
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;background:rgba(250,247,242,.95);backdrop-filter:blur(4px);border-bottom:1px solid var(--sand2)">
   <a href="https://seamless.club/" class="nav-logo" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--bark);text-decoration:none">SEAMLESS</a>
-  <span style="font-size:10px;color:var(--gold2);letter-spacing:.2px;font-weight:500;">🇷🇺 Русская версия включена</span>
+  <span style="font-size:10px;color:var(--gold2);letter-spacing:.2px;font-weight:500;">🇷🇺 Рус. версия включена</span>
   <a href="https://web.tribute.tg/s/Xu8" onclick="return gtag_report_conversion(this.href)" style="font-size:12px;color:var(--bark);text-decoration:none;letter-spacing:.5px;border-bottom:1px solid var(--sand2);padding-bottom:2px">Купить курс →</a>
 </nav>
 
@@ -295,7 +298,7 @@ footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-
           <li>✅ 10 видео-уроков</li>
           <li>✅ Доступ навсегда</li>
           <li>✅ Разовый платёж</li>
-          <li>🇷🇺 Русская версия включена</li>
+          <li>🇷🇺 Рус. версия включена</li>
         </ul>
         <div style="margin-top:auto;">
           <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--bark);margin-bottom:4px;">$29</div>
