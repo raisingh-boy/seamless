@@ -155,16 +155,15 @@
     <div style="margin-top:40px; max-width:420px; aspect-ratio:9/16; border:1px solid var(--border2); overflow:hidden; position:relative;">
       <iframe src="https://www.youtube.com/embed/1qZxJCIV8qk?autoplay=1&mute=1&loop=1&playlist=1qZxJCIV8qk&controls=0&playsinline=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:none; pointer-events:none;"></iframe>
     </div>
-    <!-- FREE LESSON CARD -->
-    <div style="margin-top:44px">
-      <div class="free-lesson-card" onclick="expandVideo()" style="cursor:pointer; max-width:420px; background:var(--bg2); border:1px solid var(--border2); overflow:hidden; transition:transform 0.2s; position:relative;">
-        <div style="position:relative; aspect-ratio:9/16; overflow:hidden; background:#111;">
-          <iframe id="lesson-video" src="https://www.youtube.com/embed/Djm7jvk_EYI?autoplay=1&mute=1&loop=1&playlist=Djm7jvk_EYI&controls=0&playsinline=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:none; pointer-events:none;"></iframe>
-          <div class="play-hint" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.15em; color:rgba(255,255,255,0.7); text-transform:uppercase; background:rgba(0,0,0,0.25); transition:opacity 0.3s;">Tap to expand</div>
+    <!-- FREE LESSON CARD (collapsed) -->
+    <div onclick="expandVideo()" style="margin-top:44px; cursor:pointer; max-width:420px; background:var(--bg2); border:1px solid var(--border2); padding:24px 24px 22px; transition:background 0.3s; position:relative;" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='var(--bg2)'">
+      <div style="display:flex;align-items:center;gap:16px">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span style="color:var(--bg);font-size:16px;">▶</span>
         </div>
-        <div style="padding:18px 20px">
-          <p style="font-size:15px; color:var(--ink2); line-height:1.65; font-style:italic;">"Complex movement is built from simple steps. Try this free lesson — it's a small piece of what's inside."</p>
-          <p style="margin-top:8px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; color:var(--ink3); text-transform:uppercase;">Micro-lesson · More in the library</p>
+        <div>
+          <p style="font-size:15px;color:var(--ink2);line-height:1.55;font-style:italic;">"Complex movement is built from simple steps. Try this free lesson — it's a small piece of what's inside."</p>
+          <p style="margin-top:8px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--ink3);text-transform:uppercase;">Tap to watch · Micro-lesson</p>
         </div>
       </div>
     </div>
