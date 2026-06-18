@@ -18,18 +18,24 @@
 <!-- Conversion tracking -->
 <script>
 function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != "undefined") {
-      window.location = url;
-    }
+  var navigated = false;
+  var doNav = function() {
+    if (!navigated && url) { navigated = true; window.location = url; }
   };
-  gtag("event", "conversion", {
-    "send_to": "AW-17948032858/u95HCKCL2bYcENr-pO5C",
-    "value": 1.0,
-    "currency": "TRY",
-    "transaction_id": "",
-    "event_callback": callback
-  });
+  // Fallback: navigate after 800ms even if GA blocked
+  setTimeout(doNav, 800);
+  try {
+    var callback = function () { doNav(); };
+    gtag("event", "conversion", {
+      "send_to": "AW-17948032858/u95HCKCL2bYcENr-pO5C",
+      "value": 1.0,
+      "currency": "TRY",
+      "transaction_id": "",
+      "event_callback": callback
+    });
+  } catch(e) {
+    doNav();
+  }
   return false;
 }
 
