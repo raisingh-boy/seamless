@@ -152,11 +152,29 @@
       <p>The way you move affects how you think, feel, create, and connect with others. When your movement opens up, so does everything else.</p>
       <p>This membership gives you access to 15 years of movement research and practice — Contact Improvisation, Floorwork, Partnering, Soft Acrobatics, and more. Whether you're a complete beginner or already moving, you'll find a clear place to start.</p>
     </div>
-    <div style="margin-top:40px; max-width:420px; aspect-ratio:9/16; border:1px solid var(--border2); overflow:hidden; position:relative;">
-      <iframe src="https://www.youtube.com/embed/1qZxJCIV8qk?autoplay=1&mute=1&loop=1&playlist=1qZxJCIV8qk&controls=0&playsinline=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:none; pointer-events:none;"></iframe>
+    <!-- FREE LESSON CARD -->
+    <div style="margin-top:44px">
+      <div class="free-lesson-card" onclick="expandVideo()" style="cursor:pointer; max-width:420px; background:var(--bg2); border:1px solid var(--border2); overflow:hidden; transition:transform 0.2s; position:relative;">
+        <div style="position:relative; aspect-ratio:9/16; overflow:hidden; background:#111;">
+          <iframe id="lesson-video" src="https://www.youtube.com/embed/Djm7jvk_EYI?autoplay=1&mute=1&loop=1&playlist=Djm7jvk_EYI&controls=0&playsinline=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:none; pointer-events:none;"></iframe>
+          <div class="play-hint" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.15em; color:rgba(255,255,255,0.7); text-transform:uppercase; background:rgba(0,0,0,0.25); transition:opacity 0.3s;">Tap to expand</div>
+        </div>
+        <div style="padding:18px 20px">
+          <p style="font-size:15px; color:var(--ink2); line-height:1.65; font-style:italic;">"Complex movement is built from simple steps. Try this free lesson — it's a small piece of what's inside."</p>
+          <p style="margin-top:8px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; color:var(--ink3); text-transform:uppercase;">Micro-lesson · More in the library</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- VIDEO EXPAND OVERLAY -->
+<div id="video-overlay" onclick="collapseVideo()" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(10,10,8,0.95); align-items:center; justify-content:center; cursor:pointer;">
+  <div onclick="event.stopPropagation()" style="position:relative; width:min(90vw, 500px); aspect-ratio:9/16;">
+    <iframe id="expand-video" src="" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:none;"></iframe>
+  </div>
+  <button onclick="collapseVideo()" style="position:absolute; top:24px; right:24px; background:none; border:1px solid rgba(255,255,255,0.3); color:#fff; font-family:'DM Mono',monospace; font-size:14px; padding:8px 14px; cursor:pointer; text-transform:uppercase; letter-spacing:0.1em;">✕ Close</button>
+</div>
 
 <div class="divider"></div>
 
@@ -284,6 +302,22 @@
     fbq('track', 'Purchase', {value: 15.00, currency: 'EUR', content_name: 'Movement Library', content_category: 'membership'});
     gtag('event', 'conversion', {'send_to': 'AW-16928687075/', 'value': 15.00, 'currency': 'EUR'});
     gtag('event', 'click_cta', {'event_category': 'conversion', 'event_label': 'Join Library', 'location': location});
+  }
+
+  // Video expand/collapse
+  function expandVideo() {
+    var ov = document.getElementById('video-overlay');
+    var ev = document.getElementById('expand-video');
+    ev.src = 'https://www.youtube.com/embed/Djm7jvk_EYI?autoplay=1&mute=0&controls=1&playsinline=1&rel=0';
+    ov.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function collapseVideo() {
+    var ov = document.getElementById('video-overlay');
+    var ev = document.getElementById('expand-video');
+    ev.src = '';
+    ov.style.display = 'none';
+    document.body.style.overflow = '';
   }
 </script>
 </body>
