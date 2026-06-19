@@ -74,6 +74,10 @@ function gtag_report_conversion(url) {
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+/* Instagram WebView warning */
+.ig-warn { display:none; position:fixed; top:0; left:0; right:0; z-index:300; background:#1a1a0e; border-bottom:1px solid #c8a86b; padding:12px 20px; text-align:center; font-size:13px; color:#c8a86b; line-height:1.5; }
+.ig-warn a { color:#fff; text-decoration:underline; }
+.ig-warn.visible { display:block; }
 :root {
   --black: #0e0e0d; --deep: #141413; --off-white: #f7f5f0;
   --mid: #8a8880; --accent: #c8a86b; --accent-dark: #9a7a44;
@@ -151,8 +155,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 40
 .invite-price { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--black); margin-bottom: 4px; }
 .invite-price span { font-size: 17px; color: rgba(14,14,13,0.4); font-family: 'Inter', sans-serif; }
 .invite-pricenote { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(14,14,13,0.4); margin-bottom: 32px; }
-.btn-invite { display: inline-block; padding: 19px 56px; background: var(--black); color: var(--off-white); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: background 0.25s; }
+.btn-invite { display: inline-block; padding: 20px 56px; min-height:48px; background: var(--black); color: var(--off-white); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.1s; cursor:pointer; line-height:1.3; }
 .btn-invite:hover { background: #1e1e1c; }
+.btn-invite:active { transform:scale(0.97); background:#2a2a26; }
 .invite-cancel { margin-top: 18px; font-size: 14px; color: rgba(14,14,13,0.45); }
 .faq { padding: 110px 40px; }
 .faq-inner { max-width: 640px; margin: 0 auto; }
@@ -220,6 +225,9 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
 </head>
 
 <body>
+<div class="ig-warn" id="igWarn">
+  &#9888; You are viewing from Instagram's browser. For the free trial to work, tap <strong>&#8942; &rarr; Open in Browser</strong>.
+</div>
 <nav>
   <a href="https://seamless.club" class="nav-logo">Seamless</a>
   <a href="https://www.instagram.com/contact_impro/" class="nav-ig" target="_blank">Instagram &#8599;</a>
@@ -377,7 +385,7 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <p class="invite-body">This isn't a finished library of videos to watch alone. It's a living practice that's still growing &mdash; with people who'll move alongside you.</p>
   <p class="invite-body"><strong>Join, and start asking.</strong> Tell us what you want to explore, what feels stuck, where you want to go. We'll respond &mdash; with practices, with video feedback on your movement, with real answers.</p>
   <div class="invite-cta-wrap">
-    <a href="https://web.tribute.tg/s/ywf" class="btn-invite">Don't put it off &mdash; start today free</a>
+    <a href="https://web.tribute.tg/s/ywf" class="btn-invite" id="mainCta" onclick="trackClick('main_cta')">Don't put it off &mdash; start today free</a>
     <p class="invite-cancel">3 days completely free. Then &euro;15/month if you stay &mdash; one click to cancel, anytime.</p>
   </div>
 </div>
@@ -410,7 +418,7 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <span class="foot-l">Seamless</span>
   <a href="https://www.instagram.com/contact_impro/" class="foot-r" target="_blank">Instagram &#8599;</a>
 </footer>
-<a href="https://web.tribute.tg/s/ywf" class="sticky-cta" id="stickyCta">Begin today &mdash; free</a>
+<a href="https://web.tribute.tg/s/ywf" class="sticky-cta" id="stickyCta" onclick="trackClick('sticky_cta')">Begin today &mdash; free</a>
 <script>
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
@@ -439,6 +447,20 @@ function checkShow() {
 stickyObs.observe(heroEl);
 stickyObs.observe(inviteEl);
 window.addEventListener('scroll', checkShow, { passive: true });
+
+// Instagram WebView detection
+(function(){
+  var ua=navigator.userAgent||'';
+  if(/Instagram/i.test(ua)||/FBAN/i.test(ua)||/FBAV/i.test(ua)){
+    document.getElementById('igWarn').classList.add('visible');
+  }
+})();
+
+// Click tracking
+function trackClick(label){
+  if(typeof fbq==='function')fbq('track','Lead',{event_label:label});
+  if(typeof gtag==='function')gtag('event','click',{event_category:'cta',event_label:label});
+}
 </script>
 </body>
 </html>
