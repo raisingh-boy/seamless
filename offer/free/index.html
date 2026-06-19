@@ -78,6 +78,16 @@ html { scroll-behavior: smooth; }
 .ig-warn { display:none; position:fixed; top:0; left:0; right:0; z-index:300; background:#1a1a0e; border-bottom:1px solid #c8a86b; padding:12px 20px; text-align:center; font-size:13px; color:#c8a86b; line-height:1.5; }
 .ig-warn a { color:#fff; text-decoration:underline; }
 .ig-warn.visible { display:block; }
+/* Lazy video poster */
+.vid-lazy { position:relative; cursor:pointer; background:#111; overflow:hidden; }
+.vid-lazy img { width:100%; height:100%; object-fit:cover; opacity:.6; transition:opacity .3s; }
+.vid-lazy:hover img { opacity:.8; }
+.vid-lazy .play-btn { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+.vid-lazy .play-btn span { width:56px; height:56px; background:rgba(200,168,107,.9); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; color:#000; transition:transform .2s; }
+.vid-lazy:hover .play-btn span { transform:scale(1.1); }
+/* CTA area */
+.invite-browser-hint { display:inline-block; background:#2a2218; border:1px solid #c8a86b; color:#c8a86b; padding:8px 20px; border-radius:6px; font-size:12px; font-weight:500; letter-spacing:.04em; margin-bottom:24px; }
+.invite-browser-hint .arrow { color:#e8c87a; margin:0 4px; }
 :root {
   --black: #0e0e0d; --deep: #141413; --off-white: #f7f5f0;
   --mid: #8a8880; --accent: #c8a86b; --accent-dark: #9a7a44;
@@ -151,7 +161,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 40
 .invite-body { font-size: 19px; color: rgba(14,14,13,0.7); max-width: 560px; margin: 0 auto 16px; line-height: 1.85; }
 .invite-body strong { font-weight: 500; color: var(--black); }
 .invite-body + .invite-body { margin-top: 22px; }
-.invite-cta-wrap { margin-top: 52px; }
+.invite-cta-wrap { margin-top: 52px; text-align:center; }
+.invite-cta-wrap .btn-invite { display:block; max-width:420px; margin:0 auto; }
 .invite-price { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--black); margin-bottom: 4px; }
 .invite-price span { font-size: 17px; color: rgba(14,14,13,0.4); font-family: 'Inter', sans-serif; }
 .invite-pricenote { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(14,14,13,0.4); margin-bottom: 32px; }
@@ -269,9 +280,10 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <div class="reveal">
     <h2 class="interlude-title">You don't need to<br>choose <em>one path</em></h2>
     <p class="interlude-sub">Some come for freedom, some for connection, some for creativity. Most discover more than they expected.</p>
-    <div class="interlude-video">
-      <iframe src="https://www.youtube.com/embed/NOIFEMlu_cM?autoplay=1&mute=1&loop=1&playlist=NOIFEMlu_cM&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <div class="interlude-video vid-lazy" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/NOIFEMlu_cM?autoplay=1&mute=1&loop=1&playlist=NOIFEMlu_cM&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1\' allow=\'autoplay\' allowfullscreen style=\'position:absolute;inset:0;width:100%;height:100%;border:none\'><\/iframe>'">
+        <img src="https://img.youtube.com/vi/NOIFEMlu_cM/hqdefault.jpg" alt="Movement practice video" loading="lazy">
+        <div class="play-btn"><span>&#9654;</span></div>
+      </div>
   </div>
 </div>
 <section class="forwho">
@@ -317,9 +329,10 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <div class="reveal">
     <h2 class="interlude-title">From the simplest step<br>to <em>whatever you reach for</em></h2>
     <p class="interlude-sub">Solo or with others. Gentle or strong. You decide how far you go.</p>
-    <div class="interlude-video">
-      <iframe src="https://www.youtube.com/embed/1qZxJCIV8qk?autoplay=1&mute=1&loop=1&playlist=1qZxJCIV8qk&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <div class="interlude-video vid-lazy" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/1qZxJCIV8qk?autoplay=1&mute=1&loop=1&playlist=1qZxJCIV8qk&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1\' allow=\'autoplay\' allowfullscreen style=\'position:absolute;inset:0;width:100%;height:100%;border:none\'><\/iframe>'">
+        <img src="https://img.youtube.com/vi/1qZxJCIV8qk/hqdefault.jpg" alt="Movement practice video" loading="lazy">
+        <div class="play-btn"><span>&#9654;</span></div>
+      </div>
   </div>
 </div>
 
@@ -385,6 +398,7 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <p class="invite-body">This isn't a finished library of videos to watch alone. It's a living practice that's still growing &mdash; with people who'll move alongside you.</p>
   <p class="invite-body"><strong>Join, and start asking.</strong> Tell us what you want to explore, what feels stuck, where you want to go. We'll respond &mdash; with practices, with video feedback on your movement, with real answers.</p>
   <div class="invite-cta-wrap">
+    <div class="invite-browser-hint" id="igBrowserHint">&#9888; <strong>Open in browser</strong> for free access <span class="arrow">&rarr;</span></div>
     <a href="https://web.tribute.tg/s/ywf" class="btn-invite" id="mainCta" onclick="trackClick('main_cta')">Don't put it off &mdash; start today free</a>
     <p class="invite-cancel">3 days completely free. Then &euro;15/month if you stay &mdash; one click to cancel, anytime.</p>
   </div>
@@ -453,8 +467,13 @@ window.addEventListener('scroll', checkShow, { passive: true });
   var ua=navigator.userAgent||'';
   if(/Instagram/i.test(ua)||/FBAN/i.test(ua)||/FBAV/i.test(ua)){
     document.getElementById('igWarn').classList.add('visible');
+    var hint=document.getElementById('igBrowserHint');
+    if(hint)hint.style.display='inline-block';
   }
 })();
+// Also show browser hint near CTA by default for everyone (IG detection reinforces it)
+var hint=document.getElementById('igBrowserHint');
+if(hint)hint.style.display='inline-block';
 
 // Click tracking
 function trackClick(label){
