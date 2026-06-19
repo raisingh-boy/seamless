@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Keys to Floorwork — 24 video lessons. Solo floor movement practice. Build confidence moving on the floor.">
+<title>Keys to Floorwork — SEAMLESS</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948032858"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-DZ3L1RHYPW");
+  gtag("config", "AW-17948032858");
+</script>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != "undefined") window.location = url;
+  };
+  gtag("event", "conversion", {
+    "send_to": "AW-17948032858/u95HCKCL2bYcENr-pO5C",
+    "value": 1.0,
+    "currency": "TRY",
+    "event_callback": callback
+  });
+  return false;
+}
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const gclid = params.get("gclid");
+  if (gclid) localStorage.setItem("seamless_gclid", gclid);
+  document.addEventListener("click", function(e) {
+    const link = e.target.closest('a[href*="tribute.tg"]');
+    if (link) {
+      const stored = localStorage.getItem("seamless_gclid");
+      if (stored) {
+        const sep = link.href.includes("?") ? "&" : "?";
+        link.href += sep + "gclid=" + stored;
+      }
+    }
+  });
+})();
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#faf7f2;--sand:#e6dccb;--sand2:#d4c7b1;
+  --bark:#2b2318;--bark2:#4a3f30;--muted:#8a7d6a;
+  --gold:#a28655;--gold2:#b08d57;--w:#fff;
+}
+body{font-family:'Karla',sans-serif;color:var(--bark);background:var(--w);line-height:1.6}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+
+/* HERO */
+#hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;padding:80px 44px;position:relative;background:linear-gradient(160deg,var(--w),var(--cream))}
+#hero h1{font-size:clamp(56px,10vw,100px);margin-bottom:16px;color:var(--bark)}
+#hero h1 em{font-style:italic;color:var(--bark2)}
+.hero-sub{font-size:17px;color:var(--bark2);max-width:500px;margin-bottom:36px;line-height:1.75}
+.hero-cta{display:inline-block;padding:18px 44px;background:var(--bark);color:var(--w);border-radius:2px;font-size:15px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s}
+.hero-cta:hover{background:var(--bark2);transform:translateY(-1px)}
+.price-tag{display:inline-flex;align-items:baseline;gap:10px;margin-bottom:40px}
+.price-old{font-size:18px;color:var(--muted);text-decoration:line-through}
+.price-new{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--bark)}
+.price-note{font-size:12px;color:var(--muted);letter-spacing:.5px}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;padding-top:36px;border-top:1px solid var(--sand2);margin-top:60px}
+.stat .n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--bark)}
+.stat .l{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+
+/* SECTIONS */
+section{padding:100px 44px}
+.sec-inner{max-width:900px;margin:0 auto}
+h2{font-size:clamp(28px,3.5vw,44px);margin-bottom:20px;color:var(--bark)}
+h2 em{font-style:italic;color:var(--gold2)}
+
+/* ABOUT */
+#about{background:var(--cream)}
+.about-text{font-size:15px;color:var(--bark2);line-height:1.85;max-width:600px}
+.about-text p+p{margin-top:14px}
+
+/* BULLETS */
+.bullets-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:44px}
+.bullet{display:flex;gap:16px}
+.bullet-icon{font-size:20px;color:var(--gold2);flex-shrink:0;margin-top:2px}
+.bullet h3{font-size:15px;font-weight:500;color:var(--bark);margin-bottom:4px}
+.bullet p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* CTA DARK */
+#cta{background:var(--bark);text-align:center;padding:80px 44px}
+#cta h2{color:var(--sand);margin-bottom:12px}
+#cta p{font-size:15px;color:rgba(230,220,203,.5);margin-bottom:36px}
+.btn-primary{display:inline-block;padding:18px 50px;background:var(--gold2);color:var(--bark);border-radius:2px;font-size:15px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s}
+.btn-primary:hover{background:var(--gold);transform:translateY(-1px)}
+
+/* FOOTER */
+footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:var(--w)}
+.footer-logo{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.footer-note{font-size:11px;color:rgba(138,125,106,.45)}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+  #hero{padding:100px 24px;min-height:auto}
+  section{padding:72px 24px}
+  .bullets-grid{grid-template-columns:1fr;gap:28px}
+  .hero-stats{gap:24px}
+  #pricing .sec-inner > div:last-child{grid-template-columns:1fr!important}
+  h1{font-size:clamp(44px,12vw,72px)}
+  footer{padding:20px;flex-direction:column;align-items:start}
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+#hero .eyebrow{animation:fadeUp .6s ease both .05s}
+#hero h1{animation:fadeUp .6s ease both .18s}
+#hero .hero-sub{animation:fadeUp .6s ease both .3s}
+#hero .price-tag{animation:fadeUp .6s ease both .35s}
+#hero .hero-cta{animation:fadeUp .6s ease both .42s}
+#hero .hero-stats{animation:fadeUp .6s ease both .54s}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+ (function(c,l,a,r,i,t,y){
+ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+ t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+ })(window, document, "clarity", "script", "x8wt6ca1ab");
+</script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1488391372421620');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1488391372421620&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  </head>
+<body>
+
+<!-- NAV -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 44px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.9);backdrop-filter:blur(4px);border-bottom:1px solid var(--sand2)">
+  <a href="https://seamless.club/" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--bark);text-decoration:none">SEAMLESS</a>
+  <a href="https://web.tribute.tg/s/Xu9" onclick="return gtag_report_conversion(this.href)" style="font-size:12px;color:var(--bark);text-decoration:none;letter-spacing:.5px;border-bottom:1px solid var(--sand2);padding-bottom:2px">Get Floorwork →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="mono">Solo Movement · 24 Lessons</div>
+  <h1>Keys to<br><em>Floorwork</em></h1>
+  <p class="hero-sub">Move with confidence on the floor. 24 video lessons on rolling, sliding, weight shifts, and level changes — all on your own.</p>
+  <div class="price-tag">
+    <span class="price-old">$49</span>
+    <span class="price-new">$29</span>
+    <span class="price-note">one-time · lifetime access</span>
+  </div>
+  <a href="https://web.tribute.tg/s/Xu9" class="hero-cta" onclick="return gtag_report_conversion(this.href)">Get Floorwork — $29</a>
+  <div class="hero-stats">
+    <div class="stat"><div class="n">24</div><div class="l">Video lessons</div></div>
+    <div class="stat"><div class="n">$29</div><div class="l">One-time</div></div>
+    <div class="stat"><div class="n">Solo</div><div class="l">Practice alone</div></div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section style="background:var(--bark);padding:0;overflow:hidden">
+  <video style="display:block;width:100%;max-width:1000px;margin:0 auto" controls muted playsinline preload="metadata">
+    <source src="../videos/keys-to-floorwork.mp4" type="video/mp4">
+  </video>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-inner">
+    <div class="mono">What is Floorwork</div>
+    <h2>Moving on the floor —<br><em>a practice of its own</em></h2>
+    <div class="about-text">
+      <p>Floorwork is the art of moving on the ground — rolling, sliding, shifting weight, transitioning between levels. It's a complete movement practice that anyone can do, anywhere.</p>
+      <p>Keys to Floorwork is a video course with 24 detailed lessons. Each lesson breaks down one movement pattern: how to enter it, how to link it to the next, and how to make it feel natural.</p>
+      <p>All you need is space to move, a floor, and comfortable clothes. No partner, no experience, no equipment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section>
+  <div class="sec-inner">
+    <div class="mono">Why floorwork</div>
+    <h2>Why learn to<br><em>move on the floor?</em></h2>
+    <div class="bullets-grid">
+      <div class="bullet">
+        <div class="bullet-icon">→</div>
+        <div>
+          <h3>Feel confident on the ground</h3>
+          <p>Most people feel awkward on the floor. Floorwork teaches you to move there with ease — a skill most movement practices skip.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon">→</div>
+        <div>
+          <h3>Build real body awareness</h3>
+          <p>When you know exactly where your body is in space, every movement becomes cleaner, safer, and more enjoyable.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon">→</div>
+        <div>
+          <h3>24 step-by-step lessons</h3>
+          <p>Each lesson focuses on one movement. Watch, practice, repeat. Progress at your own pace, no pressure.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon">→</div>
+        <div>
+          <h3>No experience needed</h3>
+          <p>Start from zero. All you need is a floor, comfortable clothes, and curiosity. No equipment, no partner, no prior training.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:var(--w);padding:80px 44px;">
+  <div class="sec-inner">
+    <div class="mono" style="text-align:center">Choose your path</div>
+    <h2 style="text-align:center;margin-bottom:44px;">One course, or<br><em>everything we have</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:700px;margin:0 auto;">
+      <div style="background:var(--cream);padding:44px 34px;border-radius:4px;display:flex;flex-direction:column;">
+        <div class="mono" style="color:var(--gold);">This course</div>
+        <div class="card-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--bark);margin-bottom:20px;">Keys to Floorwork</div>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;font-size:14px;color:var(--bark2);line-height:2;">
+          <li>✅ 24 video lessons</li>
+          <li>✅ Lifetime access</li>
+          <li>✅ One-time payment</li>
+        </ul>
+        <div style="margin-top:auto;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--bark);margin-bottom:4px;">$29</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:24px;">one-time</div>
+          <a href="https://web.tribute.tg/s/Xu9" class="btn-primary" style="display:block;text-align:center;padding:16px 28px;font-size:14px;" onclick="return gtag_report_conversion(this.href)">Get Floorwork</a>
+        </div>
+      </div>
+      <div style="background:var(--bark);padding:44px 34px;border-radius:4px;display:flex;flex-direction:column;position:relative;">
+        <div style="position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;background:var(--gold2);color:var(--bark);padding:3px 10px;border-radius:20px;">Best value</div>
+        <div class="mono" style="color:var(--gold2);">Full library</div>
+        <div class="card-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--sand);margin-bottom:20px;">Monthly Membership</div>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;font-size:14px;color:rgba(230,220,203,.5);line-height:2;">
+          <li>✅ Floorwork + CI Beginners</li>
+          <li>✅ Spherokinesis, Release & more</li>
+          <li>✅ New content every month</li>
+        </ul>
+        <div style="margin-top:auto;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--sand);margin-bottom:4px;">€15</div>
+          <div style="font-size:12px;color:rgba(230,220,203,.5);margin-bottom:24px;">per month · cancel anytime</div>
+          <a href="https://tribute.tg/s/ywf" style="display:block;text-align:center;padding:16px 28px;font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;background:var(--gold2);color:var(--bark);border-radius:2px;transition:background .2s;" onclick="return gtag_report_conversion(this.href)">Get Membership</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://seamless.club/" class="footer-logo">SEAMLESS</a>
+  <span class="footer-note">Keys to Floorwork</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Somatic and ecstatic dance online — conscious movement practice. Discover fluid transitions, body awareness, and free movement.">
+<title>Somatic & Ecstatic Dance — SEAMLESS</title>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948032858"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-DZ3L1RHYPW");
+  gtag("config", "AW-17948032858");
+</script>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != "undefined") window.location = url;
+  };
+  gtag("event", "conversion", {
+    "send_to": "AW-17948032858/u95HCKCL2bYcENr-pO5C",
+    "value": 1.0,
+    "currency": "TRY",
+    "event_callback": callback
+  });
+  return false;
+}
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const gclid = params.get("gclid");
+  if (gclid) localStorage.setItem("seamless_gclid", gclid);
+  document.addEventListener("click", function(e) {
+    const link = e.target.closest('a[href*="tribute.tg"]');
+    if (link) {
+      const stored = localStorage.getItem("seamless_gclid");
+      if (stored) {
+        const sep = link.href.includes("?") ? "&" : "?";
+        link.href += sep + "gclid=" + stored;
+      }
+    }
+  });
+})();
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#faf7f2;--sand:#e6dccb;--sand2:#d4c7b1;
+  --bark:#2b2318;--bark2:#4a3f30;--muted:#8a7d6a;
+  --gold:#a28655;--gold2:#b08d57;--w:#fff;
+}
+body{font-family:'Karla',sans-serif;color:var(--bark);background:var(--w);line-height:1.6}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+#hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;padding:80px 44px;background:linear-gradient(160deg,var(--w),var(--cream))}
+#hero h1{font-size:clamp(56px,10vw,100px);margin-bottom:16px}
+#hero h1 em{font-style:italic}
+.hero-sub{font-size:17px;color:var(--bark2);max-width:500px;margin-bottom:36px;line-height:1.75}
+.hero-cta{display:inline-block;padding:18px 44px;background:var(--bark);color:var(--w);border-radius:2px;font-size:15px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.hero-cta:hover{background:var(--bark2)}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;padding-top:36px;border-top:1px solid var(--sand2);margin-top:60px}
+.stat .n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300}
+.stat .l{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+section{padding:100px 44px}
+.sec-inner{max-width:900px;margin:0 auto}
+h2{font-size:clamp(28px,3.5vw,44px);margin-bottom:20px}
+h2 em{font-style:italic;color:var(--gold2)}
+#about{background:var(--cream)}
+.about-text{font-size:15px;color:var(--bark2);line-height:1.85;max-width:600px}
+.about-text p+p{margin-top:14px}
+.bullets-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:44px}
+.bullet{display:flex;gap:16px}
+.bullet-icon{font-size:20px;color:var(--gold2);flex-shrink:0;margin-top:2px}
+.bullet h3{font-size:15px;font-weight:500;margin-bottom:4px}
+.bullet p{font-size:13px;color:var(--muted);line-height:1.65}
+#cta{background:var(--bark);text-align:center;padding:80px 44px}
+#cta h2{color:var(--sand);margin-bottom:12px}
+#cta p{font-size:15px;color:rgba(230,220,203,.5);margin-bottom:36px}
+.btn-primary{display:inline-block;padding:18px 50px;background:var(--gold2);color:var(--bark);border-radius:2px;font-size:15px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.btn-primary:hover{background:var(--gold)}
+footer{padding:26px 44px;border-top:1px solid var(--sand2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:var(--w)}
+.footer-logo{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.footer-note{font-size:11px;color:rgba(138,125,106,.45)}
+@media(max-width:800px){
+  #hero{padding:100px 24px;min-height:auto}
+  section{padding:72px 24px}
+  .bullets-grid{grid-template-columns:1fr;gap:28px}
+  .hero-stats{gap:24px}
+  h1{font-size:clamp(44px,12vw,72px)}
+  footer{padding:20px;flex-direction:column;align-items:start}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+#hero .mono{animation:fadeUp .6s ease both .05s}
+#hero h1{animation:fadeUp .6s ease both .18s}
+#hero .hero-sub{animation:fadeUp .6s ease both .3s}
+#hero .hero-cta{animation:fadeUp .6s ease both .42s}
+#hero .hero-stats{animation:fadeUp .6s ease both .54s}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+ (function(c,l,a,r,i,t,y){
+ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+ t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+ })(window, document, "clarity", "script", "x8wt6ca1ab");
+</script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1488391372421620');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1488391372421620&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  </head>
+<body>
+
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 44px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.9);backdrop-filter:blur(4px);border-bottom:1px solid var(--sand2)">
+  <a href="https://seamless.club/" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--bark);text-decoration:none">SEAMLESS</a>
+  <a href="https://tribute.tg/s/ywf" onclick="return gtag_report_conversion(this.href)" style="font-size:12px;color:var(--bark);text-decoration:none;letter-spacing:.5px;border-bottom:1px solid var(--sand2);padding-bottom:2px">Full Library →</a>
+</nav>
+
+<section id="hero">
+  <div class="mono">Conscious Movement · Full Access</div>
+  <h1>Ecstatic Dance<br><em>Deepen Your Practice</em></h1>
+  <p class="hero-sub">Contact, floorwork, release, and spiral movement — everything that makes your ecstatic dance richer. Full library access for one monthly price.</p>
+  <a href="https://tribute.tg/s/ywf" class="hero-cta" onclick="return gtag_report_conversion(this.href)">Full Library — €15/mo</a>
+  <div class="hero-stats">
+    <div class="stat"><div class="n">€15</div><div class="l">Per month</div></div>
+    <div class="stat"><div class="n">50+</div><div class="l">Hours of content</div></div>
+    <div class="stat"><div class="n">All</div><div class="l">Levels welcome</div></div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section style="background:var(--bark);padding:0;overflow:hidden">
+  <video style="display:block;width:100%;max-width:1000px;margin:0 auto" controls muted playsinline preload="metadata">
+    <source src="../videos/movement-library.mp4" type="video/mp4">
+  </video>
+</section>
+
+<section id="about">
+  <div class="sec-inner">
+    <div class="mono">What it is</div>
+    <h2>For ecstatic dancers —<br><em>movement that deepens</em></h2>
+    <div class="about-text">
+      <p>If you already practice ecstatic dance or conscious movement, you know the feeling — music takes over, the body moves on its own. But at some point you may want more: transitions that flow, contact that feels natural, a body that moves without tension.</p>
+      <p>The SEAMLESS library is built for exactly that. Contact improvisation, floorwork, release, and spiral movement — practices that ecstatic dancers naturally connect with. Not a scripted class, but the tools to make your dance richer.</p>
+      <p>Learn how contact improvisation enriches your dance. How floorwork opens new possibilities on the ground. How release lets go of the tension you didn't notice you were holding.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-inner">
+    <div class="mono">Why this practice</div>
+    <h2>Freedom of movement,<br><em>without rules</em></h2>
+    <div class="bullets-grid">
+      <div class="bullet">
+        <div class="bullet-icon">→</div>
+        <div>
+          <h3>Move without a script</h3>
+          <p>No steps, no choreography. Just your body responding to music and impulse. The way movement was meant to be.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon">→</div>
+        <div>
+          <h3>Build body awareness</h3>
+          <p>Somatic movement teaches you to feel your body from the inside — tension, flow, alignment, breath. A skill that changes how you move everywhere.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon">→</div>
+        <div>
+          <h3>Flowing transitions</h3>
+          <p>Discover how movements connect — from floor to standing, from slow to fast, from still to wild. Interesting transitions make any movement practice richer.</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <div class="bullet-icon">→</div>
+        <div>
+          <h3>All levels, no pressure</h3>
+          <p>Beginners welcome. No experience, no flexibility, no "dancer body" required. Just curiosity and a willingness to move.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <h2>Deepen your dance.</h2>
+  <p>Full library — CI, floorwork, release, spherokinesis, and more. Cancel anytime.</p>
+  <a href="https://tribute.tg/s/ywf" class="btn-primary" onclick="return gtag_report_conversion(this.href)">Start Moving — €15/mo</a>
+</section>
+
+<footer>
+  <a href="https://seamless.club/" class="footer-logo">SEAMLESS</a>
+  <span class="footer-note">Somatic & Ecstatic Dance</span>
+</footer>
+
+</body>
+</html>
