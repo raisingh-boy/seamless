@@ -7,6 +7,8 @@
 <meta name="description" content="What if movement could change more than your body? A living practice from Roman Singh. 3 days free, then €15/month.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.youtube.com">
+<link rel="preconnect" href="https://i.ytimg.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- Google tag (gtag.js) -->
@@ -78,15 +80,16 @@ html { scroll-behavior: smooth; }
 .ig-warn { display:none; position:fixed; top:0; left:0; right:0; z-index:300; background:#1a1a0e; border-bottom:1px solid #c8a86b; padding:12px 20px; text-align:center; font-size:13px; color:#c8a86b; line-height:1.5; }
 .ig-warn a { color:#fff; text-decoration:underline; }
 .ig-warn.visible { display:block; }
-/* Lazy video poster */
-.vid-lazy { position:relative; cursor:pointer; background:#111; overflow:hidden; }
-.vid-lazy img { width:100%; height:100%; object-fit:cover; opacity:.6; transition:opacity .3s; }
-.vid-lazy:hover img { opacity:.8; }
-.vid-lazy .play-btn { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
-.vid-lazy .play-btn span { width:56px; height:56px; background:rgba(200,168,107,.9); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; color:#000; transition:transform .2s; }
-.vid-lazy:hover .play-btn span { transform:scale(1.1); }
+/* Lazy video */
+.vid-lazy { position:relative; background:#111; overflow:hidden; }
+.vid-lazy .vid-poster { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.vid-lazy .vid-spinner { position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.4); }
+.vid-lazy .vid-spinner span { width:48px; height:48px; border:3px solid rgba(200,168,107,.3); border-top-color:#c8a86b; border-radius:50%; animation:spin .8s linear infinite; }
+@keyframes spin { to{transform:rotate(360deg)} }
+.vid-lazy.loaded .vid-spinner { display:none; }
+.vid-lazy iframe { position:absolute; inset:0; width:100%; height:100%; border:none; z-index:3; }
 /* CTA area */
-.invite-browser-hint { display:inline-block; background:#2a2218; border:1px solid #c8a86b; color:#c8a86b; padding:8px 20px; border-radius:6px; font-size:12px; font-weight:500; letter-spacing:.04em; margin-bottom:24px; }
+.invite-browser-hint { background:#2a2218; border:1px solid #c8a86b; color:#c8a86b; padding:10px 20px; border-radius:6px; font-size:13px; font-weight:500; letter-spacing:.04em; margin-bottom:24px; line-height:1.6; }
 .invite-browser-hint .arrow { color:#e8c87a; margin:0 4px; }
 :root {
   --black: #0e0e0d; --deep: #141413; --off-white: #f7f5f0;
@@ -280,9 +283,9 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <div class="reveal">
     <h2 class="interlude-title">You don't need to<br>choose <em>one path</em></h2>
     <p class="interlude-sub">Some come for freedom, some for connection, some for creativity. Most discover more than they expected.</p>
-    <div class="interlude-video vid-lazy" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/NOIFEMlu_cM?autoplay=1&mute=1&loop=1&playlist=NOIFEMlu_cM&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1\' allow=\'autoplay\' allowfullscreen style=\'position:absolute;inset:0;width:100%;height:100%;border:none\'><\/iframe>'">
-        <img src="https://img.youtube.com/vi/NOIFEMlu_cM/hqdefault.jpg" alt="Movement practice video" loading="lazy">
-        <div class="play-btn"><span>&#9654;</span></div>
+    <div class="interlude-video vid-lazy" data-yt="NOIFEMlu_cM">
+        <img class="vid-poster" src="https://img.youtube.com/vi/NOIFEMlu_cM/hqdefault.jpg" alt="Movement practice" loading="lazy">
+        <div class="vid-spinner"><span></span></div>
       </div>
   </div>
 </div>
@@ -329,9 +332,9 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <div class="reveal">
     <h2 class="interlude-title">From the simplest step<br>to <em>whatever you reach for</em></h2>
     <p class="interlude-sub">Solo or with others. Gentle or strong. You decide how far you go.</p>
-    <div class="interlude-video vid-lazy" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/1qZxJCIV8qk?autoplay=1&mute=1&loop=1&playlist=1qZxJCIV8qk&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1\' allow=\'autoplay\' allowfullscreen style=\'position:absolute;inset:0;width:100%;height:100%;border:none\'><\/iframe>'">
-        <img src="https://img.youtube.com/vi/1qZxJCIV8qk/hqdefault.jpg" alt="Movement practice video" loading="lazy">
-        <div class="play-btn"><span>&#9654;</span></div>
+    <div class="interlude-video vid-lazy" data-yt="1qZxJCIV8qk">
+        <img class="vid-poster" src="https://img.youtube.com/vi/1qZxJCIV8qk/hqdefault.jpg" alt="Movement practice" loading="lazy">
+        <div class="vid-spinner"><span></span></div>
       </div>
   </div>
 </div>
@@ -398,7 +401,7 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <p class="invite-body">This isn't a finished library of videos to watch alone. It's a living practice that's still growing &mdash; with people who'll move alongside you.</p>
   <p class="invite-body"><strong>Join, and start asking.</strong> Tell us what you want to explore, what feels stuck, where you want to go. We'll respond &mdash; with practices, with video feedback on your movement, with real answers.</p>
   <div class="invite-cta-wrap">
-    <div class="invite-browser-hint" id="igBrowserHint">&#9888; <strong>Open in browser</strong> for free access <span class="arrow">&rarr;</span></div>
+    <div class="invite-browser-hint" id="igBrowserHint" style="display:none">&#9888; Instagram: tap <strong>&#8942; top right &rarr; Open in Browser</strong> for free access <span class="arrow">&rarr;</span></div>
     <a href="https://web.tribute.tg/s/ywf" class="btn-invite" id="mainCta" onclick="trackClick('main_cta')">Don't put it off &mdash; start today free</a>
     <p class="invite-cancel">3 days completely free. Then &euro;15/month if you stay &mdash; one click to cancel, anytime.</p>
   </div>
@@ -465,15 +468,34 @@ window.addEventListener('scroll', checkShow, { passive: true });
 // Instagram WebView detection
 (function(){
   var ua=navigator.userAgent||'';
-  if(/Instagram/i.test(ua)||/FBAN/i.test(ua)||/FBAV/i.test(ua)){
+  var isIG=/Instagram/i.test(ua)||/FBAN/i.test(ua)||/FBAV/i.test(ua);
+  if(isIG){
     document.getElementById('igWarn').classList.add('visible');
     var hint=document.getElementById('igBrowserHint');
     if(hint)hint.style.display='inline-block';
   }
 })();
-// Also show browser hint near CTA by default for everyone (IG detection reinforces it)
-var hint=document.getElementById('igBrowserHint');
-if(hint)hint.style.display='inline-block';
+
+// Lazy load interlude videos when they scroll into view
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target;
+      var ytId=el.getAttribute('data-yt');
+      if(!ytId)return;
+      observer.unobserve(el);
+      var iframe=document.createElement('iframe');
+      iframe.src='https://www.youtube.com/embed/'+ytId+'?autoplay=1&mute=1&loop=1&playlist='+ytId+'&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1';
+      iframe.allow='autoplay';
+      iframe.allowFullscreen=true;
+      iframe.onload=function(){el.classList.add('loaded')};
+      el.appendChild(iframe);
+    });
+  },{rootMargin:'300px'});
+  document.querySelectorAll('.vid-lazy[data-yt]').forEach(function(el){observer.observe(el)});
+})();
 
 // Click tracking
 function trackClick(label){
