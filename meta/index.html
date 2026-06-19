@@ -250,7 +250,7 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <div class="hero-poster"><img src="img/group-white.jpg" alt="Movement practice — Seamless"></div>
   <div class="hero-video">
     <video autoplay muted loop playsinline poster="img/group-white.jpg">
-      <source src="video/hero.mp4" type="video/mp4">
+      <source src="video/hero-web.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-overlay"></div>
@@ -285,7 +285,7 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <div class="reveal">
     <h2 class="interlude-title">You don't need to<br>choose <em>one path</em></h2>
     <p class="interlude-sub">Some come for freedom, some for connection, some for creativity. Most discover more than they expected.</p>
-    <div class="interlude-video vid-lazy" data-yt="NOIFEMlu_cM">
+    <div class="interlude-video vid-lazy" data-video="video/partnering-web.mp4">
         <img class="vid-poster" src="https://img.youtube.com/vi/NOIFEMlu_cM/hqdefault.jpg" alt="Movement practice" loading="lazy">
         <div class="vid-spinner"><span></span></div>
       </div>
@@ -334,7 +334,7 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
   <div class="reveal">
     <h2 class="interlude-title">From the simplest step<br>to <em>whatever you reach for</em></h2>
     <p class="interlude-sub">Solo or with others. Gentle or strong. You decide how far you go.</p>
-    <div class="interlude-video vid-lazy" data-yt="1qZxJCIV8qk">
+    <div class="interlude-video vid-lazy" data-video="video/acro-web.mp4">
         <img class="vid-poster" src="https://img.youtube.com/vi/1qZxJCIV8qk/hqdefault.jpg" alt="Movement practice" loading="lazy">
         <div class="vid-spinner"><span></span></div>
       </div>
@@ -485,18 +485,21 @@ window.addEventListener('scroll', checkShow, { passive: true });
     entries.forEach(function(e){
       if(!e.isIntersecting)return;
       var el=e.target;
-      var ytId=el.getAttribute('data-yt');
-      if(!ytId)return;
+      var src=el.getAttribute('data-video');
+      if(!src)return;
       observer.unobserve(el);
-      var iframe=document.createElement('iframe');
-      iframe.src='https://www.youtube.com/embed/'+ytId+'?autoplay=1&mute=1&loop=1&playlist='+ytId+'&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1';
-      iframe.allow='autoplay';
-      iframe.allowFullscreen=true;
-      iframe.onload=function(){el.classList.add('loaded')};
-      el.appendChild(iframe);
+      var vid=document.createElement('video');
+      vid.src=src;
+      vid.autoplay=true;
+      vid.muted=true;
+      vid.loop=true;
+      vid.playsInline=true;
+      vid.setAttribute('playsinline','');
+      vid.onloadeddata=function(){el.classList.add('loaded')};
+      el.appendChild(vid);
     });
   },{rootMargin:'300px'});
-  document.querySelectorAll('.vid-lazy[data-yt]').forEach(function(el){observer.observe(el)});
+  document.querySelectorAll('.vid-lazy[data-video]').forEach(function(el){observer.observe(el)});
 })();
 
 // Click tracking
