@@ -87,7 +87,7 @@ html { scroll-behavior: smooth; }
 .vid-lazy .vid-spinner span { width:48px; height:48px; border:3px solid rgba(200,168,107,.3); border-top-color:#c8a86b; border-radius:50%; animation:spin .8s linear infinite; }
 @keyframes spin { to{transform:rotate(360deg)} }
 .vid-lazy.loaded .vid-spinner { display:none; }
-.vid-lazy iframe { position:absolute; inset:0; width:100%; height:100%; border:none; z-index:3; }
+.vid-lazy iframe, .vid-lazy video { position:absolute; inset:0; width:100%; height:100%; border:none; z-index:3; object-fit:cover; }
 /* CTA area */
 .invite-browser-hint { background:#2a2218; border:1px solid #c8a86b; color:#c8a86b; padding:10px 20px; border-radius:6px; font-size:13px; font-weight:500; letter-spacing:.04em; margin-bottom:24px; line-height:1.6; }
 .invite-browser-hint .arrow { color:#e8c87a; margin:0 4px; }
@@ -103,7 +103,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 40
 .hero-poster { position: absolute; inset: 0; z-index: 0; }
 .hero-poster img { width: 100%; height: 100%; object-fit: cover; }
 .hero-video { position: absolute; inset: 0; z-index: 1; }
-.hero-video video { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%, -50%); border: none; pointer-events: none; object-fit:cover; }
+.hero-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: none; pointer-events: none; }
 .hero-overlay { position: absolute; inset: 0; background: rgba(14,14,13,0.45); z-index: 2; }
 .hero-content { position: relative; z-index: 2; max-width: 800px; }
 .hero-tag { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; display: block; }
@@ -129,7 +129,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 40
 .interlude-title em { font-style: italic; color: var(--accent); }
 .interlude-sub { font-size: 18px; color: var(--mid); max-width: 520px; margin: 0 auto 48px; line-height: 1.75; }
 .interlude-video { max-width: 320px; aspect-ratio: 9/16; margin: 0 auto; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
-.interlude-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; pointer-events: none; }
+.interlude-video iframe, .interlude-video video { position: absolute; inset: 0; width: 100%; height: 100%; border: none; pointer-events: none; object-fit: cover; }
 .interlude-cap { margin-top: 16px; font-size: 12px; letter-spacing: 0.08em; color: rgba(247,245,240,0.35); }
 .forwho { padding: 120px 40px; }
 .forwho-inner { max-width: 660px; margin: 0 auto; text-align: center; }
@@ -225,7 +225,7 @@ footer { padding: 36px 40px; border-top: 1px solid rgba(255,255,255,0.07); displ
 @media (max-width: 768px) {
   nav { padding: 20px 20px; }
   .hero { padding: 0 24px; min-height: 100dvh; }
-  .hero-video iframe { width: 100vw; height: 56.25vw; min-width: 177.78vh; min-height: 100vh; }
+
   .statement, .story, .interlude, .forwho, .path, .inside, .invite, .faq { padding-left: 24px; padding-right: 24px; }
   .story { padding-top: 80px; padding-bottom: 80px; }
   .invite { padding: 90px 24px; }
